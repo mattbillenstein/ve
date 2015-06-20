@@ -6,7 +6,8 @@ source ./config.sh
 source ./deps.sh
 
 sudo rm -fR $VENV $BUILD_DIR
-mkdir -p $BUILD_DIR $VENV/ve
+sudo mkdir -p $VENV $BUILD_DIR $VENV/ve
+sudo chown -R $USER:$GROUP $VENV $BUILD_DIR
 
 # copy snapshot of these scripts to the venv for running deps.sh on new hosts
 cp -a . $VENV/ve
@@ -22,6 +23,7 @@ sudo chown -R $USER:$GROUP $VENV
 cd $VENV
 mv sbin/* bin/
 rm -fR conf doc etc html logs man sbin $BUILD_DIR
+find $VENV/lib -name '*.a' -delete
 
 if [ "$MOS" == "Ubuntu" ]; then
 sudo bash -c "echo $VENV/lib > /etc/ld.so.conf.d/venv.conf"

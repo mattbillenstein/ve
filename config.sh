@@ -35,7 +35,7 @@ function getpkg() {
     URL=$1
     DST=$2
     if [ "$DST" == "" ]; then
-        DST=$VENV/pkgs/
+        DST=$BUILD_DIR
     fi
 
     FILENAME=$(basename "$URL")
@@ -54,6 +54,10 @@ export CPPFLAGS=$CFLAGS
 export CXXFLAGS=$CFLAGS
 export LDFLAGS="-L$VENV/lib"
 export LD_LIBRARY_PATH="$VENV/lib"
+
+# might want to override these in config_local.sh
+LOG_DIR=/data/log
+RUN_DIR=/data/run
 
 source config_local.sh
 

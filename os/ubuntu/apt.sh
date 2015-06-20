@@ -10,27 +10,18 @@ autoconf \
 automake \
 bison \
 build-essential \
-byobu \
 cmake \
-cowsay \
 curl \
 default-jre-headless \
 dnsutils \
-expect \
-fortune-mod \
-fortunes \
-fortunes-off \
-fortunes-ubuntu-server \
 g++ \
 gcc \
 gettext \
-gfortran \
 git-core \
 libtool \
 lsof \
 make \
 man-db \
-ncftp \
 ntp \
 numactl \
 pigz \
@@ -39,9 +30,9 @@ pkg-config \
 psmisc \
 python-dev \
 rsync \
-screen \
 ssh \
 strace \
+tmux \
 vim \
 wamerican \
 wget \
@@ -49,7 +40,6 @@ xzdec \
 xz-utils \
 zip \
 \
-libatlas-base-dev \
 libbz2-dev \
 libcairo2-dev \
 libcurl4-openssl-dev \
@@ -57,6 +47,7 @@ libevent-dev \
 libffi-dev \
 libfreetype6-dev \
 libjpeg-dev \
+libncurses5-dev \
 libpcre3-dev \
 libpng12-dev \
 libreadline-dev \

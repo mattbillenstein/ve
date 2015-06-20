@@ -68,7 +68,7 @@ brew tap homebrew/dupes
 
 brew update
 
-for keg in autoconf binutils file-formula findutils gdbm git gmp gnu-sed gnu-tar gnu-which gpatch gzip less libjpeg libtasn1 lzip make pcre pkg-config readline unzip watch wdiff xz automake coreutils curl diffutils ed gawk gettext grep libpng m4 makedepend nettle rsync sqlite gnu-indent gnutls openssl screen libevent openssh python wget tmux vim cairo gcc; do
+for keg in autoconf binutils file-formula findutils gdbm git gmp gnu-sed gnu-tar gnu-which gpatch gzip less libjpeg libtasn1 lzip ncurses make pcre pkg-config readline unzip watch wdiff xz automake coreutils curl diffutils ed gawk gettext grep libpng m4 makedepend nettle rsync sqlite gnu-indent gnutls openssl screen libevent openssh python wget tmux vim cairo gcc; do
     brew unlink $keg || true
     if [ "$keg" == "cairo" ]; then
         brew install $keg --without-x11

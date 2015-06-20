@@ -19,8 +19,29 @@ import sys
 sys.real_prefix = 'hackforvirtualenv'
 EOF
 
+cd $BUILD_DIR
+
 getpkg https://raw.github.com/pypa/pip/master/contrib/get-pip.py
 $VENV/bin/python ./get-pip.py
+
+# graphite-web hacks
+sudo rm -fR /opt/graphite
+sudo mkdir /opt/graphite
+sudo chown $USER:$GROUP /opt/graphite
+
+# some graphite deps first...
+pip install 'twisted<=12.0'
+pip install 'django<1.7'
+pip install --allow-external pycairo --allow-unverified pycairo 'pycairo==1.8.8'
+# WTF this module is broken
+echo 'from _cairo import *' > $VENV/lib/python2.7/site-packages/cairo/__init__.py
+pip install carbon
+pip install django-tagging
+pip install git+https://github.com/graphite-project/graphite-web.git
+pip install pyparsing
+pip install whisper
+
+sudo mv /opt/graphite $VENV
 
 pip install ansible
 pip install arrow
@@ -30,7 +51,6 @@ pip install bcrypt
 pip install beanstalkc
 pip install BeautifulSoup
 pip install bleach
-pip install blinker
 pip install boto
 pip install coverage
 pip install cython
@@ -47,7 +67,6 @@ pip install git+https://github.com/abourget/gevent-socketio.git
 pip install git+https://github.com/benoitc/gunicorn.git
 pip install git+https://github.com/mattbillenstein/flask-classy.git
 pip install git+https://github.com/mattbillenstein/gstatsd
-pip install git+https://github.com/revolunet/pypdftk.git
 pip install greenlet
 pip install gsutil
 pip install hiredis
@@ -56,11 +75,10 @@ pip install ipdb
 pip install ipython
 pip install linode-python
 pip install lockfile
-pip install matplotlib
 pip install mock
 pip install nose
 pip install nose-parallel
-pip install numpy
+#pip install numpy
 pip install oauth2
 pip install objgraph
 pip install pillow
@@ -73,23 +91,17 @@ pip install PyPDF2
 pip install pytz
 pip install raven
 pip install redis
-pip install reportlab
 pip install requests
 pip install salt
-pip install scikit-learn
-pip install scipy
-pip install selenium
+#pip install scikit-learn
+#pip install scipy
 pip install sendgrid
-pip install sendwithus
 pip install setproctitle
 pip install simplejson
 pip install stripe
-pip install twilio
 pip install unidecode
 pip install webassets
 pip install webtest
 pip install werkzeug
-pip install whatthepatch
-pip install xhtml2pdf
 
 $VENV/bin/python -m compileall -q -f $VENV || true

@@ -20,6 +20,7 @@ if [ "$(uname)" == "Darwin" ];then
     fi
 elif [ "$(lsb_release -si) $(lsb_release -sr)" == "Ubuntu 14.04" ]; then
     OS="Ubuntu_14.04"
+    MOS="Ubuntu"
     PROCS=$(grep -c '^processor' /proc/cpuinfo)
 
     export DEBIAN_FRONTEND=noninteractive

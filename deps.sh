@@ -14,11 +14,11 @@ EOF
 fi
 
 # install using home brew
-arch/$OS/homebrew.sh
+os/osx/homebrew.sh
 
 elif [ "$MOS" == "Ubuntu" ]; then
 
-arch/$OS/apt.sh
+os/ubuntu/apt.sh
 
 sudo bash -c "echo $VENV/lib > /etc/ld.so.conf.d/venv.conf"
 sudo ldconfig

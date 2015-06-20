@@ -1,0 +1,32 @@
+#!/bin/bash -xv
+
+set -e
+
+source ./config.sh
+source ./deps.sh
+
+sudo rm -fR $VENV $BUILD_DIR
+mkdir -p $BUILD_DIR $VENV/ve
+
+# copy snapshot of these scripts to the venv for running deps.sh on new hosts
+cp -a . $VENV/ve
+
+# main install
+for f in $VENV/ve/pkgs/*.sh; do
+cd $BUILD_DIR
+source $f
+done
+
+# Clean things up a bit
+sudo chown -R $USER:$GROUP $VENV
+cd $VENV
+mv sbin/* bin/
+rm -fR conf doc etc html logs man sbin $BUILD_DIR
+
+if [ "$MOS" == "Ubuntu" ]; then
+sudo bash -c "echo $VENV/lib > /etc/ld.so.conf.d/venv.conf"
+sudo ldconfig
+
+echo "System Link Report:"
+find $VENV -name '*.so' | grep -v '/pkgs/' | xargs ldd | grep '=>' | awk '{print $1, $2, $3}' | grep -v vdso.so.1 | sort | uniq -c | sort -k1n | grep -v '/opt/venv/'
+fi

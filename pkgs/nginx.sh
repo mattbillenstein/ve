@@ -1,9 +1,9 @@
-# nginx
-NGINX=1.6.0
-rm -fR nginx-${NGINX}* ngx_*
-getpkg http://nginx.org/download/nginx-${NGINX}.tar.gz
-tar zxf nginx-${NGINX}.tar.gz
-cd nginx-${NGINX}
+NGINX_VERSION="1.8.0"
+
+rm -fR nginx-${NGINX_VERSION}* ngx_*
+getpkg http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
+tar zxf nginx-${NGINX_VERSION}.tar.gz
+cd nginx-${NGINX_VERSION}
 ./configure --prefix=$VENV --with-http_ssl_module \
 --http-client-body-temp-path=/data/run/nginx/client_body_temp \
 --http-proxy-temp-path=/data/run/nginx/proxy_temp \

@@ -1,13 +1,13 @@
-PYTHON=2.7.10
+PYTHON_VERSION="2.7.10"
 
-rm -fR Python-${PYTHON}*
-getpkg http://www.python.org/ftp/python/${PYTHON}/Python-${PYTHON}.tgz
-tar zxf Python-${PYTHON}.tgz
-cd Python-${PYTHON}
-if [ "$OS" != "OSX_10.X" ]; then
-# readline fails to link on osx...  2014-12-06
-sed -i -e 's/#readline/readline/' Modules/Setup.dist
-fi
+rm -fR Python-${PYTHON_VERSION}*
+getpkg http://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
+tar zxf Python-${PYTHON_VERSION}.tgz
+cd Python-${PYTHON_VERSION}
+#if [ "$MOS" != "OSX" ]; then
+## readline fails to link on OSX
+#sed -i -e 's/#readline/readline/' Modules/Setup.dist
+#fi
 ./configure --prefix=$VENV
 $PMAKE
 make install

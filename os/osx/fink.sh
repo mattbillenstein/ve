@@ -41,7 +41,6 @@ libpcre1 \
 libpng16 \
 libwebp5 \
 libxml2 \
-openssl \
 pixman \
 readline6 \
 sqlite3-dev \

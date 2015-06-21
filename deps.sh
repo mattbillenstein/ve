@@ -13,8 +13,7 @@ source ~/.bashrc
 EOF
 fi
 
-# install using home brew
-os/osx/homebrew.sh
+os/osx/fink.sh
 
 elif [ "$MOS" == "Ubuntu" ]; then
 

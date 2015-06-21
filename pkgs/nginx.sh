@@ -4,7 +4,7 @@ sudo mkdir -p $LOG_DIR $RUN_DIR
 sudo chown -R $USER:$GROUP $LOG_DIR $RUN_DIR
 
 rm -fR nginx-${NGINX_VERSION}* ngx_*
-getpkg http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
+wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
 tar zxf nginx-${NGINX_VERSION}.tar.gz
 cd nginx-${NGINX_VERSION}
 ./configure --prefix=$VENV --with-http_ssl_module \
@@ -16,6 +16,8 @@ cd nginx-${NGINX_VERSION}
 --http-log-path=$LOG_DIR/nginx/nginx-access.log \
 --error-log-path=$LOG_DIR/nginx/nginx-error.log \
 --pid-path=$RUN_DIR/nginx/nginx.pid \
---lock-path=$RUN_DIR/nginx/nginx.lock
+--lock-path=$RUN_DIR/nginx/nginx.lock \
+--with-cc-opt="-I/usr/local/include" \
+--with-ld-opt="-L/usr/local/lib"
 $PMAKE
 make install

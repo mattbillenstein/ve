@@ -13,11 +13,11 @@ source ~/.bashrc
 EOF
 fi
 
-os/osx/fink.sh
+source os/osx/fink.sh
 
 elif [ "$MOS" == "Ubuntu" ]; then
 
-os/ubuntu/apt.sh
+source os/ubuntu/apt.sh
 
 sudo bash -c "echo $VENV/lib > /etc/ld.so.conf.d/venv.conf"
 sudo ldconfig

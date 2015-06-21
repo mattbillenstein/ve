@@ -49,10 +49,10 @@ function getpkg() {
 }
 
 export PATH="$VENV/bin:$PATH"
-export CFLAGS="-I$VENV/include"
+export CFLAGS="-I$VENV/include -I/sw/include"
 export CPPFLAGS=$CFLAGS
 export CXXFLAGS=$CFLAGS
-export LDFLAGS="-L$VENV/lib"
+export LDFLAGS="-L$VENV/lib -L/sw/lib"
 export LD_LIBRARY_PATH="$VENV/lib"
 
 # might want to override these in config_local.sh

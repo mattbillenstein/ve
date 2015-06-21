@@ -17,7 +17,7 @@ cd nginx-${NGINX_VERSION}
 --error-log-path=$LOG_DIR/nginx/nginx-error.log \
 --pid-path=$RUN_DIR/nginx/nginx.pid \
 --lock-path=$RUN_DIR/nginx/nginx.lock \
---with-cc-opt="-I/usr/local/include" \
---with-ld-opt="-L/usr/local/lib"
+--with-cc-opt="-I/sw/include" \
+--with-ld-opt="-L/sw/lib"
 $PMAKE
 make install

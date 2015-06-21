@@ -12,11 +12,23 @@ sudo chown -R $USER:$GROUP $VENV $BUILD_DIR
 # copy snapshot of these scripts to the venv for running deps.sh on new hosts
 cp -a . $VENV/ve
 
+# debug
+if [ "$1" != "" ]; then
+
+for f in $*; do
+cd $BUILD_DIR
+source $f
+done
+
+else
+
 # main install
 for f in $VENV/ve/pkgs/*.sh; do
 cd $BUILD_DIR
 source $f
 done
+
+fi
 
 # Clean things up a bit
 sudo chown -R $USER:$GROUP $VENV

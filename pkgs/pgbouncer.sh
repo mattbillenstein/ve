@@ -1,7 +1,7 @@
-getpkg http://pgfoundry.org/frs/download.php/3393/pgbouncer-1.5.4.tar.gz
-tar zxvf pgbouncer-1.5.4.tar.gz
-cd pgbouncer-1.5.4
+PGBOUNCER_VERSION="1.5.5"
+getpkg https://pgbouncer.github.io/downloads/pgbouncer-${PGBOUNCER_VERSION}.tar.gz
+tar zxvf pgbouncer-${PGBOUNCER_VERSION}.tar.gz
+cd pgbouncer-${PGBOUNCER_VERSION}
 ./configure --prefix=$VENV
 $PMAKE
 make install
-

@@ -28,7 +28,11 @@ find $VENV/lib -name '*.a' -delete
 if [ "$MOS" == "Ubuntu" ]; then
 sudo bash -c "echo $VENV/lib > /etc/ld.so.conf.d/venv.conf"
 sudo ldconfig
+fi
 
 echo "System Link Report:"
-find $VENV -name '*.so' | grep -v '/pkgs/' | xargs ldd | grep '=>' | awk '{print $1, $2, $3}' | grep -v vdso.so.1 | sort | uniq -c | sort -k1n | grep -v '/opt/venv/'
+if [ "$MOS" == "OSX" ]; then
+find $VENV -name '*.dylib' | xargs otool -L | egrep -v ':$' | sort | uniq -c | sort -k1n | grep -v '/opt/venv/'
+else
+find $VENV -name '*.so' | xargs ldd | grep '=>' | awk '{print $1, $2, $3}' | grep -v vdso.so.1 | sort | uniq -c | sort -k1n | grep -v '/opt/venv/'
 fi

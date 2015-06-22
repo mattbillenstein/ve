@@ -2,4 +2,4 @@
 
 source ./config.sh
 
-rsync -av --delete $* $SYNC_USER@$RSYNC_HOST:$RSYNC_PATH/$OS/ve $VENV
+rsync -av --delete $* $SYNC_USER@$RSYNC_HOST:$RSYNC_PATH/$OS $VENV

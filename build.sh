@@ -2,8 +2,12 @@
 
 set -e
 
-source ./config.sh
-source ./deps.sh
+pushd $(dirname $0) > /dev/null
+SCRIPTPATH="$(pwd)"
+popd > /dev/null
+
+source $SCRIPTPATH/config.sh
+source $SCRIPTPATH/deps.sh
 
 sudo rm -fR $VENV $BUILD_DIR
 sudo mkdir -p $VENV $BUILD_DIR $VENV/ve
@@ -23,7 +27,7 @@ done
 else
 
 # main install
-for f in $VENV/ve/pkgs/*.sh; do
+for f in $SCRIPTPATH/pkgs/*.sh; do
 cd $BUILD_DIR
 source $f
 done

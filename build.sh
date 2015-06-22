@@ -10,7 +10,7 @@ sudo mkdir -p $VENV $BUILD_DIR $VENV/ve
 sudo chown -R $USER:$GROUP $VENV $BUILD_DIR
 
 # copy snapshot of these scripts to the venv for running deps.sh on new hosts
-cp -a . $VENV/ve
+cp -a . $VENV/src
 
 # debug
 if [ "$1" != "" ]; then

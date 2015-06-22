@@ -44,8 +44,12 @@ function getpkg() {
 LOG_DIR=/data/log
 RUN_DIR=/data/run
 
+pushd $(dirname $0) > /dev/null
+SCRIPTPATH="$(pwd)"
+popd > /dev/null
+
 # customize here
-source config_local.sh
+source $SCRIPTPATH/config_local.sh
 
 export PATH="$VENV/bin:$PATH"
 export CFLAGS="-I$VENV/include -I/sw/include"

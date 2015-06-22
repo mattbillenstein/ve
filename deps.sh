@@ -4,14 +4,10 @@ set -e
 
 source ./config.sh
 
-if [ "$MOS" == "OSX" ];then
+sudo mkdir -p $LOG_DIR $RUN_DIR
+sudo chown -R $USER:$GROUP $LOG_DIR $RUN_DIR
 
-# put our env hacks in .bashrc - sourced from .bash_profile
-if ! grep -q 'source ~/.bashrc' ~/.bash_profile; then
-cat >> ~/.bash_profile <<EOF
-source ~/.bashrc
-EOF
-fi
+if [ "$MOS" == "OSX" ]; then
 
 source os/osx/fink.sh
 

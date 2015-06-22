@@ -1,5 +1,5 @@
 # install prefix
-VENV="/opt/ve"
+VENV="/ve"
 
 # cache package downloads
 PKG_CACHE="/tmp/venv-pkg"

@@ -1,8 +1,5 @@
 NGINX_VERSION="1.8.0"
 
-sudo mkdir -p $LOG_DIR $RUN_DIR
-sudo chown -R $USER:$GROUP $LOG_DIR $RUN_DIR
-
 rm -fR nginx-${NGINX_VERSION}* ngx_*
 wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
 tar zxf nginx-${NGINX_VERSION}.tar.gz

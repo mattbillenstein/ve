@@ -34,7 +34,7 @@ fi
 sudo chown -R $USER:$GROUP $VENV
 cd $VENV
 mv sbin/* bin/
-rm -fR conf doc etc html logs man sbin $BUILD_DIR
+rm -fR conf data doc etc html logs man sbin $BUILD_DIR COPYING* CREDITS EXCEPTIONS-CLIENT INSTALL-BINARY README mysql-test sql-bench
 find $VENV/lib -name '*.a' -delete
 
 if [ "$MOS" == "Ubuntu" ]; then

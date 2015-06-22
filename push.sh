@@ -1,5 +1,9 @@
 #!/bin/bash
 
-source ./config.sh
+pushd $(dirname $0) > /dev/null
+SCRIPTPATH="$(pwd)"
+popd > /dev/null
 
-rsync -av --delete $* $VENV $RSYNC_USER@$RSYNC_HOST:$RSYNC_PATH/$OS
+source $SCRIPTPATH/config.sh
+
+rsync -av --delete $* $VENV/ $RSYNC_USER@$RSYNC_HOST:$RSYNC_PATH/$OS

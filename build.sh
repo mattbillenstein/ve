@@ -37,7 +37,7 @@ fi
 # Clean things up a bit
 sudo chown -R $USER:$GROUP $VENV
 cd $VENV
-mv sbin/* bin/
+mv sbin/* bin/ || true
 rm -fR conf data doc etc html logs man sbin $BUILD_DIR COPYING* CREDITS EXCEPTIONS-CLIENT INSTALL-BINARY README mysql-test sql-bench
 find $VENV/lib -name '*.a' -delete
 

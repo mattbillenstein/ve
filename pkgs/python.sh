@@ -98,16 +98,8 @@ $PIP install redis
 $PIP install requests
 $PIP install salt
 $PIP install scikit-learn
-X=$CFLAGS
-Y=$CXXFLAGS
-Z=$LDFLAGS
-unset CFLAGS
-unset CXXFLAGS
-unset LDFLAGS
-$PIP install scipy
-CFLAGS=$X
-CXXFLAGS=$Y
-LDFLAGS=$Z
+# scipy defines these - can't override them
+(unset CFLAGS; unset CXXFLAGS; unset LDFLAGS; $PIP install scipy)
 $PIP install sendgrid
 $PIP install setproctitle
 $PIP install simplejson

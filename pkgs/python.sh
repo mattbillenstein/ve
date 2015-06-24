@@ -9,7 +9,7 @@ cd Python-${PYTHON_VERSION}
 #sed -i -e 's/#readline/readline/' Modules/Setup.dist
 #fi
 ./configure --prefix=$VENV --enable-shared
-$PMAKE
+LDFLAGS="-L. -L$VENV/lib" $PMAKE
 make install
 
 # hack - fake we're in a virtualenv - pkgs seem to test sys.real_prefix to
@@ -80,7 +80,7 @@ $PIP install lockfile
 $PIP install mock
 $PIP install nose
 $PIP install nose-parallel
-$PIP install numpy
+LDFLAGS="$LDFLAGS -shared" $PIP install numpy
 $PIP install oauth2
 $PIP install objgraph
 $PIP install pillow

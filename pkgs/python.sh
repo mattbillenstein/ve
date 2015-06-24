@@ -24,9 +24,7 @@ cd $BUILD_DIR
 getpkg https://raw.github.com/pypa/pip/master/contrib/get-pip.py
 $VENV/bin/python ./get-pip.py
 
-# le sign
-curl -s http://curl.haxx.se/ca/cacert.pem > $VENV/lib/python2.7/site-packages/pip/_vendor/requests/cacert.pem
-PIP="$VENV/bin/pip --cert $VENV/lib/python2.7/site-packages/pip/_vendor/requests/cacert.pem"
+PIP="$VENV/bin/pip"
 
 # graphite-web hacks
 sudo rm -fR /opt/graphite
@@ -67,7 +65,10 @@ $PIP install flask-assets
 $PIP install Flask-Mako
 $PIP install geoip2
 $PIP install gevent
+
+$PIP install versiontools  # ssl cert validation fail when installed in gevent-socketio under OSX...
 $PIP install git+https://github.com/abourget/gevent-socketio.git
+
 $PIP install git+https://github.com/benoitc/gunicorn.git
 $PIP install git+https://github.com/mattbillenstein/flask-classy.git
 $PIP install git+https://github.com/mattbillenstein/gstatsd

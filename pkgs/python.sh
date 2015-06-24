@@ -24,7 +24,9 @@ cd $BUILD_DIR
 getpkg https://raw.github.com/pypa/pip/master/contrib/get-pip.py
 $VENV/bin/python ./get-pip.py
 
-PIP="$VENV/bin/pip"
+# le sign
+curl -s http://curl.haxx.se/ca/cacert.pem > $VENV/lib/python2.7/site-packages/pip/_vendor/requests/cacert.pem
+PIP="$VENV/bin/pip -cert cacert.pem"
 
 # graphite-web hacks
 sudo rm -fR /opt/graphite

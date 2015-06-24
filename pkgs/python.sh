@@ -9,7 +9,7 @@ cd Python-${PYTHON_VERSION}
 #sed -i -e 's/#readline/readline/' Modules/Setup.dist
 #fi
 ./configure --prefix=$VENV --enable-shared
-LDFLAGS="-L. -L$VENV/lib" $PMAKE
+$PMAKE
 make install
 
 # hack - fake we're in a virtualenv - pkgs seem to test sys.real_prefix to
@@ -26,7 +26,7 @@ $VENV/bin/python ./get-pip.py
 
 # le sign
 curl -s http://curl.haxx.se/ca/cacert.pem > $VENV/lib/python2.7/site-packages/pip/_vendor/requests/cacert.pem
-PIP="$VENV/bin/pip -cert cacert.pem"
+PIP="$VENV/bin/pip --cert $VENV/lib/python2.7/site-packages/pip/_vendor/requests/cacert.pem"
 
 # graphite-web hacks
 sudo rm -fR /opt/graphite
@@ -98,7 +98,16 @@ $PIP install redis
 $PIP install requests
 $PIP install salt
 $PIP install scikit-learn
+X=$CFLAGS
+Y=$CXXFLAGS
+Z=$LDFLAGS
+unset CFLAGS
+unset CXXFLAGS
+unset LDFLAGS
 $PIP install scipy
+CFLAGS=$X
+CXXFLAGS=$Y
+LDFLAGS=$Z
 $PIP install sendgrid
 $PIP install setproctitle
 $PIP install simplejson

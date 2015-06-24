@@ -1,3 +1,4 @@
+mkdir -p $VENV/bin
 cat > $VENV/bin/activate <<EOF
 # This file must be used with "source bin/activate" *from bash*
 # you cannot run it directly

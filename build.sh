@@ -21,7 +21,7 @@ if [ "$1" != "" ]; then
 
 for f in $*; do
 cd $BUILD_DIR
-source $f
+source $SCRIPTPATH/$f
 done
 
 else

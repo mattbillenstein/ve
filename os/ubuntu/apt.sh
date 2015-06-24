@@ -17,6 +17,7 @@ dnsutils \
 g++ \
 gcc \
 gettext \
+gfortran \
 git-core \
 libtool \
 lsof \
@@ -40,6 +41,7 @@ xzdec \
 xz-utils \
 zip \
 \
+ibatlas-base-dev \
 libbz2-dev \
 libcairo2-dev \
 libcurl4-openssl-dev \

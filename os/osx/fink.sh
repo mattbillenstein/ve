@@ -19,6 +19,7 @@ bison \
 cmake \
 coreutils \
 curl \
+gcc5 \
 gettext-bin \
 git \
 libtool2 \

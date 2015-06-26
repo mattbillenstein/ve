@@ -24,6 +24,7 @@ gettext-bin \
 git \
 libtool2 \
 make \
+openssl \
 pdftk \
 rsync \
 tmux \
@@ -42,6 +43,8 @@ libpcre1 \
 libpng16 \
 libwebp5 \
 libxml2 \
+openssl100-dev \
+openssl100-shlibs \
 pixman \
 readline6 \
 sqlite3-dev \

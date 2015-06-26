@@ -1,6 +1,5 @@
 PYTHON_VERSION="2.7.10"
 
-rm -fR Python-${PYTHON_VERSION}*
 getpkg http://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
 tar zxf Python-${PYTHON_VERSION}.tgz
 cd Python-${PYTHON_VERSION}

@@ -35,7 +35,7 @@ function getpkg() {
     mkdir -p $PKG_CACHE
 
     if [ ! -f "$PKG_CACHE/$FILENAME" ]; then
-        wget --no-check-certificate -q -O "$PKG_CACHE/$FILENAME" $URL
+        curl -s -o "$PKG_CACHE/$FILENAME" $URL
     fi
     cp "$PKG_CACHE/$FILENAME" $DST
 }

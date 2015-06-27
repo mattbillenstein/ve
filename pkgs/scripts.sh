@@ -18,6 +18,8 @@ deactivate () {
         unset _OLD_VIRTUAL_PYTHONHOME
     fi
 
+    unset GOROOT
+
     # This should detect bash and zsh, which have a hash command that must
     # be called to get it to forget past commands.  Without forgetting
     # past commands the \$PATH changes we made may not be respected
@@ -62,8 +64,10 @@ VIRTUAL_ENV="$VENV"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="\$PATH"
-PATH="\$VIRTUAL_ENV/bin:\$PATH"
+PATH="\$VIRTUAL_ENV/bin:\$VIRTUAL_ENV/go/bin:\$PATH"
 export PATH
+
+export GOROOT="\$VIRTUAL_ENV/go"
 
 _OLD_VIRTUAL_PYTHONPATH="\$PYTHONPATH"
 

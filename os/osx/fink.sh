@@ -22,6 +22,9 @@ curl \
 gcc5 \
 gettext-bin \
 git \
+libncurses5 \
+libncurses5-shlibs \
+libpcap1 \
 libtool2 \
 make \
 openssl \
@@ -38,7 +41,7 @@ freetype \
 libevent2 \
 libffi6 \
 libjpeg \
-ncurses \
+libpcap1-shlibs \
 libpcre1 \
 libpng16 \
 libwebp5 \

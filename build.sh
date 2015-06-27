@@ -48,7 +48,7 @@ fi
 
 echo "System Link Report:"
 if [ "$MOS" == "OSX" ]; then
-find $VENV -name '*.dylib' | xargs otool -L | egrep -v ':$' | sort | uniq -c | sort -k1n | grep -v '/opt/venv/'
+otool -L $VENV/bin/* 2>&1 | egrep -v ':$' | sort | uniq -c | sort -k1n | grep -v "$VENV"
 else
-find $VENV -name '*.so' | xargs ldd | grep '=>' | awk '{print $1, $2, $3}' | grep -v vdso.so.1 | sort | uniq -c | sort -k1n | grep -v '/opt/venv/'
+ldd $VENV/bin/* | grep '=>' | awk '{print $1, $2, $3}' | grep -v vdso.so.1 | sort | uniq -c | sort -k1n | grep -v "$VENV"
 fi

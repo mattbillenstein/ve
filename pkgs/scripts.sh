@@ -64,7 +64,7 @@ VIRTUAL_ENV="$VENV"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="\$PATH"
-PATH="\$VIRTUAL_ENV/bin:\$VIRTUAL_ENV/go/bin:\$PATH"
+PATH="\$VIRTUAL_ENV/bin:\$VIRTUAL_ENV/go/bin:\$VIRTUAL_ENV/mysql/bin:\$PATH"
 export PATH
 
 export GOROOT="\$VIRTUAL_ENV/go"

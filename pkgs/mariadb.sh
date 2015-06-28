@@ -6,8 +6,10 @@ cd mariadb-${MARIADB_VERSION}
 # FIXME - this links against the system openssl on OSX instead of the Fink
 # version...
 
+mkdir -p $VENV/mysql
+
 cmake . \
--DCMAKE_INSTALL_PREFIX=$VENV \
+-DCMAKE_INSTALL_PREFIX=$VENV/mysql \
 -DCMAKE_PREFIX_PATH=$VENV \
 -DCMAKE_FIND_FRAMEWORK=LAST \
 -DCMAKE_VERBOSE_MAKEFILE=ON \

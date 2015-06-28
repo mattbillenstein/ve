@@ -34,6 +34,7 @@ rsync \
 ssh \
 strace \
 tmux \
+unzip \
 vim \
 wamerican \
 wget \

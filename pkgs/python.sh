@@ -25,25 +25,6 @@ $VENV/bin/python ./get-pip.py
 
 PIP="$VENV/bin/pip"
 
-# graphite-web hacks
-sudo rm -fR /opt/graphite
-sudo mkdir /opt/graphite
-sudo chown $USER:$GROUP /opt/graphite
-
-# some graphite deps first...
-$PIP install 'twisted<=12.0'
-$PIP install 'django<1.7'
-$PIP install --allow-external pycairo --allow-unverified pycairo 'pycairo==1.8.8'
-# WTF this module is broken
-echo 'from _cairo import *' > $VENV/lib/python2.7/site-packages/cairo/__init__.py
-$PIP install carbon
-$PIP install django-tagging
-$PIP install git+https://github.com/graphite-project/graphite-web.git
-$PIP install pyparsing
-$PIP install whisper
-
-sudo mv /opt/graphite $VENV
-
 $PIP install ansible
 $PIP install arrow
 $PIP install awscli
@@ -105,6 +86,7 @@ $PIP install setproctitle
 $PIP install simplejson
 $PIP install stripe
 $PIP install unidecode
+$PIP install virtualenv
 $PIP install webassets
 $PIP install webtest
 $PIP install werkzeug

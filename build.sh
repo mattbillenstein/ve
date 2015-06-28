@@ -10,7 +10,7 @@ source $SCRIPTPATH/config.sh
 source $SCRIPTPATH/deps.sh
 
 sudo rm -fR $VENV $BUILD_DIR
-sudo mkdir -p $VENV $BUILD_DIR $VENV/ve
+sudo mkdir -p $VENV $BUILD_DIR $VENV/ve $VENV/ve/lib $VENV/ve/include
 sudo chown -R $USER:$GROUP $VENV $BUILD_DIR
 
 # copy snapshot of these scripts to the venv for running deps.sh on new hosts

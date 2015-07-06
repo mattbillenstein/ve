@@ -63,7 +63,7 @@ $PIP install lockfile
 $PIP install mock
 $PIP install nose
 $PIP install nose-parallel
-LDFLAGS="$LDFLAGS -shared" $PIP install numpy
+$PIP install numpy
 $PIP install oauth2
 $PIP install objgraph
 $PIP install pillow

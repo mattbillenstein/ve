@@ -85,7 +85,9 @@ $PIP install sendgrid
 $PIP install setproctitle
 $PIP install simplejson
 $PIP install stripe
-$PIP install supervisor
+# more features being put into github...
+#$PIP install supervisor
+$PIP install git+https://github.com/Supervisor/supervisor.git
 $PIP install unidecode
 $PIP install virtualenv
 $PIP install webassets

@@ -5,7 +5,9 @@ getpkg http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
 
 tar zxf nginx-${NGINX_VERSION}.tar.gz
 cd nginx-${NGINX_VERSION}
-./configure --prefix=$VENV --with-http_ssl_module \
+./configure --prefix=$VENV \
+--with-http_ssl_module \
+--with-http_stub_status_module \
 --http-client-body-temp-path=$RUN_DIR/nginx/client_body_temp \
 --http-proxy-temp-path=$RUN_DIR/nginx/proxy_temp \
 --http-fastcgi-temp-path=$RUN_DIR/nginx/fastcgi_temp \

@@ -33,6 +33,7 @@ python-dev \
 rsync \
 ssh \
 strace \
+swig \
 tmux \
 unzip \
 vim \

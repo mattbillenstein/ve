@@ -30,6 +30,7 @@ make \
 openssl \
 pdftk \
 rsync \
+swig \
 tmux \
 vim \
 wget \

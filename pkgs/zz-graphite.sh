@@ -28,6 +28,9 @@ mv $VENV/graphite$VENV/bin/* $VENV/graphite/bin/
 mv $VENV/graphite$VENV/conf/* $VENV/graphite/conf/
 mv $VENV/graphite$VENV/include $VENV/graphite/
 mv $VENV/graphite$VENV/lib $VENV/graphite/
+mv $VENV/graphite/lib/python2.7/site-packages/opt/graphite/lib/carbon $VENV/graphite/lib/python2.7/
+mv $VENV/graphite/lib/python2.7/site-packages/opt/graphite/lib/twisted/plugins/* $VENV/graphite/lib/python2.7/site-packages/twisted/plugins/
+rm -fR $$VENV/graphite/lib/python2.7/site-packages/opt
 rm -fR $VENV/graphite$VENV $VENV$VENV $VENV/graphite/storage $VENV/graphite/examples
 
 # WTF this module is broken

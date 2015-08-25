@@ -1,37 +1,23 @@
-# this bit is kinda hacky -- graphite has some particular app dependencies, so
-# lets isolate it from the main venv a bit.
 
-PIP_INSTALL="$VENV/bin/pip install --root=/opt/graphite"
+# subshell it real good -- install graphite in its own virtualenv, it requires
+# some specific versions of some packages that might be considered old...
 
-# graphite-web hacks
-sudo rm -fR /opt/graphite
-sudo mkdir /opt/graphite
-sudo chown $USER:$GROUP /opt/graphite
+(
+$VENV/bin/virtualenv $VENV/graphite
+source $VENV/graphite/bin/activate
 
-$PIP_INSTALL 'twisted<=12.0'
-$PIP_INSTALL 'django<1.7'
-$PIP_INSTALL --allow-external pycairo --allow-unverified pycairo 'pycairo==1.8.8'
-$PIP_INSTALL carbon
-$PIP_INSTALL 'django-tagging==0.3.4'
-$PIP_INSTALL git+https://github.com/graphite-project/graphite-web.git
-$PIP_INSTALL pyparsing
-$PIP_INSTALL whisper
+$VENV/graphite/bin/pip install git+https://github.com/benoitc/gunicorn.git
+$VENV/graphite/bin/pip install 'twisted<=12.0'
+$VENV/graphite/bin/pip install 'django<1.7'
 
-# graphite-web installs to /opt -- move it to the venv
-# sudo - /opt is not owned by us
-sudo mv /opt/graphite $VENV
-
-# --root expands out the full path, collapse it
-mv $VENV/graphite/opt/graphite/* $VENV/graphite
-rm -fR $VENV/graphite/opt
-mv $VENV/graphite$VENV/bin/* $VENV/graphite/bin/
-mv $VENV/graphite$VENV/conf/* $VENV/graphite/conf/
-mv $VENV/graphite$VENV/include $VENV/graphite/
-mv $VENV/graphite$VENV/lib $VENV/graphite/
-mv $VENV/graphite/lib/python2.7/site-packages/opt/graphite/lib/carbon $VENV/graphite/lib/python2.7/site-packages/
-mv $VENV/graphite/lib/python2.7/site-packages/opt/graphite/lib/twisted/plugins/* $VENV/graphite/lib/python2.7/site-packages/twisted/plugins/
-rm -fR $VENV/graphite/lib/python2.7/site-packages/opt
-rm -fR $VENV/graphite$VENV $VENV$VENV $VENV/graphite/storage $VENV/graphite/examples
-
+$VENV/graphite/bin/pip install --allow-external pycairo --allow-unverified pycairo 'pycairo==1.8.8'
 # WTF this module is broken
 echo 'from _cairo import *' > $VENV/graphite/lib/python2.7/site-packages/cairo/__init__.py
+
+$VENV/graphite/bin/pip install 'django-tagging==0.3.4'
+$VENV/graphite/bin/pip install pyparsing
+$VENV/graphite/bin/pip install pytz
+$VENV/graphite/bin/pip install whisper
+$VENV/graphite/bin/pip install carbon --install-option="--prefix=$VENV/graphite" --install-option="--install-lib=$VENV/graphite/lib"
+$VENV/graphite/bin/pip install git+https://github.com/graphite-project/graphite-web.git --install-option="--prefix=$VENV/graphite" --install-option="--install-lib=$VENV/graphite/webapp"
+)

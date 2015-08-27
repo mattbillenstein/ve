@@ -14,6 +14,7 @@ cmake \
 curl \
 default-jre-headless \
 dnsutils \
+expect \
 g++ \
 gcc \
 gettext \

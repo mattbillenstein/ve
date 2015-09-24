@@ -39,6 +39,7 @@ $PIP install cython
 $PIP install decorator
 $PIP install dill
 $PIP install dnspython
+$PIP install docutils
 $PIP install fabric
 $PIP install flask
 $PIP install flask-assets

@@ -1,5 +1,5 @@
-MARIADB_VERSION="10.0.20"
-getpkg https://downloads.mariadb.org/interstitial/mariadb-10.0.20/source/mariadb-${MARIADB_VERSION}.tar.gz
+MARIADB_VERSION="10.0.21"
+getpkg https://downloads.mariadb.org/interstitial/mariadb-${MARIADB_VERSION}/source/mariadb-${MARIADB_VERSION}.tar.gz
 tar zxf mariadb-${MARIADB_VERSION}.tar.gz
 cd mariadb-${MARIADB_VERSION}
 

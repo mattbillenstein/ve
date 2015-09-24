@@ -20,4 +20,8 @@ $VENV/graphite/bin/pip install pytz
 $VENV/graphite/bin/pip install whisper
 $VENV/graphite/bin/pip install carbon --install-option="--prefix=$VENV/graphite" --install-option="--install-lib=$VENV/graphite/lib"
 $VENV/graphite/bin/pip install git+https://github.com/graphite-project/graphite-web.git --install-option="--prefix=$VENV/graphite" --install-option="--install-lib=$VENV/graphite/webapp"
+
+# HACK - local_settings import so we can stage this outside of the graphite
+# package
+sed -i -e 's/graphite\.local_settings/local_settings/g' $VENV/graphite/webapp/graphite/settings.py
 )

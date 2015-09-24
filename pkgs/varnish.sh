@@ -9,7 +9,10 @@ getpkg https://repo.varnish-cache.org/source/varnish-${VARNISH_VERSION}.tar.gz
 
 tar zxf varnish-${VARNISH_VERSION}.tar.gz
 cd varnish-${VARNISH_VERSION}
-CFLAGS="-Qunused-arguments $CFLAGS" ./configure --prefix=$VENV --localstatedir=/data/varnish
+if [ "$MOS" == "OSX" ]; then
+CFLAGS="-Qunused-arguments $CFLAGS"
+fi
+./configure --prefix=$VENV --localstatedir=/data/varnish
 $PMAKE
 make install
 )

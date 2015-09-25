@@ -2,6 +2,8 @@
 # subshell it real good -- install graphite in its own virtualenv, it requires
 # some specific versions of some packages that might be considered old...
 
+GRAPHITE_VERSION="GITHUB_HEAD"
+
 (
 $VENV/bin/virtualenv $VENV/graphite
 source $VENV/graphite/bin/activate

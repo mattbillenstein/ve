@@ -3,9 +3,16 @@ The ve toolkit
 Who:
 
 I'm Matt Billenstein -- I work mostly on backend systems supporting medium size
-web applications in Python.  I like OSS software, but one of the problems I've
-had is keeping a consistent set of tools around for use on both my developement
-and production systems.  And I love rsync.
+web applications in Python.  I love rsync.
+
+Why:
+
+I like OSS software, but one of the problems I've had is keeping a consistent
+set of tools around for use on both my developement and production systems.
+
+The intention of this project is to stage all the common tooling into the same
+build prefix -- not relying too much on the underlying system packages gives us
+more control over which versions of each tool we use and when they get updated.
 
 
 What:

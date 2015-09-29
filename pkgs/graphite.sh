@@ -1,1 +1,0 @@
-available/graphite.sh

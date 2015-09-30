@@ -1,1 +1,0 @@
-available/00-python.sh

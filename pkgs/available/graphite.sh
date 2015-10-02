@@ -8,6 +8,9 @@ GRAPHITE_VERSION="GITHUB_HEAD"
 $VENV/bin/virtualenv $VENV/graphite
 source $VENV/graphite/bin/activate
 
+# hmm, why is this hack needed for twisted??
+export CFLAGS="-I$VENV/graphite/include/python2.7"
+
 $VENV/graphite/bin/pip install git+https://github.com/benoitc/gunicorn.git
 $VENV/graphite/bin/pip install 'twisted<=12.0'
 $VENV/graphite/bin/pip install 'django<1.7'

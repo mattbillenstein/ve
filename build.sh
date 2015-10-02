@@ -9,9 +9,19 @@ popd > /dev/null
 source $SCRIPTPATH/config.sh
 source $SCRIPTPATH/deps.sh
 
+if [ "$1" == "--clean" ]; then
+shift
+sudo rm -fR $PKG_CACHE /data
+fi
+
 sudo rm -fR $VENV $BUILD_DIR
 sudo mkdir -p $BUILD_DIR $VENV/lib $VENV/include
 sudo chown -R $USER:$GROUP $VENV $BUILD_DIR
+
+# some of the build tools point various /var stuff at /data -- make sure it
+# exists
+sudo mkdir -p /data
+sudo chown $USER:$GROUP /data
 
 # copy snapshot of these scripts to the venv for running deps.sh on new hosts
 cp -a . $VENV/src

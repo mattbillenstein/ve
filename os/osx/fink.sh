@@ -27,6 +27,7 @@ libncurses5-shlibs \
 libpcap1 \
 libtool2 \
 make \
+maven \
 openssl \
 pdftk \
 rsync \

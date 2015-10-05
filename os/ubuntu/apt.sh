@@ -24,6 +24,7 @@ libtool \
 lsof \
 make \
 man-db \
+maven \
 ntp \
 numactl \
 pigz \

@@ -79,6 +79,7 @@ $PIP install raven
 $PIP install redis
 $PIP install requests
 $PIP install salt
+$PIP install saws
 $PIP install scikit-learn
 # scipy defines these - can't override them
 (unset CFLAGS; unset CXXFLAGS; unset LDFLAGS; $PIP install scipy)

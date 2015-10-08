@@ -12,6 +12,7 @@ bison \
 build-essential \
 cmake \
 curl \
+default-jdk \
 default-jre-headless \
 dnsutils \
 expect \

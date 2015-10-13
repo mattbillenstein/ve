@@ -4,4 +4,6 @@
 gem install sass --version "=3.2.14"
 npm install -g grunt-cli
 
+if [ "$MOS" == "Ubuntu" ]; then
 sudo apt-get -y install fortune cowsay
+fi

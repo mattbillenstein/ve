@@ -74,6 +74,12 @@ PATH="\$PATH:\$VIRTUAL_ENV/mysql/bin"
 fi
 export PATH
 
+if [ -e "/usr/libexec/java_home" ]; then
+# this works on osx...
+JAVA_HOME="$(/usr/libexec/java_home)"
+export JAVA_HOME
+fi
+
 _OLD_VIRTUAL_PYTHONPATH="\$PYTHONPATH"
 
 if [ -f "\$HOME/.pythonstartup.py" ]; then

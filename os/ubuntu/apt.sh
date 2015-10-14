@@ -11,11 +11,13 @@ automake \
 bison \
 build-essential \
 cmake \
+cowsay \
 curl \
 default-jdk \
 default-jre-headless \
 dnsutils \
 expect \
+fortune \
 g++ \
 gcc \
 gettext \

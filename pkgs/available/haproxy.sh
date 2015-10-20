@@ -1,4 +1,5 @@
 HAPROXY_VERSION="1.5.14"
+#HAPROXY_VERSION="1.6.1"    # fairly unstable ATM
 
 getpkg http://www.haproxy.org/download/${HAPROXY_VERSION:0:3}/src/haproxy-${HAPROXY_VERSION}.tar.gz
 tar zxf haproxy-${HAPROXY_VERSION}.tar.gz

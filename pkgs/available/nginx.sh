@@ -14,7 +14,7 @@ cd $WD
 getpkg http://www.kyne.com.au/~mark/software/download/lua-cjson-2.1.0.tar.gz
 tar zxf lua-cjson-2.1.0.tar.gz
 cd lua-cjson-2.1.0
-make CFLAGS="-I $VENV/include/luajit-2.0" PREFIX=$VENV install
+make CFLAGS="$CFLAGS -I $VENV/include/luajit-2.0" LDFLAGS="$LDFLAGS -lluajit-5.1" PREFIX=$VENV install
 cd $WD
 
 getpkg https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz

@@ -1,10 +1,27 @@
 NGINX_VERSION="1.8.0"
 
-rm -fR nginx-${NGINX_VERSION}* ngx_*
-getpkg http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
+rm -fR nginx-${NGINX_VERSION}* ngx_* lua-nginx-module* v[0-9]*
 
+getpkg http://luajit.org/download/LuaJIT-2.0.4.tar.gz
+tar zxf LuaJIT-2.0.4.tar.gz
+cd  LuaJIT-2.0.4
+$PMAKE PREFIX=$VENV
+make PREFIX=$VENV install
+cd ..
+
+getpkg https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz
+tar zxf v0.2.19.tar.gz
+
+getpkg https://github.com/openresty/lua-nginx-module/archive/v0.9.17.tar.gz
+tar zxf v0.9.17.tar.gz
+
+getpkg http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
 tar zxf nginx-${NGINX_VERSION}.tar.gz
 cd nginx-${NGINX_VERSION}
+
+export LUAJIT_LIB="$VENV/lib"
+export LUAJIT_INC="$VENV/include/luajit-2.0"
+
 ./configure --prefix=$VENV \
 --with-http_ssl_module \
 --with-http_stub_status_module \
@@ -18,6 +35,9 @@ cd nginx-${NGINX_VERSION}
 --pid-path=$RUN_DIR/nginx/nginx.pid \
 --lock-path=$RUN_DIR/nginx/nginx.lock \
 --with-cc-opt="$CFLAGS" \
---with-ld-opt="$LDFLAGS"
+--with-ld-opt="$LDFLAGS -Wl,-rpath,$VENV/lib" \
+--add-module=../ngx_devel_kit-0.2.19 \
+--add-module=../lua-nginx-module-0.9.17
+
 $PMAKE
 make install

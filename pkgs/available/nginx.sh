@@ -1,13 +1,21 @@
 NGINX_VERSION="1.8.0"
 
-rm -fR nginx-${NGINX_VERSION}* ngx_* lua-nginx-module* v[0-9]*
+WD="$PWD"
+
+rm -fR nginx-${NGINX_VERSION}* ngx_* lua-* v[0-9]*
 
 getpkg http://luajit.org/download/LuaJIT-2.0.4.tar.gz
 tar zxf LuaJIT-2.0.4.tar.gz
 cd  LuaJIT-2.0.4
 $PMAKE PREFIX=$VENV
 make PREFIX=$VENV install
-cd ..
+cd $WD
+
+getpkg http://www.kyne.com.au/~mark/software/download/lua-cjson-2.1.0.tar.gz
+tar zxf lua-cjson-2.1.0.tar.gz
+cd lua-cjson-2.1.0
+make CFLAGS="-I $VENV/include/luajit-2.0" PREFIX=$VENV install
+cd $WD
 
 getpkg https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz
 tar zxf v0.2.19.tar.gz
@@ -36,8 +44,8 @@ export LUAJIT_INC="$VENV/include/luajit-2.0"
 --lock-path=$RUN_DIR/nginx/nginx.lock \
 --with-cc-opt="$CFLAGS" \
 --with-ld-opt="$LDFLAGS -Wl,-rpath,$VENV/lib" \
---add-module=../ngx_devel_kit-0.2.19 \
---add-module=../lua-nginx-module-0.9.17
+--add-module=$WD/ngx_devel_kit-0.2.19 \
+--add-module=$WD/lua-nginx-module-0.9.17
 
 $PMAKE
 make install

@@ -8,9 +8,6 @@ popd > /dev/null
 
 source $SCRIPTPATH/config.sh
 
-sudo mkdir -p $LOG_DIR $RUN_DIR
-sudo chown -R $USER:$GROUP $LOG_DIR $RUN_DIR
-
 if [ "$MOS" == "OSX" ]; then
 
 source $SCRIPTPATH/os/osx/fink.sh

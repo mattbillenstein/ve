@@ -15,8 +15,8 @@ sudo rm -fR $PKG_CACHE /data
 fi
 
 sudo rm -fR $VENV $BUILD_DIR
-sudo mkdir -p $BUILD_DIR $VENV/lib $VENV/include
-sudo chown -R $USER:$GROUP $VENV $BUILD_DIR
+sudo mkdir -p $BUILD_DIR $VENV/lib $VENV/include $LOG_DIR $RUN_DIR
+sudo chown -R $USER:$GROUP $VENV $BUILD_DIR $LOG_DIR $RUN_DIR
 
 # some of the build tools point various /var stuff at /data -- make sure it
 # exists

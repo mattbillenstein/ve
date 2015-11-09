@@ -9,10 +9,11 @@ fi
 
 source /sw/bin/init.sh
 
-sudo apt-get update
-sudo apt-get -y upgrade
+sudo fink -y selfupdate
+sudo fink -y update
+sudo fink -y update-all
 
-sudo apt-get -y install \
+sudo fink -y -b install \
 autoconf2.6 \
 automake1.15-core \
 bison \

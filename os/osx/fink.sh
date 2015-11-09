@@ -40,6 +40,8 @@ xz \
 bzip2-dev \
 cairo \
 freetype \
+gdbm4 \
+gdbm4-shlibs \
 libevent2 \
 libffi6 \
 libjpeg \

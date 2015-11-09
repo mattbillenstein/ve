@@ -7,7 +7,7 @@ cd Python-${PYTHON_VERSION}
 ## readline fails to link on OSX
 #sed -i -e 's/#readline/readline/' Modules/Setup.dist
 #fi
-./configure --prefix=$VENV --enable-shared
+./configure --prefix=$VENV --enable-shared --with-system-expat
 $PMAKE
 make install
 
@@ -80,9 +80,9 @@ $PIP install redis
 $PIP install requests
 $PIP install salt
 $PIP install saws
-$PIP install scikit-learn
 # scipy defines these - can't override them
 (unset CFLAGS; unset CXXFLAGS; unset LDFLAGS; $PIP install scipy)
+$PIP install scikit-learn
 $PIP install sendgrid
 $PIP install setproctitle
 $PIP install simplejson

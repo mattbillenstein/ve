@@ -3,10 +3,9 @@ PYTHON_VERSION="2.7.10"
 getpkg http://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
 tar zxf Python-${PYTHON_VERSION}.tgz
 cd Python-${PYTHON_VERSION}
-#if [ "$MOS" != "OSX" ]; then
-## readline fails to link on OSX
-#sed -i -e 's/#readline/readline/' Modules/Setup.dist
-#fi
+if [ "$MOS" == "OSX" ]; then
+LIBS="-lgdbm_compat"
+fi
 ./configure --prefix=$VENV --enable-shared --with-system-expat
 $PMAKE
 make install

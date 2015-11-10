@@ -43,13 +43,6 @@ deactivate () {
         unset _OLD_VIRTUAL_PYTHONSTARTUP
     fi
 
-    if [ -n "\$PS1" ]; then
-    unset PGUSER
-    unset PGPASSWORD
-    unset PGHOST
-    unset PGPORT
-    fi
-
     unset VIRTUAL_ENV
     if [ ! "\$1" = "nondestructive" ] ; then
     # Self destruct!

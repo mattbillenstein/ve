@@ -57,5 +57,3 @@ export CPPFLAGS=$CFLAGS
 export CXXFLAGS=$CFLAGS
 export LDFLAGS="-L. -L$VENV/lib -L/sw/lib"
 export LD_LIBRARY_PATH="$VENV/lib"
-
-export DEBIAN_FRONTEND=noninteractive

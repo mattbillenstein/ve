@@ -28,6 +28,7 @@ $PIP install ansible
 $PIP install arrow
 $PIP install awscli
 $PIP install babel
+$PIP install baker
 $PIP install bcrypt
 $PIP install beanstalkc
 $PIP install BeautifulSoup

@@ -73,6 +73,16 @@ JAVA_HOME="\$(/usr/libexec/java_home)"
 export JAVA_HOME
 fi
 
+if [ -e "\$VIRTUAL_ENV/android-sdk" ]; then
+ANDROID_HOME="\$VIRTUAL_ENV/android-sdk"
+export ANDROID_HOME
+fi
+
+if [ -e '/sw/lib/ant' ]; then
+ANT_HOME=/sw/lib/ant
+export ANT_HOME
+fi
+
 _OLD_VIRTUAL_PYTHONPATH="\$PYTHONPATH"
 
 if [ -f "\$HOME/.pythonstartup.py" ]; then

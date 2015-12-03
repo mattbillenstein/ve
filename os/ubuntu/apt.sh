@@ -7,6 +7,7 @@ sudo apt-get -y upgrade
 
 sudo apt-get -y install \
 acpid \
+ant \
 atop \
 autoconf \
 automake \

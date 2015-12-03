@@ -14,6 +14,7 @@ sudo fink -y update
 sudo fink -y update-all
 
 sudo fink -y -b install \
+ant \
 autoconf2.6 \
 automake1.15-core \
 bison \

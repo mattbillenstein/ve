@@ -12,3 +12,28 @@ getpkg http://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/3.2.1/flywa
 tar zxf flyway-commandline-3.2.1.tar.gz
 mv flyway-3.2.1 $VENV/flyway
 chmod 755 $VENV/flyway/flyway
+
+ANDROID_SDK_VERSION="r24.4.1"
+if [ "$MOS" == "OSX" ]; then
+getpkg http://dl.google.com/android/android-sdk_${ANDROID_SDK_VERSION}-macosx.zip
+unzip android-sdk_${ANDROID_SDK_VERSION}-macosx.zip
+mv android-sdk-macosx $VENV/android-sdk
+else
+getpkg http://dl.google.com/android/android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
+tar zxvf android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
+mv android-sdk-linux $VENV/android-sdk
+fi
+# license...
+$VENV/android-sdk/tools/android update sdk --no-ui <<EOF
+y
+EOF
+
+cd $BUILD_DIR
+mkdir klassmaster
+cd klassmaster
+RSYNC_PASSWORD="fdc30617-6818-47fb-bb81-245c73777dda" \
+rsync -av --progress ve@matt.apptimize.co::ve/KlassMaster.zip .
+unzip KlassMaster.zip
+rm KlassMaster.zip
+cd $BUILD_DIR
+mv klassmaster $VENV

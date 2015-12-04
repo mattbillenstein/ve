@@ -73,8 +73,8 @@ JAVA_HOME="\$(/usr/libexec/java_home)"
 export JAVA_HOME
 fi
 
-if [ -e "\$VIRTUAL_ENV/android-sdk" ]; then
-ANDROID_HOME="\$VIRTUAL_ENV/android-sdk"
+if [ -e "/opt/android-sdk" ]; then
+ANDROID_HOME="/opt/android-sdk"
 export ANDROID_HOME
 fi
 

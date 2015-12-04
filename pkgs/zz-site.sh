@@ -22,6 +22,7 @@ else
 getpkg http://dl.google.com/android/android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
 tar zxvf android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
 mv android-sdk-linux $VENV/android-sdk
+apt-get install libc6-i386 lib32z1 lib32gcc1
 fi
 
 for pkg in platform-tools build-tools-23.0.2 android-17 android-19; do

@@ -23,10 +23,12 @@ getpkg http://dl.google.com/android/android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
 tar zxvf android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
 mv android-sdk-linux $VENV/android-sdk
 fi
-# license...
-$VENV/android-sdk/tools/android update sdk --no-ui <<EOF
+
+for pkg in platform-tools build-tools-23.0.2 android-17 android-19; do
+$VENV/android-sdk/tools/android update sdk --no-ui --filter "$pkg" <<EOF
 y
 EOF
+done
 
 cd $BUILD_DIR
 mkdir klassmaster

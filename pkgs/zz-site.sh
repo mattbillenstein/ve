@@ -13,6 +13,21 @@ tar zxf flyway-commandline-3.2.1.tar.gz
 mv flyway-3.2.1 $VENV/flyway
 chmod 755 $VENV/flyway/flyway
 
+ANDROID_SDK_VERSION="r24.4.1"
+if [ "$MOS" == "OSX" ]; then
+getpkg http://dl.google.com/android/android-sdk_${ANDROID_SDK_VERSION}-macosx.zip
+unzip android-sdk_${ANDROID_SDK_VERSION}-macosx.zip
+mv android-sdk-macosx $VENV/android-sdk
+else
+getpkg http://dl.google.com/android/android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
+tar zxvf android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
+mv android-sdk-linux $VENV/android-sdk
+fi
+# license...
+$VENV/android-sdk/tools/android update sdk --no-ui <<EOF
+y
+EOF
+
 cd $BUILD_DIR
 mkdir klassmaster
 cd klassmaster

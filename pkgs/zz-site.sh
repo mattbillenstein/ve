@@ -40,3 +40,12 @@ unzip KlassMaster.zip
 rm KlassMaster.zip
 cd $BUILD_DIR
 mv klassmaster $VENV
+
+if [ "$MOS" == "OSX" ]; then
+cd $BUILD_DIR
+git clone https://github.com/tomaz/appledoc.git
+cd appledoc
+mkdir -p $VENV/share/appledoc
+./install-appledoc.sh -b $VENV/bin -t $VENV/share/appledoc
+cd $BUILD_DIR
+fi

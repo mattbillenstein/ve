@@ -8,7 +8,7 @@ web applications in Python.  I love rsync.
 Why:
 
 I like OSS software, but one of the problems I've had is keeping a consistent
-set of tools around for use on both my developement and production systems.
+set of tools around for use on both my development and production systems.
 
 The intention of this project is to stage all the common tooling into the same
 build prefix -- not relying too much on the underlying system packages gives us

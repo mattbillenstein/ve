@@ -26,7 +26,7 @@ sudo apt-get -y install libc6-i386 lib32z1 lib32gcc1
 fi
 
 # build-tools-23.0.2 currently blocked by https://apptimize.atlassian.net/browse/PROJ-572
-for pkg in platform-tools build-tools-19.0.3 android-17 android-19; do
+for pkg in platform-tools build-tools-19.1.0 android-17 android-19; do
 $VENV/android-sdk/tools/android update sdk --no-ui --all --filter "$pkg" <<EOF
 y
 EOF

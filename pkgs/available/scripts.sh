@@ -76,6 +76,12 @@ fi
 if [ -e "\$VIRTUAL_ENV/android-sdk" ]; then
 ANDROID_HOME="\$VIRTUAL_ENV/android-sdk"
 export ANDROID_HOME
+export PATH="\$PATH:\$VIRTUAL_ENV/android-sdk/tools"
+fi
+
+# fink
+if [ -e '/sw/bin/init.sh' ]; then
+. /sw/bin/init.sh
 fi
 
 if [ -e '/sw/lib/ant' ]; then

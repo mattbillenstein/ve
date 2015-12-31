@@ -26,11 +26,40 @@ sudo apt-get -y install libc6-i386 lib32z1 lib32gcc1
 fi
 
 # build-tools-23.0.2 currently blocked by https://apptimize.atlassian.net/browse/PROJ-572
-for pkg in platform-tools build-tools-19.1.0 android-17 android-19; do
+for pkg in platform-tools build-tools-19.1.0 android-17 android-19 sys-img-armeabi-v7a-android-19; do
 $VENV/android-sdk/tools/android update sdk --no-ui --all --filter "$pkg" <<EOF
 y
 EOF
 done
+
+cat > $VENV/android-sdk/tools/android-wait-for-emulator <<EOF
+#!/bin/bash
+
+# Originally written by Ralf Kistner <ralf@embarkmobile.com>, but placed in the public domain
+
+set +e
+
+bootanim=""
+failcounter=0
+timeout_in_sec=360
+
+until [[ "\$bootanim" =~ "stopped" ]]; do
+  bootanim="\$(/ave/android-sdk/platform-tools/adb -e shell getprop init.svc.bootanim 2>&1)"
+  if [[ "\$bootanim" =~ "device not found" || "\$bootanim" =~ "device offline" || "\$bootanim" =~ "running" ]]; then
+    let "failcounter += 1"
+    echo "Waiting for emulator to start"
+    if [[ \$failcounter -gt timeout_in_sec ]]; then
+      echo "Timeout (\$timeout_in_sec seconds) reached; failed to start emulator"
+      exit 1
+    fi
+  fi
+  sleep 1
+done
+
+echo "Emulator is ready"
+EOF
+chmod 755 $VENV/android-sdk/tools/android-wait-for-emulator
+find $VENV/android-sdk/tools -type f -maxdepth 1 -perm 744 | xargs chmod 755
 
 cd $BUILD_DIR
 mkdir klassmaster

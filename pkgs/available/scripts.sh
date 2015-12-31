@@ -76,7 +76,7 @@ fi
 if [ -e "\$VIRTUAL_ENV/android-sdk" ]; then
 ANDROID_HOME="\$VIRTUAL_ENV/android-sdk"
 export ANDROID_HOME
-export PATH="\$PATH:\$VIRTUAL_ENV/android-sdk/tools"
+export PATH="\$PATH:\$VIRTUAL_ENV/android-sdk/tools:\$VIRTUAL_ENV/android-sdk/platform-tools"
 fi
 
 # fink

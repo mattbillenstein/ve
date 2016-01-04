@@ -15,7 +15,8 @@ $VENV/graphite/bin/pip install git+https://github.com/benoitc/gunicorn.git
 $VENV/graphite/bin/pip install 'twisted<=12.0'
 $VENV/graphite/bin/pip install 'django<1.7'
 
-$VENV/graphite/bin/pip install --allow-external pycairo --allow-unverified pycairo 'pycairo==1.8.8'
+#$VENV/graphite/bin/pip install --allow-external pycairo --allow-unverified pycairo 'pycairo==1.8.8'
+$VENV/graphite/bin/pip install http://cairographics.org/releases/pycairo-1.8.8.tar.gz
 # WTF this module is broken
 echo 'from _cairo import *' > $VENV/graphite/lib/python2.7/site-packages/cairo/__init__.py
 

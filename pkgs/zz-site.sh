@@ -85,7 +85,7 @@ gem install cocoapods
 fi
 
 cd $BUILD_DIR
-PROTOBUF_VERSION+"2.6.1"
+PROTOBUF_VERSION="2.6.1"
 getpkg https://github.com/google/protobuf/releases/download/v${PROTOBUF_VERSION}/protobuf-${PROTOBUF_VERSION}.tar.gz
 tar zxf protobuf-${PROTOBUF_VERSION}.tar.gz
 cd protobuf-${PROTOBUF_VERSION}

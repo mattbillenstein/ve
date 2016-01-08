@@ -82,3 +82,6 @@ cd $BUILD_DIR
 
 gem install cocoapods
 fi
+
+# pypy pkgs
+$VENV/pypy/bin/pip install protobuf

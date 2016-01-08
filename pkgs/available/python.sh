@@ -19,7 +19,7 @@ EOF
 
 cd $BUILD_DIR
 
-getpkg https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+getpkg https://bootstrap.pypa.io/get-pip.py
 $VENV/bin/python ./get-pip.py
 
 PIP="$VENV/bin/pip"

@@ -34,6 +34,7 @@ $PIP install beanstalkc
 $PIP install BeautifulSoup
 $PIP install bleach
 $PIP install boto
+$PIP install certifi
 $PIP install coverage
 $PIP install cython
 $PIP install decorator

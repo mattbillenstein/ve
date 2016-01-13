@@ -93,6 +93,9 @@ cd protobuf-${PROTOBUF_VERSION}
 $PMAKE install
 $VENV/bin/pip install protobuf
 
+# pkgs for dealing with tweak debian repos
+$VENV/bin/pip install chardet python-debian
+
 cd $BUILD_DIR
 # pypy pkgs
 $VENV/pypy/bin/pip install protobuf

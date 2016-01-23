@@ -24,7 +24,7 @@ $VENV/bin/python ./get-pip.py
 
 PIP="$VENV/bin/pip"
 
-$PIP install ansible
+$PIP install 'ansible<2.0'
 $PIP install arrow
 $PIP install awscli
 $PIP install babel

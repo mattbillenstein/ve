@@ -22,7 +22,7 @@ cd $BUILD_DIR
 getpkg https://bootstrap.pypa.io/get-pip.py
 $VENV/bin/python ./get-pip.py
 
-PIP="$VENV/bin/pip"
+PIP="$VENV/bin/pip --trusted-host=pypi.python.org"
 
 $PIP install 'ansible<2.0'
 $PIP install arrow

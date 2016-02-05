@@ -23,6 +23,9 @@ tar zxf v0.2.19.tar.gz
 getpkg https://github.com/openresty/lua-nginx-module/archive/v0.9.17.tar.gz
 tar zxf v0.9.17.tar.gz
 
+getpkg https://github.com/yaoweibin/nginx_upstream_check_module/archive/v0.3.0.tar.gz
+tar zxf v0.3.0.tar.gz
+
 getpkg http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
 tar zxf nginx-${NGINX_VERSION}.tar.gz
 cd nginx-${NGINX_VERSION}
@@ -45,7 +48,8 @@ export LUAJIT_INC="$VENV/include/luajit-2.0"
 --with-cc-opt="$CFLAGS" \
 --with-ld-opt="$LDFLAGS -Wl,-rpath,$VENV/lib" \
 --add-module=$WD/ngx_devel_kit-0.2.19 \
---add-module=$WD/lua-nginx-module-0.9.17
+--add-module=$WD/lua-nginx-module-0.9.17 \
+--add-module=$WD/nginx_upstream_check_module-0.3.0
 
 $PMAKE
 make install

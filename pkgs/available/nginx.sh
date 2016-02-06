@@ -30,6 +30,8 @@ getpkg http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
 tar zxf nginx-${NGINX_VERSION}.tar.gz
 cd nginx-${NGINX_VERSION}
 
+patch -p1 < $WD/nginx_upstream_check_module-0.3.0/check_1.7.2+.patch
+
 export LUAJIT_LIB="$VENV/lib"
 export LUAJIT_INC="$VENV/include/luajit-2.0"
 

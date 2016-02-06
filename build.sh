@@ -54,11 +54,11 @@ rm -fR conf data doc etc html logs man sbin $BUILD_DIR mysql/mysql-test mysql/sq
 find $VENV/lib -name '*.a' -delete
 
 # make all dirs 755
-find $VENV -type d -print0 | xargs -0 -n 100 chmod 755
+find $VENV -type d -print0 | xargs -0 -n 100 chmod 755 || true
 # make all files ag+r
-find $VENV -type f -print0 | xargs -0 -n 100 chmod ag+r
+find $VENV -type f -print0 | xargs -0 -n 100 chmod ag+r || true
 # make any files that are user execute group and all execute
-find $VENV -type f -perm -100 ! -perm -001 -print0 | xargs -0 -n 100 chmod ag+x
+find $VENV -type f -perm -100 ! -perm -001 -print0 | xargs -0 -n 100 chmod ag+x || true
 
 if [ "$MOS" == "Ubuntu" ]; then
 sudo bash -c "echo $VENV/lib > /etc/ld.so.conf.d/venv.conf"

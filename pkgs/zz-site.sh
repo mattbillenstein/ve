@@ -96,6 +96,9 @@ $VENV/bin/pip install protobuf
 # pkgs for dealing with tweak debian repos
 $VENV/bin/pip install chardet python-debian
 
+# reviewboard tools
+$VENV/bin/pip install git+https://github.com/mattbillenstein/rbtools.git
+
 cd $BUILD_DIR
 # pypy pkgs
 $VENV/pypy/bin/pip install protobuf

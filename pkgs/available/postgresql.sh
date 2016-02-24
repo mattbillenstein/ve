@@ -1,4 +1,4 @@
-POSTGRES_VERSION="9.4.4"
+POSTGRES_VERSION="9.4.6"
 getpkg http://ftp.postgresql.org/pub/source/v${POSTGRES_VERSION}/postgresql-${POSTGRES_VERSION}.tar.bz2
 tar jxf postgresql-${POSTGRES_VERSION}.tar.bz2
 cd postgresql-${POSTGRES_VERSION}

@@ -1,4 +1,4 @@
-PYTHON_VERSION="2.7.10"
+PYTHON_VERSION="2.7.11"
 
 getpkg http://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
 tar zxf Python-${PYTHON_VERSION}.tgz

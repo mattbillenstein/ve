@@ -1,4 +1,4 @@
-GOLANG_VERSION="1.5.1"
+GOLANG_VERSION="1.6"
 GOLANG_KERNEL="linux"
 
 # https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz

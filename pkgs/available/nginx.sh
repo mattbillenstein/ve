@@ -32,6 +32,11 @@ cp zlib.so $VENV/lib/lua/5.1/
 cp gzip.lua $VENV/share/lua/5.1/
 cd $WD
 
+getpkg https://github.com/pintsized/lua-resty-http/archive/v0.07.tar.gz
+tar zxf v0.07.tar.gz
+mkdir -p $VENV/share/lua/5.1/resty
+cp lua-resty-http-0.07/lib/resty/*.lua $VENV/share/lua/5.1/resty/
+
 getpkg https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz
 tar zxf v0.2.19.tar.gz
 

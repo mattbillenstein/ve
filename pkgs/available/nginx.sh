@@ -17,6 +17,21 @@ cd lua-cjson-2.1.0
 make CFLAGS="$CFLAGS -I $VENV/include/luajit-2.0" LDFLAGS="$LDFLAGS -lluajit-5.1" PREFIX=$VENV install
 cd $WD
 
+getpkg http://zlib.net/zlib-1.2.8.tar.gz
+tar zxf zlib-1.2.8.tar.gz
+cd zlib-1.2.8
+./configure --prefix=$VENV
+make install
+cd $WD
+
+git clone https://github.com/LuaDist/lzlib.git
+cd lzlib
+make ZLIB=$VENV LUA=$VENV CFLAGS="$CFLAGS -I $VENV/include/luajit-2.0" LDFLAGS="$LDFLAGS -lluajit-5.1" LIBS="-lz -lluajit-5.1 -L$VENV/lib" PREFIX=$VENV DISTDIR=. zlib.so
+# Gah, no install target?
+cp zlib.so $VENV/lib/lua/5.1/
+cp gzip.lua $VENV/share/lua/5.1/
+cd $WD
+
 getpkg https://github.com/simpl/ngx_devel_kit/archive/v0.2.19.tar.gz
 tar zxf v0.2.19.tar.gz
 

@@ -26,7 +26,7 @@ cd $WD
 rm -fR lzlib
 git clone https://github.com/LuaDist/lzlib.git
 cd lzlib
-make ZLIB=$VENV LUA=$VENV CFLAGS="$CFLAGS -I $VENV/include/luajit-2.0" LDFLAGS="$LDFLAGS -lluajit-5.1" LIBS="-lz -lluajit-5.1 -L$VENV/lib" PREFIX=$VENV DISTDIR=. zlib.so
+make ZLIB=$VENV LUA=$VENV CFLAGS="$CFLAGS -fPIC -I $VENV/include/luajit-2.0" LDFLAGS="$LDFLAGS -lluajit-5.1" LIBS="-lz -lluajit-5.1 -L$VENV/lib" PREFIX=$VENV DISTDIR=. zlib.so
 # Gah, no install target?
 cp zlib.so $VENV/lib/lua/5.1/
 cp gzip.lua $VENV/share/lua/5.1/

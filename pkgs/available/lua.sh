@@ -42,6 +42,6 @@ rm -fR 0.2.0* lua-uuid-*
 getpkg https://github.com/Mashape/lua-uuid/archive/0.2.0.tar.gz
 tar zxf 0.2.0.tar.gz
 cd lua-uuid-0.2.0
-make LUA="/ave/bin/luajit" CFLAGS="$CFLAGS -I/ave/include/luajit-2.0" LIBFLAG="-L/ave/lib -lluajit-5.1 -shared" all
+make LUA="luajit" all
 cp lua*.so $VENV/lib/lua/5.1/
 cd $WD

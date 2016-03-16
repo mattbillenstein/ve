@@ -49,7 +49,7 @@ $PIP install flask
 $PIP install flask-assets
 $PIP install Flask-Mako
 $PIP install geoip2
-CFLAGS="-std=c99 $CFLAGS" $PIP install gevent
+$PIP install gevent
 
 $PIP install versiontools  # ssl cert validation fail when installed in gevent-socketio under OSX...
 $PIP install git+https://github.com/abourget/gevent-socketio.git

@@ -50,7 +50,7 @@ fi
 # Clean things up a bit
 cd $VENV
 mv sbin/* bin/ || true
-rm -fR conf data doc etc html logs man sbin $BUILD_DIR mysql/mysql-test mysql/sql-bench mysql/data
+rm -fR conf data doc etc html logs man sbin $BUILD_DIR mysql/mysql-test mysql/sql-bench mysql/data bin/*.pyc
 find $VENV/lib -name '*.a' -delete
 
 # make all dirs 755
@@ -60,7 +60,7 @@ find $VENV -type f -print0 | xargs -0 -n 100 chmod ag+r || true
 # make any files that are user execute group and all execute
 find $VENV -type f -perm -100 ! -perm -001 -print0 | xargs -0 -n 100 chmod ag+x || true
 
-if [ "$MOS" == "Ubuntu" ]; then
+if [ "$MOS" == "Ubuntu" ] || [ "$MOS" == "Arch" ]; then
 sudo bash -c "echo $VENV/lib > /etc/ld.so.conf.d/venv.conf"
 sudo ldconfig
 fi

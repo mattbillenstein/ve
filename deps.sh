@@ -19,6 +19,13 @@ source $SCRIPTPATH/os/ubuntu/apt.sh
 sudo bash -c "echo $VENV/lib > /etc/ld.so.conf.d/venv.conf"
 sudo ldconfig
 
+elif [ "$MOS" == "Arch" ]; then
+
+source $SCRIPTPATH/os/arch/pacman.sh
+
+sudo bash -c "echo $VENV/lib > /etc/ld.so.conf.d/venv.conf"
+sudo ldconfig
+
 else
 echo "Error -- unsupported platform"
 exit 1

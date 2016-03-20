@@ -36,9 +36,12 @@ patch \
 pigz \
 pkg-config \
 psmisc \
+pypy \
+python2 \
 rsync \
 strace \
 swig \
+tk \
 tmux \
 openssh \
 unzip \

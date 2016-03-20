@@ -15,6 +15,11 @@ if [ "$(uname)" == "Darwin" ];then
     OS="OSX_10.X"
     MOS="OSX"
     PROCS="$(sysctl -n hw.ncpu)"
+
+elif [ -f /etc/pacman.conf ]; then
+    OS="Arch"
+    MOS="Arch"
+    PROCS=$(grep -c '^processor' /proc/cpuinfo)
 elif [ "$(lsb_release -si) $(lsb_release -sr)" == "Ubuntu 14.04" ]; then
     OS="Ubuntu_14.04"
     MOS="Ubuntu"
@@ -57,3 +62,4 @@ export CPPFLAGS=$CFLAGS
 export CXXFLAGS=$CFLAGS
 export LDFLAGS="-L. -L$VENV/lib -L/sw/lib"
 export LD_LIBRARY_PATH="$VENV/lib"
+export PKG_CONFIG_PATH="$VENV/lib/pkgconfig"

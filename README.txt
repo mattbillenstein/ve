@@ -27,37 +27,42 @@ Currently, it supports the Ubuntu (14.04 LTS) and recent versions of Mac OSX
 to Ubuntu using the same versions of all of these tools with a relatively small
 number of system shared-library dependencies.
 
-As of 9/25/2015 (commit e999626d9) it contains:
+As of 03/16/2016 it contains:
 
-$ grep -h _VERSION= pkgs/*.sh | sed -e 's/_VERSION=/ /g' -e 's/"//g' | awk '{printf "%-10s %12s\n", $1, $2}
-'
-PYTHON           2.7.10
+$ grep -h _VERSION= pkgs/*.sh | sed -e 's/_VERSION=/ /g' -e 's/"//g' | awk '{printf "%-10s %12s\n", $1, $2}' | sort
+
 BEANSTALKD         1.10
-CONSUL            0.5.2
-GOLANG            1.5.1
+CONSUL            0.6.3
+DNSMASQ            2.75
+GOLANG              1.6
 GRAPHITE    GITHUB_HEAD
-MARIADB         10.0.21
-MEMCACHED        1.4.24
-MONGODB           3.0.6
-NGINX             1.8.0
+HAPROXY          1.5.15
+#HAPROXY          1.6.1
+MARIADB         10.1.11
+MEMCACHED        1.4.25
+MONGODB           3.2.3
+NGINX             1.8.1
 NODEJS           0.12.7
+NSQ               0.3.7
 PGBOUNCER         1.6.1
-POSTGRES          9.4.4
-REDIS             3.0.4
-RUBY              2.2.3
+POSTGRES          9.4.6
+PYPY              4.0.1
+PYTHON           2.7.11
+REDIS             3.0.7
+RUBY              2.2.4
 VARNISH           4.0.3
 
 
 Where:
 
-You can try this out by pulling from my staging host (it is big, ~1.5G).  You
+You can try this out by pulling from my staging host (it is big, ~2G).  You
 may need to sudo and make the /ve directory first and make sure you own it:
 
     $ sudo mkdir /ve
     $ sudo chown <USER>:<GROUP> /ve
     $ RSYNC_PASSWORD=v3rys3cr3t rsync -av --delete ve@vazor.com::ve/$OS/ /ve
 
-Where $OS is one of OSX_10.X or Ubuntu_14.04
+Where $OS is one of OSX_10.X, Ubuntu_14.04, or Arch
 
 After you have it, run the deps script (you will need to install fink first on
 OSX):

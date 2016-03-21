@@ -6,6 +6,8 @@ npm install -g grunt-cli
 
 if [ "$MOS" == "Ubuntu" ]; then
 sudo apt-get -y install fortune cowsay
+elif [ "$MOS" == "Arch" ]; then
+sudo pacman --sync --needed --noconfirm fortune-mod cowsay
 fi
 
 getpkg http://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/3.2.1/flyway-commandline-3.2.1.tar.gz
@@ -22,7 +24,13 @@ else
 getpkg http://dl.google.com/android/android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
 tar zxvf android-sdk_${ANDROID_SDK_VERSION}-linux.tgz
 mv android-sdk-linux $VENV/android-sdk
+
+if [ "$MOS" == "Ubuntu" ]; then
 sudo apt-get -y install libc6-i386 lib32z1 lib32gcc1
+elif [ "$MOS" == "Arch" ]; then
+echo "FIXME - arch i386 libs for android?"
+fi
+
 fi
 
 # build-tools-23.0.2 currently blocked by https://apptimize.atlassian.net/browse/PROJ-572

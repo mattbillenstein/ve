@@ -26,7 +26,7 @@ export PIP_TRUSTED_HOST="pypi.python.org"
 
 PIP="$VENV/bin/pip"
 
-$PIP install 'ansible<2.0'
+$PIP install ansible
 $PIP install arrow
 $PIP install awscli
 $PIP install babel

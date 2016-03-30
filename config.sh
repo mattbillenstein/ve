@@ -15,13 +15,17 @@ if [ "$(uname)" == "Darwin" ];then
     OS="OSX_10.X"
     MOS="OSX"
     PROCS="$(sysctl -n hw.ncpu)"
-
 elif [ -f /etc/pacman.conf ]; then
     OS="Arch"
     MOS="Arch"
     PROCS=$(grep -c '^processor' /proc/cpuinfo)
-elif [ "$(lsb_release -si) $(lsb_release -sr)" == "Ubuntu 14.04" ]; then
-    OS="Ubuntu_14.04"
+elif [ "$(lsb_release -si)" == "Ubuntu" ]; then
+    ver="$(lsb_release -sr)"
+    if [ "$ver" != "14.04" ] && [ "$ver" != "16.04" ]; then
+        echo "It's recommended to run on an Ubuntu LTS release ($ver)-- do you want to continue?  (Ctrl-C aborts)"
+        read foo
+    fi
+    OS="Ubuntu_$ver"
     MOS="Ubuntu"
     PROCS=$(grep -c '^processor' /proc/cpuinfo)
 fi

@@ -110,3 +110,21 @@ $VENV/bin/pip install git+https://github.com/mattbillenstein/rbtools.git
 cd $BUILD_DIR
 # pypy pkgs
 $VENV/pypy/bin/pip install protobuf
+
+# test automation tooling
+if [ "$MOS" == "OSX" ]; then
+sudo fink install ideviceinstaller
+getpkg http://chromedriver.storage.googleapis.com/2.21/chromedriver_mac32.zip
+unzip chromedriver_mac32.zip
+mv chromedriver /ave/bin/
+else
+getpkg http://chromedriver.storage.googleapis.com/2.21/chromedriver_linux64.zip
+unzip chromedriver_linux64.zip
+mv chromedriver /ave/bin/
+fi
+$VENV/bin/npm install -g appium
+$VENV/bin/pip install Appium-Python-Client
+$VENV/bin/pip install enum34
+$VENV/bin/pip install py
+$VENV/bin/pip install pytest
+$VENV/bin/pip install selenium

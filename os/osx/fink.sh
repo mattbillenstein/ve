@@ -24,6 +24,7 @@ curl \
 gcc5 \
 gettext-bin \
 git \
+ideviceinstaller \
 libncurses5 \
 libncurses5-shlibs \
 libpcap1 \

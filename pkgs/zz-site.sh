@@ -113,7 +113,6 @@ $VENV/pypy/bin/pip install protobuf
 
 # test automation tooling
 if [ "$MOS" == "OSX" ]; then
-sudo fink install ideviceinstaller
 getpkg http://chromedriver.storage.googleapis.com/2.21/chromedriver_mac32.zip
 unzip chromedriver_mac32.zip
 mv chromedriver /ave/bin/

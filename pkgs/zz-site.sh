@@ -117,11 +117,16 @@ getpkg http://chromedriver.storage.googleapis.com/2.21/chromedriver_mac32.zip
 unzip chromedriver_mac32.zip
 mv chromedriver /ave/bin/
 else
+
+if [ "$MOS" == "Arch" ]; then
+sudo pacman --sync --needed --noconfirm gconf
+fi
+
 getpkg http://chromedriver.storage.googleapis.com/2.21/chromedriver_linux64.zip
 unzip chromedriver_linux64.zip
 mv chromedriver /ave/bin/
 fi
-$VENV/bin/npm install -g appium
+$VENV/bin/npm install -g appium  # this does not install cleanly on arch...
 $VENV/bin/pip install Appium-Python-Client
 $VENV/bin/pip install enum34
 $VENV/bin/pip install py

@@ -18,6 +18,7 @@ expect \
 gcc \
 gettext \
 gcc-fortran \
+gconf \
 git \
 libtool \
 lsof \

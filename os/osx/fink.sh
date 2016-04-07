@@ -24,7 +24,6 @@ curl \
 gcc5 \
 gettext-bin \
 git \
-ideviceinstaller \
 libncurses5 \
 libncurses5-shlibs \
 libpcap1 \
@@ -36,6 +35,7 @@ pdftk \
 rsync \
 swig \
 tmux \
+usbmuxd \
 vim \
 wget \
 xz \
@@ -53,6 +53,7 @@ libpcre1 \
 libpng16 \
 libwebp5 \
 libxml2 \
+libzip2 \
 openssl100-dev \
 openssl100-shlibs \
 pixman \

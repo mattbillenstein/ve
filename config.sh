@@ -67,3 +67,8 @@ export CXXFLAGS=$CFLAGS
 export LDFLAGS="-L. -L$VENV/lib -L/sw/lib"
 export LD_LIBRARY_PATH="$VENV/lib"
 export PKG_CONFIG_PATH="$VENV/lib/pkgconfig"
+
+# clang doesn't like arguments it doesn't use
+if [ "$MOS" == "OSX" ]; then
+export CFLAGS="-Qunused-arguments $CFLAGS"
+fi

@@ -109,7 +109,7 @@ $VENV/bin/pip install git+https://github.com/mattbillenstein/rbtools.git
 
 cd $BUILD_DIR
 # pypy pkgs
-$VENV/pypy/bin/pip install protobuf
+$VENV/pypy/bin/pip install protobuf pynsq google-api-python-client
 
 # test automation tooling
 if [ "$MOS" == "OSX" ]; then

@@ -6,4 +6,4 @@ popd > /dev/null
 
 source $SCRIPTPATH/config.sh
 
-rsync -av --delete --bwlimit=500 $* $VENV/ $RSYNC_USER@$RSYNC_HOST:$RSYNC_PATH/$OS
+rsync -av --delete --bwlimit=1500 $* $VENV/ $RSYNC_USER@$RSYNC_HOST:$RSYNC_PATH/$OS

@@ -33,8 +33,7 @@ fi
 
 fi
 
-# build-tools-23.0.2 currently blocked by https://apptimize.atlassian.net/browse/PROJ-572
-for pkg in platform-tools build-tools-19.1.0 android-17 android-19 sys-img-armeabi-v7a-android-19; do
+for pkg in platform-tools build-tools-23.0.3 android-19 android-22 sys-img-armeabi-v7a-android-19 sys-img-armeabi-v7a-android-22; do
 $VENV/android-sdk/tools/android update sdk --no-ui --all --filter "$pkg" <<EOF
 y
 EOF

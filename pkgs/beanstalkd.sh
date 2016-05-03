@@ -1,1 +1,0 @@
-available/beanstalkd.sh

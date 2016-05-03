@@ -1,1 +1,0 @@
-available/mariadb.sh

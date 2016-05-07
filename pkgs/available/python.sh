@@ -78,6 +78,7 @@ $PIP install psutil
 $PIP install psycopg2
 $PIP install PyJWT
 $PIP install pylint
+$PIP install pymongo
 $PIP install pymysql
 $PIP install pynsq
 $PIP install PyPDF2

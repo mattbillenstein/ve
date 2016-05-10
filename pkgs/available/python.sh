@@ -105,4 +105,7 @@ $PIP install webassets
 $PIP install webtest
 $PIP install werkzeug
 
+# hack to remove annoying warning in distutils
+sed -i -e 's/warnings.warn(/tuple(/g' $VENV/lib/python2.7/distutils/__init__.py
+
 $VENV/bin/python -m compileall -q -f $VENV || true

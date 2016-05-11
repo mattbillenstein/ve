@@ -61,6 +61,7 @@ $PIP install git+https://github.com/mattbillenstein/gstatsd
 $PIP install gitpython
 $PIP install google-api-python-client
 $PIP install greenlet
+$PIP install grequests
 $PIP install gsutil
 $PIP install hiredis
 $PIP install html5lib

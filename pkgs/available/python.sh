@@ -35,6 +35,7 @@ $PIP install bcrypt
 $PIP install beanstalkc
 $PIP install BeautifulSoup
 $PIP install bleach
+$PIP install blinker
 $PIP install boto
 $PIP install boto3
 $PIP install certifi

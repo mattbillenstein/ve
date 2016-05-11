@@ -86,6 +86,7 @@ $PIP install pytz
 $PIP install raven
 $PIP install redis
 $PIP install requests
+$PIP install rollbar
 $PIP install salt
 $PIP install saws
 # scipy defines these - can't override them

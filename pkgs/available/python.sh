@@ -84,7 +84,6 @@ $PIP install pymysql
 $PIP install pynsq
 $PIP install PyPDF2
 $PIP install pytz
-$PIP install raven
 $PIP install redis
 $PIP install requests
 $PIP install rollbar

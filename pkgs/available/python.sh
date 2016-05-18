@@ -4,7 +4,7 @@ getpkg http://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSIO
 tar zxf Python-${PYTHON_VERSION}.tgz
 cd Python-${PYTHON_VERSION}
 if [ "$MOS" == "OSX" ]; then
-LIBS="-lgdbm_compat"
+LIBS="-lgdbm_compat -lreadline"
 fi
 ./configure --prefix=$VENV --enable-shared --with-system-expat
 $PMAKE

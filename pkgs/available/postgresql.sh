@@ -10,7 +10,7 @@ sed -i -e 's:DEFAULT_PGSOCKET_DIR[ ][ ]*"/tmp":DEFAULT_PGSOCKET_DIR "/data/run/p
 $PMAKE
 make install
 
-for ext in pgcrypto hstore cube; do
+for ext in pgcrypto hstore cube earthdistance; do
 cd contrib/$ext
 $PMAKE
 make install

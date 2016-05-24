@@ -107,6 +107,9 @@ $PIP install webassets
 $PIP install webtest
 $PIP install werkzeug
 
+# hack to fix a bug in salt
+sed -i -e 's/def chhome(name, home):/def chhome(name, home, persist=False):/' $VENV/lib/python2.7/site-packages/salt/modules/mac_user.py
+
 # hack to remove annoying warning in distutils
 sed -i -e 's/warnings.warn(/tuple(/g' $VENV/lib/python2.7/distutils/__init__.py
 

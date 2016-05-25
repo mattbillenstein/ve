@@ -13,3 +13,5 @@ make install
 
 curl https://raw.githubusercontent.com/miyagawa/cpanminus/master/cpanm > $VENV/bin/cpanm
 chmod 755 $VENV/bin/cpanm
+
+$VENV/bin/cpan local::lib

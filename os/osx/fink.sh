@@ -19,6 +19,7 @@ automake1.15-core \
 bison \
 cmake \
 coreutils \
+coreutils-default \
 curl \
 gcc5 \
 gettext-bin \

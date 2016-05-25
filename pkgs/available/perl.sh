@@ -8,7 +8,7 @@ cd perl-${PERL_VERSION}
 ./Configure -des -Dprefix=$VENV
 
 $PMAKE
-make test
+#make test
 make install
 
 curl https://raw.githubusercontent.com/miyagawa/cpanminus/master/cpanm > $VENV/bin/cpanm

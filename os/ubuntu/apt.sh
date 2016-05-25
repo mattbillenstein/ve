@@ -58,6 +58,7 @@ libfreetype6-dev \
 libjpeg-dev \
 libncurses5-dev \
 libpcre3-dev \
+libperl-dev \
 libpng12-dev \
 libreadline-dev \
 libreadline6 \

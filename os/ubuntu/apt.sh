@@ -55,6 +55,7 @@ libcurl4-openssl-dev \
 libevent-dev \
 libffi-dev \
 libfreetype6-dev \
+libicu-dev \
 libjpeg-dev \
 libncurses5-dev \
 libpcre3-dev \

@@ -96,6 +96,7 @@ $PIP install scikit-learn
 $PIP install sendgrid
 $PIP install setproctitle
 $PIP install simplejson
+$PIP install sortedcontainers
 $PIP install stripe
 # more features being put into github...
 #$PIP install supervisor

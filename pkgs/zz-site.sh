@@ -12,3 +12,13 @@ psycopg2cffi \
 pymongo \
 requests \
 rollbar
+
+git clone https://github.com/metabrainz/postgresql-musicbrainz-collate.git
+cd postgresql-musicbrainz-collate
+make install PG_CONFIG=$VENV/bin/pg_config
+cd ..
+
+git clone https://github.com/metabrainz/postgresql-musicbrainz-unaccent.git
+cd postgresql-musicbrainz-unaccent
+make install PG_CONFIG=$VENV/bin/pg_config
+cd ..

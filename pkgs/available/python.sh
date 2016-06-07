@@ -96,6 +96,7 @@ $PIP install scikit-learn
 $PIP install sendgrid
 $PIP install setproctitle
 $PIP install simplejson
+$PIP install slacker
 $PIP install sortedcontainers
 $PIP install stripe
 # more features being put into github...
@@ -105,6 +106,7 @@ $PIP install supervisor-wildcards
 $PIP install unidecode
 $PIP install virtualenv
 $PIP install webassets
+$PIP install websocket-client
 $PIP install webtest
 $PIP install werkzeug
 

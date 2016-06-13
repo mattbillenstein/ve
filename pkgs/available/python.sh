@@ -86,6 +86,7 @@ $PIP install PyPDF2
 $PIP install pytz
 $PIP install redis
 $PIP install requests
+$PIP install requests_oauthlib
 $PIP install rollbar
 $PIP install salt
 $PIP install saws

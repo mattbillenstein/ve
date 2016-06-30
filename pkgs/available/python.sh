@@ -48,6 +48,7 @@ $PIP install docutils
 $PIP install fabric
 $PIP install flask
 $PIP install flask-assets
+$PIP install flask-login
 $PIP install Flask-Mako
 $PIP install geoip2
 $PIP install gevent

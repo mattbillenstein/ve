@@ -9,11 +9,11 @@ fi
 
 source /sw/bin/init.sh
 
-sudo fink -y selfupdate
-sudo fink -y update
-sudo fink -y update-all
+sudo fink -y -l selfupdate
+sudo fink -y -l update
+sudo fink -y -l update-all
 
-sudo fink -y -b install \
+sudo fink -y -b -l install \
 ant \
 autoconf2.6 \
 automake1.15-core \

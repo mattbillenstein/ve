@@ -37,6 +37,7 @@ swig \
 tmux \
 usbmuxd \
 vim \
+emacs24 \
 wget \
 xz \
 \

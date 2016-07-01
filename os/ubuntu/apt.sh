@@ -45,6 +45,7 @@ swig \
 tmux \
 unzip \
 vim \
+emacs \
 wamerican \
 wget \
 xzdec \

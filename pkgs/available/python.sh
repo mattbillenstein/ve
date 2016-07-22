@@ -68,6 +68,7 @@ $PIP install hiredis
 $PIP install html5lib
 $PIP install ipdb
 $PIP install ipython
+$PIP install isort
 $PIP install linode-python
 $PIP install lockfile
 $PIP install mock

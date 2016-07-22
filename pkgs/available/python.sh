@@ -77,6 +77,7 @@ $PIP install nose-parallel
 $PIP install oauth2
 $PIP install objgraph
 $PIP install pillow
+$PIP install pre-commit
 $PIP install psutil
 $PIP install psycopg2
 $PIP install PyJWT

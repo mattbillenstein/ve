@@ -5,7 +5,7 @@ getpkg http://www.cpan.org/src/5.0/perl-${PERL_VERSION}.tar.gz
 tar -xzf perl-${PERL_VERSION}.tar.gz
 cd perl-${PERL_VERSION}
 
-./Configure -des -Dprefix=$VENV
+./Configure -des -Dprefix=$VENV -Duseshrplib=true
 
 $PMAKE
 #make test

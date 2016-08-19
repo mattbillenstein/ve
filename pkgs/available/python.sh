@@ -106,6 +106,7 @@ $PIP install sortedcontainers
 $PIP install stripe
 # more features being put into github...
 #$PIP install supervisor
+$PIP install sqlalchemy
 $PIP install git+https://github.com/Supervisor/supervisor.git
 $PIP install supervisor-wildcards
 $PIP install unidecode

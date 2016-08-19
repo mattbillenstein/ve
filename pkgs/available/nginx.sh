@@ -17,6 +17,9 @@ git checkout 10782eaff5
 cd $BUILD_DIR
 
 git clone https://github.com/zebrafishlabs/nginx-statsd.git
+cd nginx-statsd
+git checkout b756a12abf  # fixes for 1.9.11+ after this break 1.8.1
+cd $BUILD_DIR
 
 getpkg http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
 tar zxf nginx-${NGINX_VERSION}.tar.gz

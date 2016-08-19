@@ -1,4 +1,4 @@
-MARIADB_VERSION="10.1.11"
+MARIADB_VERSION="10.1.13"
 getpkg https://downloads.mariadb.org/interstitial/mariadb-${MARIADB_VERSION}/source/mariadb-${MARIADB_VERSION}.tar.gz
 tar zxf mariadb-${MARIADB_VERSION}.tar.gz
 cd mariadb-${MARIADB_VERSION}

@@ -68,6 +68,7 @@ $PIP install hiredis
 $PIP install html5lib
 $PIP install ipdb
 $PIP install ipython
+$PIP install isort
 $PIP install linode-python
 $PIP install lockfile
 $PIP install luigi
@@ -78,6 +79,7 @@ $PIP install nose-parallel
 $PIP install oauth2
 $PIP install objgraph
 $PIP install pillow
+$PIP install pre-commit
 $PIP install psutil
 $PIP install psycopg2
 $PIP install PyJWT

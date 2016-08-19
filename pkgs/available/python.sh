@@ -70,6 +70,7 @@ $PIP install ipdb
 $PIP install ipython
 $PIP install linode-python
 $PIP install lockfile
+$PIP install luigi
 $PIP install mock
 $PIP install nose
 $PIP install nose-parallel

@@ -32,6 +32,7 @@ export LUAJIT_INC="$VENV/include/luajit-2.0"
 --with-http_ssl_module \
 --with-http_stub_status_module \
 --with-http_v2_module \
+--with-http_auth_request_module \
 --http-client-body-temp-path=$RUN_DIR/nginx/client_body_temp \
 --http-proxy-temp-path=$RUN_DIR/nginx/proxy_temp \
 --http-fastcgi-temp-path=$RUN_DIR/nginx/fastcgi_temp \

@@ -24,3 +24,5 @@ make install PG_CONFIG=$VENV/bin/pg_config
 cd ..
 
 $VENV/bin/npm install -g webpack
+
+$VENV/bin/pip install 'airflow[s3, postgres, slack, crypto, celery, async]'

@@ -19,6 +19,7 @@ deactivate () {
     fi
 
     unset GOROOT
+    unset AIRFLOW_HOME
 
     # This should detect bash and zsh, which have a hash command that must
     # be called to get it to forget past commands.  Without forgetting
@@ -66,6 +67,8 @@ if [ -e "\$VIRTUAL_ENV/mysql" ]; then
 PATH="\$PATH:\$VIRTUAL_ENV/mysql/bin"
 fi
 export PATH
+
+export AIRFLOW_HOME="/data/airflow"
 
 _OLD_VIRTUAL_PYTHONPATH="\$PYTHONPATH"
 

@@ -25,6 +25,7 @@ cd ..
 
 $VENV/bin/npm install -g webpack
 $VENV/bin/npm install -g casperjs
-$VENV/bin/npm install -g slimerjs
+$VENV/bin/npm install -g babel-cli
+$VENV/bin/npm install -g babel-preset-es2015
 
 $VENV/bin/pip install 'airflow[s3, postgres, slack, crypto, celery, async]'

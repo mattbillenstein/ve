@@ -20,6 +20,7 @@ deactivate () {
 
     unset GOROOT
     unset AIRFLOW_HOME
+    unset NODE_PATH
 
     # This should detect bash and zsh, which have a hash command that must
     # be called to get it to forget past commands.  Without forgetting

@@ -69,6 +69,7 @@ fi
 export PATH
 
 export AIRFLOW_HOME="/data/airflow"
+export NODE_PATH="/tve/lib/node_modules"
 
 _OLD_VIRTUAL_PYTHONPATH="\$PYTHONPATH"
 

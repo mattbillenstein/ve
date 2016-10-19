@@ -143,3 +143,7 @@ fi
 # azure tooling
 npm install -g azure-cli
 $VENV/bin/pip install --pre azure
+
+# yarn
+npm install -g yarn
+

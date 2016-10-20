@@ -46,6 +46,7 @@ $PIP install dill
 $PIP install dnspython
 $PIP install docutils
 $PIP install fabric
+$PIP install flake8
 $PIP install flask
 $PIP install flask-assets
 $PIP install flask-login

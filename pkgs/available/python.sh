@@ -104,6 +104,7 @@ $PIP install setproctitle
 $PIP install simplejson
 $PIP install slacker
 $PIP install sortedcontainers
+$PIP install soundcloud
 $PIP install stripe
 # more features being put into github...
 #$PIP install supervisor

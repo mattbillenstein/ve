@@ -50,6 +50,7 @@ $PIP install flake8
 $PIP install flask
 $PIP install flask-assets
 $PIP install flask-login
+$PIP install Flask-Ask
 $PIP install Flask-Mako
 $PIP install geoip2
 $PIP install gevent
@@ -72,6 +73,7 @@ $PIP install ipython
 $PIP install isort
 $PIP install linode-python
 $PIP install lockfile
+$PIP install lptrace
 $PIP install luigi
 $PIP install mock
 $PIP install nose

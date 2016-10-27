@@ -1,17 +1,4 @@
-# This is the last package built -- add your dependencies here,
-# python/ruby/node pkgs, etc.
-
-# hack to remove annoying warning in distutils
-sed -i -e 's/warnings.warn(/tuple(/g' $VENV/lib/python2.7/distutils/__init__.py
-
-$VENV/pypy/bin/pip install \
-boto \
-boto3 \
-google-api-python-client \
-psycopg2cffi \
-pymongo \
-requests \
-rollbar
+# This is the last package built -- add your dependencies here
 
 git clone https://github.com/metabrainz/postgresql-musicbrainz-collate.git
 cd postgresql-musicbrainz-collate
@@ -27,5 +14,3 @@ $VENV/bin/npm install -g webpack
 $VENV/bin/npm install -g casperjs
 $VENV/bin/npm install -g babel-cli
 $VENV/bin/npm install -g babel-preset-es2015
-
-$VENV/bin/pip install 'airflow[s3, postgres, slack, crypto, celery, async]'

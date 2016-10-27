@@ -58,7 +58,7 @@ fi
 # Clean things up a bit
 cd $VENV
 mv sbin/* bin/ || true
-rm -fR conf data doc etc html logs man sbin $BUILD_DIR mysql/mysql-test mysql/sql-bench mysql/data bin/*.pyc
+rm -fR conf data doc etc html logs man sbin $BUILD_DIR mysql/mysql-test mysql/sql-bench mysql/data bin/*.pyc bin/*.bat
 find $VENV/lib -name '*.a' -delete
 
 # make all dirs 755
@@ -75,7 +75,8 @@ fi
 
 echo "System Link Report:"
 if [ "$MOS" == "OSX" ]; then
-otool -L $VENV/bin/* 2>&1 | egrep -v ':$' | sort | uniq -c | sort -k1n | grep -v "$VENV"
+/usr/bin/file /tve/bin/* | grep -v 'text executable' | grep executable | awk -F : '{print $1}' | xargs \
+otool -L 2>&1 | egrep -v ':$' | sort | uniq -c | sort -k1n | grep -v "$VENV"
 else
 ldd $VENV/bin/* | grep '=>' | awk '{print $1, $2, $3}' | grep -v vdso.so.1 | sort | uniq -c | sort -k1n | grep -v "$VENV"
 fi

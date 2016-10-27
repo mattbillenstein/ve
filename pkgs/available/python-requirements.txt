@@ -20,21 +20,20 @@ docutils
 fabric
 flake8
 flask
+Flask-Ask
 flask-assets
 flask-login
-Flask-Ask
 Flask-Mako
 geoip2
 gevent
 gevent-socketio
-gunicorn
--e git+https://github.com/mattbillenstein/flask-classful.git@develop#egg=flask-classful
 gitpython
 google-api-python-client
 greenlet
 grequests
 gstatsd
 gsutil
+gunicorn
 hiredis
 html5lib
 ipdb
@@ -67,17 +66,16 @@ requests_oauthlib
 rollbar
 salt
 saws
-scipy
 scikit-learn
+scipy
 sendgrid
 setproctitle
 simplejson
 slacker
 sortedcontainers
 soundcloud
-stripe
-supervisor
 sqlalchemy
+stripe
 supervisor
 supervisor-wildcards
 unidecode
@@ -86,3 +84,4 @@ webassets
 websocket-client
 webtest
 werkzeug
+-e git+https://github.com/mattbillenstein/flask-classful.git@develop#egg=flask-classful

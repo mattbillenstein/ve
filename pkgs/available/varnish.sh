@@ -1,4 +1,4 @@
-VARNISH_VERSION="4.0.3"
+VARNISH_VERSION="4.1.3"
 
 (
 source $VENV/bin/activate

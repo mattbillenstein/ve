@@ -53,7 +53,7 @@ Flask-Admin==1.4.0
 Flask-Ask==0.7.8
 Flask-Assets==0.11
 Flask-Cache==0.13.1
--e git+https://github.com/mattbillenstein/flask-classful.git@6ba28d3710390b06fbfe3dc12224729a8eef6d87#egg=flask-classful
+git+https://github.com/mattbillenstein/flask-classful.git@6ba28d3710390b06fbfe3dc12224729a8eef6d87#egg=flask-classful
 Flask-Login==0.3.2
 Flask-Mako==0.4
 Flask-WTF==0.12
@@ -75,7 +75,7 @@ google-api-python-client==1.5.1
 google-apitools==0.5.2
 greenlet==0.4.9
 grequests==0.3.0
--e git+https://github.com/mattbillenstein/gstatsd@c20984e2f207cea65f134722503f02a614d2205c#egg=gstatsd
+gstatsd==0.6
 gsutil==4.19
 gunicorn==19.3.0
 hiredis==0.2.0

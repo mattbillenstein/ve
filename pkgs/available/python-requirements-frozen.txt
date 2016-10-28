@@ -53,7 +53,7 @@ Flask-Admin==1.4.0
 Flask-Ask==0.7.8
 Flask-Assets==0.11
 Flask-Cache==0.13.1
--e git+https://github.com/mattbillenstein/flask-classful.git@6ba28d3710390b06fbfe3dc12224729a8eef6d87#egg=Flask_Classful
+-e git+https://github.com/mattbillenstein/flask-classful.git@6ba28d3710390b06fbfe3dc12224729a8eef6d87#egg=flask_classful
 Flask-Login==0.3.2
 Flask-Mako==0.4
 Flask-WTF==0.12

@@ -84,4 +84,4 @@ webassets
 websocket-client
 webtest
 werkzeug
--e git+https://github.com/mattbillenstein/flask-classful.git@develop#egg=flask-classful
+-e git+https://github.com/mattbillenstein/flask-classful.git@develop#egg=flask_classful

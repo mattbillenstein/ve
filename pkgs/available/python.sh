@@ -27,6 +27,9 @@ $VENV/bin/pip install -r ${SCRIPTPATH}/pkgs/python-requirements-frozen.txt --src
 # hack to fix a bug in salt
 sed -i -e 's/def chhome(name, home):/def chhome(name, home, persist=False):/' $VENV/lib/python2.7/site-packages/salt/modules/mac_user.py
 
+# init virtualenv hook in distutils
+$VENV/bin/virtualenv $BUILD_DIR/foo
+
 # hack to remove annoying warning in distutils
 sed -i -e 's/warnings.warn(/tuple(/g' $VENV/lib/python2.7/distutils/__init__.py
 

@@ -2,8 +2,6 @@
 # subshell it real good -- install graphite in its own virtualenv, it requires
 # some specific versions of some packages that might be considered old...
 
-GRAPHITE_VERSION="GITHUB_HEAD"
-
 (
 $VENV/bin/virtualenv $VENV/graphite
 source $VENV/graphite/bin/activate
@@ -11,7 +9,7 @@ source $VENV/graphite/bin/activate
 # hmm, why is this hack needed for twisted??
 export CFLAGS="-I$VENV/graphite/include/python2.7"
 
-$VENV/graphite/bin/pip install git+https://github.com/benoitc/gunicorn.git
+$VENV/graphite/bin/pip install gunicorn
 $VENV/graphite/bin/pip install 'twisted<=12.0'
 $VENV/graphite/bin/pip install 'django<1.7'
 

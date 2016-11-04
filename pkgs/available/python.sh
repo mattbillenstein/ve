@@ -10,13 +10,6 @@ fi
 $PMAKE
 make install
 
-# hack - fake we're in a virtualenv - pkgs seem to test sys.real_prefix to
-# detect this.
-cat > $VENV/lib/python2.7/sitecustomize.py <<EOF
-import sys
-sys.real_prefix = 'hackforvirtualenv'
-EOF
-
 cd $BUILD_DIR
 
 getpkg https://bootstrap.pypa.io/get-pip.py
@@ -26,11 +19,5 @@ $VENV/bin/pip install -r ${SCRIPTPATH}/pkgs/python-requirements-frozen.txt --src
 
 # hack to fix a bug in salt
 sed -i -e 's/def chhome(name, home):/def chhome(name, home, persist=False):/' $VENV/lib/python2.7/site-packages/salt/modules/mac_user.py
-
-# init virtualenv hook in distutils
-$VENV/bin/virtualenv $BUILD_DIR/foo
-
-# hack to remove annoying warning in distutils
-sed -i -e 's/warnings.warn(/tuple(/g' $VENV/lib/python2.7/distutils/__init__.py
 
 $VENV/bin/python -m compileall -q -f $VENV || true

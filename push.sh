@@ -10,4 +10,4 @@ source $SCRIPTPATH/config.sh
 rm -fR $VENV/src
 cp -a $SCRIPTPATH $VENV/src
 
-rsync -av --delete --exclude '*.swp' --bwlimit=1500 $* $VENV/ $RSYNC_USER@$RSYNC_HOST:$RSYNC_PATH/$OS
+rsync -av --delete --delete-excluded --exclude '*.swp' --bwlimit=1500 $* $VENV/ $RSYNC_USER@$RSYNC_HOST:$RSYNC_PATH/$OS

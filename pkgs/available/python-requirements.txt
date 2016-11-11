@@ -78,6 +78,7 @@ sqlalchemy
 stripe
 supervisor
 supervisor-wildcards
+twilio
 unidecode
 virtualenv
 webassets

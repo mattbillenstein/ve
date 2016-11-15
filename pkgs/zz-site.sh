@@ -12,6 +12,7 @@ fi
 
 getpkg http://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/3.2.1/flyway-commandline-3.2.1.tar.gz
 tar zxf flyway-commandline-3.2.1.tar.gz
+rm -rf $VENV/flyway
 mv flyway-3.2.1 $VENV/flyway
 chmod 755 $VENV/flyway/flyway
 
@@ -73,7 +74,7 @@ cd $BUILD_DIR
 mkdir klassmaster
 cd klassmaster
 RSYNC_PASSWORD="fdc30617-6818-47fb-bb81-245c73777dda" \
-rsync -av --progress ve@netops.apptimize.co::ve/KlassMaster.zip .
+rsync -av --progress $RSYNC_USER@$RSYNC_HOST:$RSYNC_PATH/KlassMaster.zip .
 unzip KlassMaster.zip
 rm KlassMaster.zip
 cd $BUILD_DIR
@@ -110,40 +111,9 @@ cd $BUILD_DIR
 # pypy pkgs
 $VENV/pypy/bin/pip install protobuf pynsq google-api-python-client
 
-# test automation tooling
-if [ "$MOS" == "OSX" ]; then
-getpkg http://chromedriver.storage.googleapis.com/2.21/chromedriver_mac32.zip
-unzip chromedriver_mac32.zip
-mv chromedriver $VENV/bin/
-else
-getpkg http://chromedriver.storage.googleapis.com/2.21/chromedriver_linux64.zip
-unzip chromedriver_linux64.zip
-mv chromedriver $VENV/bin/
-fi
-$VENV/bin/npm install -g appium  # this does not install cleanly on arch...
-$VENV/bin/pip install Appium-Python-Client
-$VENV/bin/pip install enum34
-$VENV/bin/pip install py
-$VENV/bin/pip install pytest
-$VENV/bin/pip install selenium
-
-if [ "$MOS" == "OSX" ]; then
-cd $BUILD_DIR
-# idevice installer
-for PKG in libplist libusbmuxd libimobiledevice ideviceinstaller; do
-rm -fR $PKG
-git clone https://github.com/libimobiledevice/$PKG.git
-cd $PKG
-./autogen.sh --prefix=$VENV
-$PMAKE install
-cd ..
-done
-fi
-
 # azure tooling
 npm install -g azure-cli
 $VENV/bin/pip install --pre azure
 
 # yarn
 npm install -g yarn
-

@@ -22,6 +22,7 @@ flake8
 flask
 Flask-Ask
 flask-assets
+flask-cors
 flask-login
 Flask-Mako
 geoip2

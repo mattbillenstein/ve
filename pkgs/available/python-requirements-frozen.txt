@@ -155,6 +155,7 @@ requests==2.11.1
 requests-oauthlib==0.6.1
 retry-decorator==1.0.0
 rollbar==0.13.3
+rq==0.6.0
 rsa==3.3
 s3transfer==0.0.1
 salt==2016.3.3

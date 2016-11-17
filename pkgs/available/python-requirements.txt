@@ -65,6 +65,7 @@ redis
 requests
 requests_oauthlib
 rollbar
+rq
 salt
 saws
 scikit-learn

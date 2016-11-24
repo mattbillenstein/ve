@@ -41,3 +41,9 @@ cd openresty-${OPENRESTY_VERSION}
 
 $PMAKE
 make install
+
+PATH=$VENV/openresty/bin:$PATH
+
+$VENV/openresty/bin/opm get pintsized/lua-resty-http
+$VENV/openresty/bin/opm get bungle/lua-resty-session
+$VENV/openresty/bin/opm get pronan/lua-resty-datetime

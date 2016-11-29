@@ -151,10 +151,10 @@ pytz==2016.4
 PyYAML==3.12
 pyzmq==15.4.0
 redis==2.10.5
-requests==2.11.1
+requests==2.12.1
 requests-oauthlib==0.6.1
 retry-decorator==1.0.0
-rollbar==0.13.3
+rollbar==0.13.8
 rq==0.6.0
 rsa==3.3
 s3transfer==0.0.1

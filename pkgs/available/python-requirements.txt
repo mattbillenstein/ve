@@ -51,6 +51,7 @@ numpy
 oauth2
 objgraph
 pillow
+phonenumbers
 pre-commit
 psutil
 psycopg2

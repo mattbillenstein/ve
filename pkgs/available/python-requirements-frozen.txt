@@ -122,6 +122,7 @@ pbr==1.10.0
 pexpect==4.1.0
 pickleshare==0.7.2
 Pillow==3.2.0
+phonenumbers==7.7.5
 pre-commit==0.8.2
 prompt-toolkit==0.52
 psutil==4.2.0

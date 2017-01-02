@@ -56,6 +56,7 @@ pre-commit
 psutil
 psycopg2
 PyJWT
+pybloom
 pylint
 pymongo
 pymysql

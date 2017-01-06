@@ -79,6 +79,7 @@ slacker
 sortedcontainers
 soundcloud
 sqlalchemy
+sqlparse
 stripe
 supervisor
 supervisor-wildcards

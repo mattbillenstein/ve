@@ -31,6 +31,7 @@ certifi==2016.8.31
 cffi==1.6.0
 chartkick==0.4.2
 click==6.6
+clinacl==0.1.0
 colorama==0.3.3
 configobj==5.0.6
 configparser==3.5.0
@@ -42,6 +43,7 @@ Cython==0.24
 decorator==4.0.9
 dill==0.2.5
 dnspython==1.13.0
+docopt==0.6.2
 docutils==0.12
 ecdsa==0.13
 enum34==1.1.6
@@ -54,7 +56,7 @@ Flask-Admin==1.4.0
 Flask-Ask==0.7.8
 Flask-Assets==0.11
 Flask-Cache==0.13.1
-flask-cors==3.0.2
+Flask-Cors==3.0.2
 Flask-Login==0.3.2
 Flask-Mako==0.4
 Flask-WTF==0.12
@@ -188,6 +190,7 @@ thrift==0.9.3
 tornado==4.2
 traitlets==4.2.1
 twilio==5.6.0
+u-msgpack-python==2.3.0
 Unidecode==0.4.19
 uritemplate==0.6
 versiontools==1.9.1

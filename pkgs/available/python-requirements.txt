@@ -87,6 +87,7 @@ stripe
 supervisor
 supervisor-wildcards
 twilio
+typing
 unidecode
 virtualenv
 webassets

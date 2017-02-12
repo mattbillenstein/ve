@@ -14,7 +14,7 @@ psycopg2cffi==2.7.4
 pyasn1==0.1.9
 pyasn1-modules==0.0.8
 pybloom==1.1
-pymongo==3.2.2
+pymongo==3.4.0
 python-dateutil==2.5.3
 readline==6.2.4.1
 requests==2.10.0

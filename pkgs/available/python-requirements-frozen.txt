@@ -62,6 +62,7 @@ Flask-Login==0.3.2
 Flask-Mako==0.4
 Flask-WTF==0.12
 flower==0.9.1
+freezegun==0.3.8
 fudge==1.1.0
 funcsigs==1.0.2
 functools32==3.2.3.post2

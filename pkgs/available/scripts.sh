@@ -21,6 +21,7 @@ deactivate () {
     unset GOROOT
     unset AIRFLOW_HOME
     unset NODE_PATH
+    unset SSL_CERT_FILE
 
     # This should detect bash and zsh, which have a hash command that must
     # be called to get it to forget past commands.  Without forgetting
@@ -71,6 +72,9 @@ export PATH
 
 export AIRFLOW_HOME="/data/airflow"
 export NODE_PATH="/tve/lib/node_modules"
+if [ "\$(uname)" == "Darwin" ]; then
+export SSL_CERT_FILE="\$VIRTUAL_ENV/lib/python2.7/site-packages/certifi/cacert.pem"
+fi
 
 _OLD_VIRTUAL_PYTHONPATH="\$PYTHONPATH"
 

@@ -1,4 +1,4 @@
-TERRAFORM_VERSION="0.8.0"
+TERRAFORM_VERSION="0.8.7"
 
 TERRAFORM_PLATFORM="linux_amd64"
 if [ "$MOS" == "OSX" ]; then

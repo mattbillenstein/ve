@@ -27,3 +27,5 @@ fi
 cd $BUILD_DIR
 getpkg https://bootstrap.pypa.io/get-pip.py
 $VENV/pypy/bin/pypy ./get-pip.py
+# upgrade pip
+$VENV/bin/pip install --upgrade pip

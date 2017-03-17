@@ -6,7 +6,7 @@ cd Python-${PYTHON_VERSION}
 if [ "$MOS" == "OSX" ]; then
 LIBS="-lgdbm_compat -lreadline"
 fi
-./configure --prefix=$VENV --enable-shared --with-system-expat
+./configure --prefix=$VENV --enable-shared --with-system-expat --enable-unicode=ucs4
 $PMAKE
 make install
 

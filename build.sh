@@ -12,19 +12,17 @@ source $SCRIPTPATH/deps.sh
 if [ "$1" == "--clean" ]; then
 shift
 sudo rm -fR $VENV
+elif [ "$1" == "--realclean" ]; then
+shift
+sudo rm -fR $VENV $PKG_CACHE /data
 else
 echo 'Doing an incremental build, are you sure?  (Ctrl-C to abort)'
 read foo
 fi
 
-if [ "$1" == "--realclean" ]; then
-shift
-sudo rm -fR $PKG_CACHE /data
-fi
-
 sudo rm -fR $VENV/src $BUILD_DIR
 sudo mkdir -p $BUILD_DIR $VENV/lib $VENV/include $LOG_DIR $RUN_DIR
-sudo chown -R $USER:$GROUP $VENV $BUILD_DIR # $LOG_DIR $RUN_DIR
+sudo chown -R $USER:$GROUP $VENV $BUILD_DIR $LOG_DIR $RUN_DIR
 
 # make everything world readable
 sudo chmod -R a+r $VENV

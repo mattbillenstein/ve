@@ -70,7 +70,7 @@ future==0.15.2
 futures==3.0.5
 gcs-oauth2-boto-plugin==1.12
 geoip2==2.3.0
-gevent==1.1.1
+gevent==1.2.1
 gevent-socketio==0.3.6
 gevent-websocket==0.9.5
 gitdb==0.6.4
@@ -168,7 +168,7 @@ rsa==3.3
 s3transfer==0.0.1
 salt==2016.3.3
 saws==0.4.0
-scikit-learn==0.17.1
+scikit-learn==0.18.1
 scipy==0.17.1
 sendgrid==3.6.3
 setproctitle==1.1.10

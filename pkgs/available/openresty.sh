@@ -34,7 +34,7 @@ cd openresty-${OPENRESTY_VERSION}
 --error-log-path=$LOG_DIR/nginx/nginx-error.log \
 --pid-path=$RUN_DIR/nginx/nginx.pid \
 --lock-path=$RUN_DIR/nginx/nginx.lock \
---with-cc-opt="$CFLAGS" \
+--with-cc-opt="$CPPFLAGS" \
 --with-ld-opt="$LDFLAGS -Wl,-rpath,$VENV/lib" \
 --add-module=$BUILD_DIR/nginx_upstream_check_module \
 --add-module=$BUILD_DIR/nginx-statsd

@@ -23,6 +23,7 @@ $VENV/bin/pip install $PIP_OPTS -r ${SCRIPTPATH}/pkgs/python-requirements-frozen
 # invoking a fortran compiler in 2017 is a good idea??
 $VENV/bin/pip install $PIP_OPTS 'numpy==1.12.0'
 
+if [ "$MOS" == "OSX" ]; then
 getpkg https://github.com/scipy/scipy/releases/download/v0.17.1/scipy-0.17.1.tar.gz
 tar zxvf scipy-0.17.1.tar.gz
 cd scipy-0.17.1
@@ -31,10 +32,13 @@ FFLAGS="-m32 -m64" \
 LDFLAGS="-Wall -undefined dynamic_lookup -bundle -arch i386 -arch x86_64" \
 $VENV/bin/python setup.py install --prefix=$VENV
 cd $BUILD_DIR
+else
+$VENV/bin/pip install $PIP_OPTS 'scipy==0.17.1'
+fi
 
 $VENV/bin/pip install $PIP_OPTS 'scikit-learn==0.17.1'
 
-$VENV/bin/python2 -c 'import sklearn'
+$VENV/bin/python2 -c 'import numpy, scipy, sklearn'
 
 # hack to fix a bug in salt
 sed -i -e 's/def chhome(name, home):/def chhome(name, home, persist=False):/' $VENV/lib/python2.7/site-packages/salt/modules/mac_user.py

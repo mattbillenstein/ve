@@ -15,6 +15,9 @@ sudo rm -fR $VENV
 elif [ "$1" == "--realclean" ]; then
 shift
 sudo rm -fR $VENV $PKG_CACHE /data
+if [ "$MOS" == "OSX" ]; then
+rm -fR ~/Library/Caches/pip
+fi
 else
 echo 'Doing an incremental build, are you sure?  (Ctrl-C to abort)'
 read foo

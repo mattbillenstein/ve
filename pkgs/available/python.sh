@@ -15,7 +15,26 @@ cd $BUILD_DIR
 getpkg https://bootstrap.pypa.io/get-pip.py
 $VENV/bin/python ./get-pip.py
 
-$VENV/bin/pip install -r ${SCRIPTPATH}/pkgs/python-requirements-frozen.txt --src $BUILD_DIR
+PIP_OPTS="--src $BUILD_DIR" # --no-clean"
+
+$VENV/bin/pip install $PIP_OPTS -r ${SCRIPTPATH}/pkgs/python-requirements-frozen.txt
+
+# numpy and friends are always problematic -- who on earth still thinks
+# invoking a fortran compiler in 2017 is a good idea??
+$VENV/bin/pip install $PIP_OPTS 'numpy==1.12.0'
+
+getpkg https://github.com/scipy/scipy/releases/download/v0.17.1/scipy-0.17.1.tar.gz
+tar zxvf scipy-0.17.1.tar.gz
+cd scipy-0.17.1
+CFLAGS="-arch i386 -arch x86_64" \
+FFLAGS="-m32 -m64" \
+LDFLAGS="-Wall -undefined dynamic_lookup -bundle -arch i386 -arch x86_64" \
+$VENV/bin/python setup.py install --prefix=$VENV
+cd $BUILD_DIR
+
+$VENV/bin/pip install $PIP_OPTS 'scikit-learn==0.17.1'
+
+$VENV/bin/python2 -c 'import sklearn'
 
 # hack to fix a bug in salt
 sed -i -e 's/def chhome(name, home):/def chhome(name, home, persist=False):/' $VENV/lib/python2.7/site-packages/salt/modules/mac_user.py

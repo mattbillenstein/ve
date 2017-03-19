@@ -54,7 +54,7 @@ cp $SSH_PUBLIC_KEY $ROOTFS/home/ubuntu/.ssh/authorized_keys
 chmod 600 $SSH_PUBLIC_KEY $ROOTFS/home/ubuntu/.ssh/authorized_keys
 
 # copy the ve source
-cp -a $(dirname $SCRIPTPATH) $ROOTFS/home/ubuntu/
+cp -a $(dirname $SCRIPTPATH) $ROOTFS/home/ubuntu/ve
 
 chown -R 1000:1000 $ROOTFS/home/ubuntu
 

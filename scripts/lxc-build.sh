@@ -4,7 +4,7 @@ set -eo pipefail
 
 # sudo apt-get install lxc
 
-if [ "$(id -u)" != "0" ]; then
+if [ "$(id -un)" != "root" ]; then
 echo "Must be root"
 exit 1
 fi
@@ -12,6 +12,8 @@ fi
 pushd $(dirname $0) > /dev/null
 SCRIPTPATH="$(pwd)"
 popd > /dev/null
+
+source $SCRIPTPATH/../config_local.sh
 
 NAME="ve-build"
 
@@ -72,5 +74,7 @@ STATUS=$?
 echo $STATUS
 
 lxc-stop -n $NAME
+mkdir -p /data$VENV
+rsync -av --delete $ROOTFS$VENV /data$VENV
 lxc-destroy -n $NAME
 rm -fR $VMDIR

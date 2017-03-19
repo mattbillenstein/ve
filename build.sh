@@ -76,7 +76,7 @@ fi
 
 echo "System Link Report:"
 if [ "$MOS" == "OSX" ]; then
-/usr/bin/file /tve/bin/* | grep -v 'text executable' | grep executable | awk -F : '{print $1}' | xargs \
+/usr/bin/file $VENV/bin/* | grep -v 'text executable' | grep executable | awk -F : '{print $1}' | xargs \
 otool -L 2>&1 | egrep -v ':$' | sort | uniq -c | sort -k1n | grep -v "$VENV"
 else
 ldd $VENV/bin/* | grep '=>' | awk '{print $1, $2, $3}' | grep -v vdso.so.1 | sort | uniq -c | sort -k1n | grep -v "$VENV"

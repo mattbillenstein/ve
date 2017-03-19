@@ -71,7 +71,7 @@ fi
 export PATH
 
 export AIRFLOW_HOME="/data/airflow"
-export NODE_PATH="/tve/lib/node_modules"
+export NODE_PATH="\$VIRTUAL_ENV/lib/node_modules"
 if [ "\$(uname)" == "Darwin" ]; then
 export SSL_CERT_FILE="\$VIRTUAL_ENV/lib/python2.7/site-packages/certifi/cacert.pem"
 fi

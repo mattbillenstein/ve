@@ -14,4 +14,4 @@ LDFLAGS="-L/sw/lib" ./configure --prefix=$VENV $OPTS
 $PMAKE
 make install
 
-/tve/bin/gem install specific_install
+$VENV/bin/gem install specific_install

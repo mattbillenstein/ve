@@ -75,6 +75,6 @@ echo $STATUS
 
 lxc-stop -n $NAME
 mkdir -p /data$VENV
-rsync -av --delete $ROOTFS$VENV /data/
+rsync -a --delete $ROOTFS$VENV /data/
 lxc-destroy -n $NAME
 rm -fR $VMDIR

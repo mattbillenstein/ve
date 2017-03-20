@@ -25,7 +25,7 @@ $VENV/bin/pip install $PIP_OPTS 'numpy==1.12.0'
 
 if [ "$MOS" == "OSX" ]; then
 getpkg https://github.com/scipy/scipy/releases/download/v0.17.1/scipy-0.17.1.tar.gz
-tar zxvf scipy-0.17.1.tar.gz
+tar zxf scipy-0.17.1.tar.gz
 cd scipy-0.17.1
 CFLAGS="-arch i386 -arch x86_64" \
 FFLAGS="-m32 -m64" \

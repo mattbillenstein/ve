@@ -13,7 +13,7 @@ git checkout 2147d61dc3
 cd $BUILD_DIR
 
 getpkg https://openresty.org/download/openresty-${OPENRESTY_VERSION}.tar.gz
-tar zxvf openresty-${OPENRESTY_VERSION}.tar.gz
+tar zxf openresty-${OPENRESTY_VERSION}.tar.gz
 
 cd openresty-${OPENRESTY_VERSION}/bundle/nginx-1.11.2
 patch -p0 < $BUILD_DIR/nginx_upstream_check_module/check_1.11.1+.patch

@@ -11,4 +11,4 @@ rm -fR $VENV/src
 git gc --aggressive
 cp -a $SCRIPTPATH $VENV/src
 
-rsync -av --delete --delete-excluded --exclude '*.swp' --bwlimit=1500 $* $VENV/ $RSYNC_USER@$RSYNC_HOST:$RSYNC_PATH/$OS
+rsync -a --delete --delete-excluded --exclude '*.swp' --bwlimit=1500 $* $VENV/ $RSYNC_USER@$RSYNC_HOST:$RSYNC_PATH/$OS

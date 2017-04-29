@@ -19,6 +19,9 @@ PIP_OPTS="--src $BUILD_DIR" # --no-clean"
 
 $VENV/bin/pip install $PIP_OPTS -r ${SCRIPTPATH}/pkgs/python-requirements-frozen.txt
 
+# patched requests urllib3
+$VENV/bin/pip install $PIP_OPTS -U 'git+https://github.com/mattbillenstein/requests@524b43154553489bf60216acb9030ce5b36f7215'
+
 # numpy and friends are always problematic -- who on earth still thinks
 # invoking a fortran compiler in 2017 is a good idea??
 $VENV/bin/pip install $PIP_OPTS 'numpy==1.12.0'

@@ -65,6 +65,7 @@ pymysql
 PyNaCl
 pynsq
 PyPDF2
+python-magic
 pytz
 redis
 requests

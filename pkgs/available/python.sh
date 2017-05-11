@@ -1,4 +1,4 @@
-PYTHON_VERSION="2.7.11"
+PYTHON_VERSION="2.7.12"
 
 getpkg http://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
 tar zxf Python-${PYTHON_VERSION}.tgz
@@ -6,112 +6,44 @@ cd Python-${PYTHON_VERSION}
 if [ "$MOS" == "OSX" ]; then
 LIBS="-lgdbm_compat -lreadline"
 fi
-./configure --prefix=$VENV --enable-shared --with-system-expat
+./configure --prefix=$VENV --enable-shared --with-system-expat --enable-unicode=ucs4
 $PMAKE
 make install
-
-# hack - fake we're in a virtualenv - pkgs seem to test sys.real_prefix to
-# detect this.
-cat > $VENV/lib/python2.7/sitecustomize.py <<EOF
-import sys
-sys.real_prefix = 'hackforvirtualenv'
-EOF
 
 cd $BUILD_DIR
 
 getpkg https://bootstrap.pypa.io/get-pip.py
 $VENV/bin/python ./get-pip.py
 
-export PIP_TRUSTED_HOST="pypi.python.org"
+PIP_OPTS="--src $BUILD_DIR" # --no-clean"
 
-PIP="$VENV/bin/pip"
+$VENV/bin/pip install $PIP_OPTS -r ${SCRIPTPATH}/pkgs/python-requirements-frozen.txt
 
-$PIP install ansible
-$PIP install arrow
-$PIP install awscli
-$PIP install babel
-$PIP install baker
-$PIP install bcrypt
-$PIP install beanstalkc
-$PIP install BeautifulSoup
-$PIP install bleach
-$PIP install blinker
-$PIP install boto
-$PIP install boto3
-$PIP install certifi
-$PIP install coverage
-$PIP install cython
-$PIP install decorator
-$PIP install dill
-$PIP install dnspython
-$PIP install docutils
-$PIP install fabric
-$PIP install flask
-$PIP install flask-assets
-$PIP install Flask-Mako
-$PIP install geoip2
-$PIP install gevent
+# patched requests urllib3
+$VENV/bin/pip install $PIP_OPTS -U 'git+https://github.com/mattbillenstein/requests@524b43154553489bf60216acb9030ce5b36f7215'
 
-$PIP install versiontools  # ssl cert validation fail when installed in gevent-socketio under OSX...
-$PIP install git+https://github.com/abourget/gevent-socketio.git
+# numpy and friends are always problematic -- who on earth still thinks
+# invoking a fortran compiler in 2017 is a good idea??
+$VENV/bin/pip install $PIP_OPTS 'numpy==1.12.0'
 
-$PIP install git+https://github.com/benoitc/gunicorn.git
-$PIP install git+https://github.com/mattbillenstein/flask-classful.git@develop
-$PIP install git+https://github.com/mattbillenstein/gstatsd
-$PIP install gitpython
-$PIP install google-api-python-client
-$PIP install greenlet
-$PIP install gsutil
-$PIP install hiredis
-$PIP install html5lib
-$PIP install ipdb
-$PIP install ipython
-$PIP install linode-python
-$PIP install lockfile
-$PIP install mock
-$PIP install nose
-$PIP install nose-parallel
-(unset CFLAGS; unset CXXFLAGS; unset LDFLAGS; $PIP install numpy)
-$PIP install oauth2
-$PIP install objgraph
-$PIP install pillow
-$PIP install psutil
-$PIP install psycopg2
-$PIP install PyJWT
-$PIP install pylint
-$PIP install pymongo
-$PIP install pymysql
-$PIP install pynsq
-$PIP install PyPDF2
-$PIP install pytz
-$PIP install redis
-$PIP install requests
-$PIP install requests_oauthlib
-$PIP install rollbar
-$PIP install salt
-$PIP install saws
-# scipy defines these - can't override them
-(unset CFLAGS; unset CXXFLAGS; unset LDFLAGS; $PIP install scipy)
-$PIP install scikit-learn
-$PIP install sendgrid
-$PIP install setproctitle
-$PIP install simplejson
-$PIP install sortedcontainers
-$PIP install stripe
-# more features being put into github...
-#$PIP install supervisor
-$PIP install git+https://github.com/Supervisor/supervisor.git
-$PIP install supervisor-wildcards
-$PIP install unidecode
-$PIP install virtualenv
-$PIP install webassets
-$PIP install webtest
-$PIP install werkzeug
+if [ "$MOS" == "OSX" ]; then
+getpkg https://github.com/scipy/scipy/releases/download/v0.17.1/scipy-0.17.1.tar.gz
+tar zxf scipy-0.17.1.tar.gz
+cd scipy-0.17.1
+CFLAGS="-arch i386 -arch x86_64" \
+FFLAGS="-m32 -m64" \
+LDFLAGS="-Wall -undefined dynamic_lookup -bundle -arch i386 -arch x86_64" \
+$VENV/bin/python setup.py install --prefix=$VENV
+cd $BUILD_DIR
+else
+$VENV/bin/pip install $PIP_OPTS 'scipy==0.17.1'
+fi
+
+$VENV/bin/pip install $PIP_OPTS 'scikit-learn==0.17.1'
+
+$VENV/bin/python2 -c 'import numpy, scipy, sklearn'
 
 # hack to fix a bug in salt
 sed -i -e 's/def chhome(name, home):/def chhome(name, home, persist=False):/' $VENV/lib/python2.7/site-packages/salt/modules/mac_user.py
-
-# hack to remove annoying warning in distutils
-sed -i -e 's/warnings.warn(/tuple(/g' $VENV/lib/python2.7/distutils/__init__.py
 
 $VENV/bin/python -m compileall -q -f $VENV || true

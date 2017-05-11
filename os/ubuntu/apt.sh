@@ -2,8 +2,12 @@
 
 export DEBIAN_FRONTEND=noninteractive
 
+unset UCF_FORCE_CONFFOLD
+export UCF_FORCE_CONFFNEW=YES
+sudo ucf --purge /boot/grub/menu.lst
+
 sudo apt-get update
-sudo apt-get -y upgrade
+sudo apt-get -y --force-yes -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
 
 sudo apt-get -y install \
 acpid \
@@ -13,10 +17,12 @@ automake \
 bison \
 build-essential \
 cmake \
+cowsay \
 curl \
 default-jre-headless \
 dnsutils \
 expect \
+fortune \
 g++ \
 gcc \
 gettext \
@@ -53,8 +59,10 @@ libcurl4-openssl-dev \
 libevent-dev \
 libffi-dev \
 libfreetype6-dev \
+libicu-dev \
 libjpeg-dev \
 libncurses5-dev \
+libpcap-dev \
 libpcre3-dev \
 libperl-dev \
 libpng12-dev \

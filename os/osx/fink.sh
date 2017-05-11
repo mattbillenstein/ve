@@ -24,6 +24,8 @@ curl \
 gcc5 \
 gettext-bin \
 git \
+libicu55-dev \
+libicu55-shlibs \
 libncurses5 \
 libncurses5-shlibs \
 libpcap1 \

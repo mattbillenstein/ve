@@ -1,0 +1,9 @@
+boto
+boto3
+enum34
+google-api-python-client
+psycopg2cffi
+pybloom
+pymongo
+requests
+rollbar

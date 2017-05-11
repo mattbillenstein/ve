@@ -61,9 +61,9 @@ popd > /dev/null
 source $SCRIPTPATH/config_local.sh
 
 export PATH="$VENV/bin:$PATH"
-export CFLAGS="-I$VENV/include -I/sw/include"
-export CPPFLAGS=$CFLAGS
-export CXXFLAGS=$CFLAGS
+export CFLAGS=""
+export CPPFLAGS="-I$VENV/include -I/sw/include"
+export CXXFLAGS="$CFLAGS"
 export LDFLAGS="-L. -L$VENV/lib -L/sw/lib"
 export LD_LIBRARY_PATH="$VENV/lib"
 export PKG_CONFIG_PATH="$VENV/lib/pkgconfig"

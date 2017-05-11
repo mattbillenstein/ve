@@ -19,6 +19,9 @@ deactivate () {
     fi
 
     unset GOROOT
+    unset AIRFLOW_HOME
+    unset NODE_PATH
+    unset SSL_CERT_FILE
 
     # This should detect bash and zsh, which have a hash command that must
     # be called to get it to forget past commands.  Without forgetting
@@ -66,6 +69,12 @@ if [ -e "\$VIRTUAL_ENV/mysql" ]; then
 PATH="\$PATH:\$VIRTUAL_ENV/mysql/bin"
 fi
 export PATH
+
+export AIRFLOW_HOME="/data/airflow"
+export NODE_PATH="\$VIRTUAL_ENV/lib/node_modules"
+if [ "\$(uname)" == "Darwin" ]; then
+export SSL_CERT_FILE="\$VIRTUAL_ENV/lib/python2.7/site-packages/certifi/cacert.pem"
+fi
 
 _OLD_VIRTUAL_PYTHONPATH="\$PYTHONPATH"
 

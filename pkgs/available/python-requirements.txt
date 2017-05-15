@@ -47,6 +47,7 @@ lockfile
 lptrace
 luigi
 mock
+neverbounce
 nose
 nose-parallel
 numpy

@@ -66,7 +66,7 @@ pymysql
 PyNaCl
 pynsq
 PyPDF2
-python-magic
+git+https://github.com/mattbillenstein/python-magic.git
 pytz
 redis
 requests

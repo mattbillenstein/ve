@@ -156,7 +156,7 @@ python-dateutil==2.5.3
 python-editor==1.0.1
 python-gflags==3.0.5
 python-http-client==2.2.1
-python-magic==0.4.13
+git+https://github.com/mattbillenstein/python-magic.git@2b924ebc666584998c2589a14a0b6066535d0b3f
 pytz==2016.4
 PyYAML==3.12
 pyzmq==15.4.0

@@ -21,6 +21,7 @@ cmake \
 coreutils \
 coreutils-default \
 curl \
+file \
 gcc5 \
 gettext-bin \
 git \
@@ -52,7 +53,7 @@ libjpeg \
 libpcap1-shlibs \
 libpcre1 \
 libpng16 \
-libwebp5 \
+libwebp5-shlibs \
 libxml2 \
 openssl100-dev \
 openssl100-shlibs \

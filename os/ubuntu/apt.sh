@@ -61,6 +61,7 @@ libffi-dev \
 libfreetype6-dev \
 libicu-dev \
 libjpeg-dev \
+libmagic1 \
 libncurses5-dev \
 libpcap-dev \
 libpcre3-dev \

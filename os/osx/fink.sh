@@ -42,6 +42,7 @@ xz \
 \
 bzip2-dev \
 cairo \
+file-shlibs \
 freetype \
 gdbm4 \
 gdbm4-shlibs \

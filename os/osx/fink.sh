@@ -17,6 +17,7 @@ sudo fink -y -b install \
 autoconf2.6 \
 automake1.15-core \
 bison \
+ca-bundle \
 cmake \
 coreutils \
 coreutils-default \
@@ -61,3 +62,8 @@ pixman \
 readline6 \
 sqlite3-dev \
 uuid
+
+if [ ! -e /etc/ssl/certs/ca-certificates.crt ]; then
+sudo mkdir -p /etc/ssl/certs
+sudo ln -s /sw/etc/ssl/certs/ca-bundle.crt /etc/ssl/certs/ca-certificates.crt
+fi

@@ -60,7 +60,7 @@ libevent-dev \
 libffi-dev \
 libfreetype6-dev \
 libicu-dev \
-libjpeg-dev \
+libjpeg9-dev \
 libmagic1 \
 libncurses5-dev \
 libpcap-dev \

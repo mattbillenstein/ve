@@ -49,7 +49,7 @@ gdbm4 \
 gdbm4-shlibs \
 libevent2 \
 libffi6 \
-libjpeg \
+libjpeg-shlibs \
 libpcap1-shlibs \
 libpcre1 \
 libpng16 \

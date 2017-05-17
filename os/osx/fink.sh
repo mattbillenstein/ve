@@ -35,6 +35,7 @@ libtool2 \
 make \
 openssl \
 pdftk \
+pkgconfig \
 rsync \
 swig \
 tmux \

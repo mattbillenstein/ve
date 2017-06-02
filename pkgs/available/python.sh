@@ -45,5 +45,7 @@ $VENV/bin/python2 -c 'import numpy, scipy, sklearn'
 
 # hack to fix a bug in salt
 sed -i -e 's/def chhome(name, home):/def chhome(name, home, persist=False):/' $VENV/lib/python2.7/site-packages/salt/modules/mac_user.py
+# hack dyld path on osx
+sed -i -e 's:/usr/local/lib:/sw/lib:g' $VENV/lib/python2.7/ctypes/macholib/dyld.py
 
 $VENV/bin/python -m compileall -q -f $VENV || true

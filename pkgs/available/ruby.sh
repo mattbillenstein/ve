@@ -6,10 +6,10 @@ cd ruby-${RUBY_VERSION}
 
 OPTS="--disable-install-doc --enable-shared --enable-static"
 if [ "$MOS" == "OSX" ]; then
-OPTS="$OPTS --without-gmp --with-openssl-dir=/sw/include/openssl"
+OPTS="$OPTS --without-gmp --with-openssl-dir=/usr/local/opt/openssl"
 fi
 
-LDFLAGS="-L/sw/lib" ./configure --prefix=$VENV $OPTS
+./configure --prefix=$VENV $OPTS
 
 $PMAKE
 make install

@@ -58,6 +58,7 @@ fi
 
 # Clean things up a bit
 cd $VENV
+mkdir -p bin
 mv sbin/* bin/ || true
 rm -fR conf data doc etc html logs man sbin var $BUILD_DIR mysql/mysql-test mysql/sql-bench mysql/data bin/*.pyc bin/*.bat
 find $VENV/lib -name '*.a' -delete

@@ -10,7 +10,7 @@ source $SCRIPTPATH/config.sh
 
 if [ "$MOS" == "OSX" ]; then
 
-source $SCRIPTPATH/os/osx/fink.sh
+source $SCRIPTPATH/os/osx/brew.sh
 
 elif [ "$MOS" == "Ubuntu" ]; then
 

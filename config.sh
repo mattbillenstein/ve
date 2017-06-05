@@ -62,13 +62,18 @@ source $SCRIPTPATH/config_local.sh
 
 export PATH="$VENV/bin:$PATH"
 export CFLAGS=""
-export CPPFLAGS="-I$VENV/include -I/sw/include"
+export CPPFLAGS="-I$VENV/include"
 export CXXFLAGS="$CFLAGS"
-export LDFLAGS="-L. -L$VENV/lib -L/sw/lib"
+export LDFLAGS="-L. -L$VENV/lib"
 export LD_LIBRARY_PATH="$VENV/lib"
 export PKG_CONFIG_PATH="$VENV/lib/pkgconfig"
 
 # clang doesn't like arguments it doesn't use
 if [ "$MOS" == "OSX" ]; then
 export CFLAGS="-Qunused-arguments $CFLAGS"
+
+# keg only...
+export LDFLAGS="$LDFLAGS -L/usr/local/opt/openssl/lib -L/usr/local/opt/readline/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include -I/usr/local/opt/readline/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 fi

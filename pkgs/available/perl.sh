@@ -1,5 +1,7 @@
 PERL_VERSION="5.18.2"
 
+rm -fR ~/.cpan
+
 getpkg http://www.cpan.org/src/5.0/perl-${PERL_VERSION}.tar.gz
 
 tar -xzf perl-${PERL_VERSION}.tar.gz

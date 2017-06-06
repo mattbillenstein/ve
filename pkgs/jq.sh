@@ -1,1 +1,0 @@
-available/jq.sh

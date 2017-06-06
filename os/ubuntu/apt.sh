@@ -28,6 +28,7 @@ gcc \
 gettext \
 gfortran \
 git-core \
+jq \
 libtool \
 lsof \
 make \

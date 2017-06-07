@@ -5,10 +5,18 @@ echo 'Installing homebrew...'
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-brew update
-brew upgrade
+BREW="$(which brew)"
 
-brew install \
+# make sure we run as the user that installed brew
+BREW_USER="$(ls -ld $BREW | awk '{print $3}')"
+if [ "$BREW_USER" != "$USER" ]; then
+BREW="sudo -i -u $BREW_USER $BREW"
+fi
+
+$BREW update
+$BREW upgrade
+
+$BREW install \
 autoconf \
 automake \
 bison \

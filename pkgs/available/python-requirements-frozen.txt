@@ -74,7 +74,7 @@ gevent==1.2.1
 gevent-socketio==0.3.6
 gevent-websocket==0.9.5
 gitdb==0.6.4
-git+https://github.com/mattbillenstein/flask-classful.git@d526534c9f666d9b80726d0fb8db03aadf190f1c#egg=flask-classful
+git+https://github.com/mattbillenstein/flask-classful.git@04a23ce4e1b1550547745edbab972496aa7d375f#egg=flask-classful
 GitPython==2.0.2
 gnureadline==6.3.3
 google-api-python-client==1.5.1

@@ -29,7 +29,7 @@ Flask-Mako
 geoip2
 gevent
 gevent-socketio
-git+https://github.com/mattbillenstein/flask-classful.git@develop#egg=flask-classful
+git+https://github.com/teracyhq/flask-classful.git@develop#egg=flask-classful
 gitpython
 google-api-python-client
 greenlet

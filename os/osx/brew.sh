@@ -24,10 +24,12 @@ bzip2 \
 cairo \
 cmake \
 coreutils \
+cowsay \
 curl \
 expat \
 file-formula \
 findutils \
+fortune \
 freetype \
 gcc \
 gdbm \

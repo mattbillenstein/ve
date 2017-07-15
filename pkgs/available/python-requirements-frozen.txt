@@ -68,6 +68,7 @@ funcsigs==1.0.2
 functools32==3.2.3.post2
 future==0.15.2
 futures==3.0.5
+fuzzywuzzy==0.15.0
 gcs-oauth2-boto-plugin==1.12
 geoip2==2.3.0
 gevent==1.2.1

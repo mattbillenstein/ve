@@ -27,6 +27,7 @@ flask-assets
 flask-cors
 flask-login
 Flask-Mako
+Flask-Sockets
 fuzzywuzzy
 geoip2
 gevent

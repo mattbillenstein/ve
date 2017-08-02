@@ -12,14 +12,15 @@ source $SCRIPTPATH/deps.sh
 if [ "$1" == "--clean" ]; then
 shift
 sudo rm -fR $VENV
+elif [ "$1" == "--realclean" ]; then
+shift
+sudo rm -fR $VENV $PKG_CACHE /data
+if [ "$MOS" == "OSX" ]; then
+rm -fR ~/Library/Caches/pip
+fi
 else
 echo 'Doing an incremental build, are you sure?  (Ctrl-C to abort)'
 read foo
-fi
-
-if [ "$1" == "--realclean" ]; then
-shift
-sudo rm -fR $PKG_CACHE /data
 fi
 
 sudo rm -fR $VENV/src $BUILD_DIR
@@ -57,8 +58,9 @@ fi
 
 # Clean things up a bit
 cd $VENV
+mkdir -p bin
 mv sbin/* bin/ || true
-rm -fR conf data doc etc html logs man sbin $BUILD_DIR mysql/mysql-test mysql/sql-bench mysql/data bin/*.pyc
+rm -fR conf data doc etc html logs man sbin var $BUILD_DIR mysql/mysql-test mysql/sql-bench mysql/data bin/*.pyc bin/*.bat
 find $VENV/lib -name '*.a' -delete
 
 # make all dirs 755
@@ -75,7 +77,8 @@ fi
 
 echo "System Link Report:"
 if [ "$MOS" == "OSX" ]; then
-otool -L $VENV/bin/* 2>&1 | egrep -v ':$' | sort | uniq -c | sort -k1n | grep -v "$VENV"
+/usr/bin/file $VENV/bin/* | grep -v 'text executable' | grep executable | awk -F : '{print $1}' | xargs \
+otool -L 2>&1 | egrep -v ':$' | sort | uniq -c | sort -k1n | grep -v "$VENV"
 else
 ldd $VENV/bin/* | grep '=>' | awk '{print $1, $2, $3}' | grep -v vdso.so.1 | sort | uniq -c | sort -k1n | grep -v "$VENV"
 fi

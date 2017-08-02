@@ -1,5 +1,7 @@
-PYPY_VERSION="v5.3.0"
+PYPY_VERSION="v5.4.1"
 PYPY_ARCH="linux64"
+
+rm -fR $VENV/pypy
 
 if [ "$MOS" == "OSX" ]; then
 PYPY_ARCH="osx64"
@@ -27,3 +29,5 @@ fi
 cd $BUILD_DIR
 getpkg https://bootstrap.pypa.io/get-pip.py
 $VENV/pypy/bin/pypy ./get-pip.py
+
+$VENV/pypy/bin/pip install -r ${SCRIPTPATH}/pkgs/pypy-requirements-frozen.txt --src $BUILD_DIR

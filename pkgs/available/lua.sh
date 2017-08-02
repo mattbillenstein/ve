@@ -16,9 +16,9 @@ make CFLAGS="$CFLAGS -I $VENV/include/luajit-2.0" LDFLAGS="$LDFLAGS -lluajit-5.1
 cd $WD
 
 rm -fR zlib-*
-getpkg http://zlib.net/zlib-1.2.8.tar.gz
-tar zxf zlib-1.2.8.tar.gz
-cd zlib-1.2.8
+getpkg http://zlib.net/zlib-1.2.11.tar.gz
+tar zxf zlib-1.2.11.tar.gz
+cd zlib-1.2.11
 ./configure --prefix=$VENV
 make install
 cd $WD

@@ -1,5 +1,17 @@
 The ve toolkit
 
+tldr:
+
+$ cp config_local.sh.example config_local.sh   # edit this
+$ ./build.sh
+
+# optionally:
+$ ./push.sh
+
+# on another host:
+$ ./pull.sh
+
+
 Who:
 
 I'm Matt Billenstein -- I work mostly on backend systems supporting medium size

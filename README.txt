@@ -11,6 +11,9 @@ $ ./push.sh
 # on another host:
 $ ./pull.sh
 
+# to use:
+$ source /ve/bin/activate   # update $PATH, etc
+
 
 Who:
 

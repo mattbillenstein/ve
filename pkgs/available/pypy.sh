@@ -31,4 +31,4 @@ cd $BUILD_DIR
 getpkg https://bootstrap.pypa.io/get-pip.py
 $VENV/opt/pypy/bin/pypy ./get-pip.py
 
-$VENV/opt/pypy/bin/pip install -r ${SCRIPTPATH}/pkgs/pypy-requirements-frozen.txt --src $BUILD_DIR
+$VENV/opt/pypy/bin/pip install -r ${SCRIPTPATH}/pkgs/pypy-requirements.txt --src $BUILD_DIR

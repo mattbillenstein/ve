@@ -9,4 +9,4 @@ make install
 
 cd $BUILD_DIR
 
-$VENV/bin/pip3 install -r ${SCRIPTPATH}/pkgs/python3-requirements-frozen.txt --src $BUILD_DIR
+$VENV/bin/pip3 install -r ${SCRIPTPATH}/pkgs/python3-requirements.txt --src $BUILD_DIR

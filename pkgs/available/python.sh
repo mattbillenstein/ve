@@ -32,6 +32,6 @@ $VENV/bin/pip install $PIP_OPTS 'scikit-learn==0.19.0'
 
 $VENV/bin/python -c 'import numpy, scipy, pandas, sklearn'
 
-$VENV/bin/pip install $PIP_OPTS -r ${SCRIPTPATH}/pkgs/python-requirements-frozen.txt
+$VENV/bin/pip install $PIP_OPTS -r ${SCRIPTPATH}/pkgs/python-requirements.txt
 
 $VENV/bin/python -m compileall -q -f $VENV || true

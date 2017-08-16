@@ -60,12 +60,12 @@ export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="\$PATH"
 PATH="\$VIRTUAL_ENV/bin:\$PATH"
-if [ -e "\$VIRTUAL_ENV/go" ]; then
-PATH="\$PATH:\$VIRTUAL_ENV/go/bin"
-export GOROOT="\$VIRTUAL_ENV/go"
+if [ -e "\$VIRTUAL_ENV/opt/go" ]; then
+PATH="\$PATH:\$VIRTUAL_ENV/opt/go/bin"
+export GOROOT="\$VIRTUAL_ENV/opt/go"
 fi
-if [ -e "\$VIRTUAL_ENV/mysql" ]; then
-PATH="\$PATH:\$VIRTUAL_ENV/mysql/bin"
+if [ -e "\$VIRTUAL_ENV/opt/mysql" ]; then
+PATH="\$PATH:\$VIRTUAL_ENV/opt/mysql/bin"
 fi
 export PATH
 

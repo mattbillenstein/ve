@@ -67,7 +67,7 @@ Where $OS is one of OSX_10.X, Ubuntu_14.04, or Arch
 After you have it, run the deps script (you will need to install fink first on
 OSX):
 
-    $ /ve/src/deps.sh
+    $ /ve/ve/deps.sh
 
 Then add it to your environment:
 

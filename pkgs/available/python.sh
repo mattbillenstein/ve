@@ -12,7 +12,7 @@ cd $BUILD_DIR
 getpkg https://bootstrap.pypa.io/get-pip.py
 $VENV/bin/python ./get-pip.py
 
-PIP_OPTS="--src $BUILD_DIR" # --no-clean"
+PIP_OPTS="--src $VENV/src" # --no-clean"
 
 # numpy and friends are always problematic -- who on earth still thinks
 # invoking a fortran compiler in 2017 is a good idea??

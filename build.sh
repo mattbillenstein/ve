@@ -23,7 +23,7 @@ echo 'Doing an incremental build, are you sure?  (Ctrl-C to abort)'
 read foo
 fi
 
-sudo rm -fR $VENV/src $BUILD_DIR
+sudo rm -fR $VENV/ve $BUILD_DIR
 sudo mkdir -p $BUILD_DIR $VENV/lib $VENV/include $LOG_DIR $RUN_DIR
 sudo chown -R $USER:$GROUP $VENV $BUILD_DIR $LOG_DIR $RUN_DIR
 
@@ -36,7 +36,7 @@ sudo mkdir -p /data
 sudo chown $USER:$GROUP /data
 
 # copy snapshot of these scripts to the venv for running deps.sh on new hosts
-cp -a . $VENV/src
+cp -a . $VENV/ve
 
 # debug
 if [ "$1" != "" ]; then

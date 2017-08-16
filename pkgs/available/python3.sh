@@ -1,4 +1,4 @@
-PYTHON_VERSION="3.6.1"
+PYTHON_VERSION="3.6.2"
 
 getpkg http://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
 tar zxf Python-${PYTHON_VERSION}.tgz

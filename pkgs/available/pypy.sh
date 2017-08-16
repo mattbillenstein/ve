@@ -1,4 +1,4 @@
-PYPY_VERSION="v5.4.1"
+PYPY_VERSION="v5.8.0"
 PYPY_ARCH="linux64"
 
 rm -fR $VENV/opt/pypy

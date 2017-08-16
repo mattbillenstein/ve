@@ -1,4 +1,4 @@
-OPENRESTY_VERSION="1.11.2.2"
+OPENRESTY_VERSION="1.11.2.4"
 rm -fR openresty-${OPENRESTY_VERSION}* ngx_* nginx_*
 
 git clone https://github.com/yaoweibin/nginx_upstream_check_module.git

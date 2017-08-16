@@ -13,4 +13,7 @@ NAME="go${GOLANG_VERSION}.${GOLANG_KERNEL}-amd64"
 getpkg http://storage.googleapis.com/golang/${NAME}.tar.gz
 tar zxf ${NAME}.tar.gz
 
-mv go $VENV/
+rm -fR $VENV/opt/go
+mkdir -p $VENV/opt
+
+mv go $VENV/opt/

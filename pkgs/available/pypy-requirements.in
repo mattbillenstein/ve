@@ -9,3 +9,4 @@ pybloom
 pymongo
 requests
 rollbar
+simplejson

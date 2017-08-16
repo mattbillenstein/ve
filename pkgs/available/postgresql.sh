@@ -6,7 +6,7 @@ cd postgresql-${POSTGRES_VERSION}
 # hack default socket dir
 sed -i -e 's:DEFAULT_PGSOCKET_DIR[ ][ ]*"/tmp":DEFAULT_PGSOCKET_DIR "/data/run/pg":' src/include/pg_config_manual.h
 
-./configure --prefix=$VENV --with-openssl --with-perl
+./configure --prefix=$VENV --with-openssl #--with-perl
 $PMAKE
 make install
 

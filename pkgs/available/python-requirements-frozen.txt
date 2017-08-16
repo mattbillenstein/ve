@@ -1,4 +1,3 @@
-airflow[s3, postgres, slack, crypto, celery, async]==1.7.1.3
 alembic==0.8.8
 amqp==1.4.9
 aniso8601==1.2.0

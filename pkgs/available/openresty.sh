@@ -20,7 +20,7 @@ patch -p0 < $BUILD_DIR/nginx_upstream_check_module/check_1.11.1+.patch
 cd $BUILD_DIR
 cd openresty-${OPENRESTY_VERSION}
 
-./configure --prefix=$VENV/openresty \
+./configure --prefix=$VENV/opt/openresty \
 --with-http_ssl_module \
 --with-http_stub_status_module \
 --with-http_v2_module \
@@ -42,8 +42,8 @@ cd openresty-${OPENRESTY_VERSION}
 $PMAKE
 make install
 
-PATH=$VENV/openresty/bin:$PATH
+PATH=$VENV/opt/openresty/bin:$PATH
 
-$VENV/openresty/bin/opm get pintsized/lua-resty-http
-$VENV/openresty/bin/opm get bungle/lua-resty-session
-$VENV/openresty/bin/opm get pronan/lua-resty-datetime
+$VENV/opt/openresty/bin/opm get pintsized/lua-resty-http
+$VENV/opt/openresty/bin/opm get bungle/lua-resty-session
+$VENV/opt/openresty/bin/opm get pronan/lua-resty-datetime

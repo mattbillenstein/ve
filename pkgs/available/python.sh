@@ -16,7 +16,7 @@ PIP_OPTS="--src $VENV/src" # --no-clean"
 
 # numpy and friends are always problematic -- who on earth still thinks
 # invoking a fortran compiler in 2017 is a good idea??
-$VENV/bin/pip install $PIP_OPTS 'numpy==1.13.0'
+$VENV/bin/pip install $PIP_OPTS 'numpy==1.13.1'
 
 if [ "$MOS" == "OSX" ]; then
 CFLAGS="-arch i386 -arch x86_64" \

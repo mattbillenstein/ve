@@ -16,6 +16,7 @@ $VENV/bin/npm install -g babel-cli
 $VENV/bin/npm install -g babel-preset-es2015
 
 # patch airflow to inject our rollbar logger -- logs deadlocked dags
+$VENV/opt/airflow/bin/pip install 'rollbar==0.13.12'
 cd $VENV/opt/airflow/bin
 patch <<EOF
 --- /tve/opt/airflow/bin/airflow    2017-03-17 23:18:38.476788031 -0700

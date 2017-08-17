@@ -23,7 +23,7 @@ echo 'Doing an incremental build, are you sure?  (Ctrl-C to abort)'
 read foo
 fi
 
-sudo rm -fR $VENV/src $BUILD_DIR
+sudo rm -fR $VENV/ve $BUILD_DIR
 sudo mkdir -p $BUILD_DIR $VENV/lib $VENV/include $LOG_DIR $RUN_DIR
 sudo chown -R $USER:$GROUP $VENV $BUILD_DIR $LOG_DIR $RUN_DIR
 
@@ -36,7 +36,7 @@ sudo mkdir -p /data
 sudo chown $USER:$GROUP /data
 
 # copy snapshot of these scripts to the venv for running deps.sh on new hosts
-cp -a . $VENV/src
+cp -a . $VENV/ve
 
 # debug
 if [ "$1" != "" ]; then
@@ -77,8 +77,8 @@ fi
 
 echo "System Link Report:"
 if [ "$MOS" == "OSX" ]; then
-/usr/bin/file $VENV/bin/* | grep -v 'text executable' | grep executable | awk -F : '{print $1}' | xargs \
+/usr/bin/file $VENV/bin/* $VENV/opt/*/bin/* | grep -v 'text executable' | grep executable | awk -F : '{print $1}' | xargs \
 otool -L 2>&1 | egrep -v ':$' | sort | uniq -c | sort -k1n | grep -v "$VENV"
 else
-ldd $VENV/bin/* | grep '=>' | awk '{print $1, $2, $3}' | grep -v vdso.so.1 | sort | uniq -c | sort -k1n | grep -v "$VENV"
+ldd $VENV/bin/* $VENV/opt/*/bin/* | grep '=>' | awk '{print $1, $2, $3}' | grep -v vdso.so.1 | sort | uniq -c | sort -k1n | grep -v "$VENV"
 fi

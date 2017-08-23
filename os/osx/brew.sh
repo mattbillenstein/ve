@@ -31,10 +31,12 @@ file-formula \
 findutils \
 fortune \
 freetype \
+gawk \
 gcc \
 gdbm \
 gettext \
 git \
+gnu-sed \
 gnu-tar \
 gzip \
 https://raw.githubusercontent.com/youtux/homebrew-binary/pdftk/pdftk.rb \

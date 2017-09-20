@@ -13,6 +13,7 @@ boto3
 certifi
 clinacl
 coverage
+croniter
 cython
 decorator
 dill

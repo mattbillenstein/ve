@@ -13,6 +13,8 @@ if [ "$BREW_USER" != "$USER" ]; then
 BREW="sudo -i -u $BREW_USER $BREW"
 fi
 
+sudo xcodebuild -license accept
+
 $BREW update
 $BREW upgrade
 

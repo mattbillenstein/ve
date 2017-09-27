@@ -27,7 +27,7 @@ flask-assets
 flask-cors
 flask-login
 Flask-Mako
-Flask-Sockets
+-e git+https://github.com/kennethreitz/flask-sockets.git#egg=flask-sockets
 freezegun
 fuzzywuzzy
 geoip2
@@ -41,6 +41,7 @@ grequests
 gstatsd
 gsutil
 gunicorn
+-e git+https://github.com/mattbillenstein/gunicorn.git#egg=gunicorn
 hiredis
 html5lib
 ipdb

@@ -6,6 +6,8 @@
 #
 -e git+https://github.com/tommyboytech/billboard-charts.git#egg=billboard-charts
 -e git+https://github.com/teracyhq/flask-classful.git@develop#egg=flask-classful
+-e git+https://github.com/kennethreitz/flask-sockets.git#egg=flask-sockets
+-e git+https://github.com/mattbillenstein/gunicorn.git#egg=gunicorn
 -e git+https://github.com/tommyboytech/sd-python-wrapper.git#egg=sd-python-wrapper
 aniso8601==1.2.0          # via flask-ask
 argcomplete==1.8.2        # via gsutil
@@ -56,7 +58,6 @@ flask-assets==0.12
 flask-cors==3.0.3
 flask-login==0.4.0
 flask-mako==0.4
-flask-sockets==0.2.1
 flask==0.12.1
 freezegun==0.3.9
 fudge==1.1.0              # via soundcloud
@@ -67,7 +68,7 @@ fuzzywuzzy==0.15.1
 gcs-oauth2-boto-plugin==1.14  # via gsutil
 geoip2==2.5.0
 gevent-socketio==0.3.6
-gevent-websocket==0.10.1  # via flask-sockets, gevent-socketio
+gevent-websocket==0.10.1  # via gevent-socketio
 gevent==1.2.2
 gitdb2==2.0.2             # via gitpython
 gitpython==2.1.5
@@ -78,7 +79,6 @@ greenlet==0.4.12
 grequests==0.3.0
 gstatsd==0.6
 gsutil==4.27
-gunicorn==19.7.1
 hiredis==0.2.0
 html5lib==0.999999999
 httplib2==0.10.3          # via gcs-oauth2-boto-plugin, google-api-python-client, google-apitools, gsutil, oauth2, oauth2client

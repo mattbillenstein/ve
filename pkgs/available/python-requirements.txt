@@ -51,6 +51,7 @@ docopt==0.6.2             # via clinacl
 docutils==0.14
 enum34==1.1.6             # via astroid, cryptography, flake8, saws, traitlets
 fabric==1.13.2
+facepy==1.0.9
 first==2.0.1              # via pip-tools
 flake8==3.4.1
 flask-ask==0.9.7
@@ -168,7 +169,7 @@ setproctitle==1.1.10
 simplegeneric==0.8.1      # via ipython
 simplejson==3.11.1
 singledispatch==3.4.0.3   # via astroid, pylint, tornado
-six==1.10.0               # via astroid, bcrypt, bleach, clinacl, configobj, cryptography, flask-ask, flask-cors, freezegun, gcs-oauth2-boto-plugin, google-api-python-client, google-apitools, gsutil, html5lib, mock, oauth2client, pathlib2, pip-tools, pre-commit, prompt-toolkit, pylint, pynacl, pyopenssl, python-dateutil, rollbar, saws, singledispatch, traitlets, twilio, websocket-client, webtest
+six==1.10.0               # via astroid, bcrypt, bleach, clinacl, configobj, cryptography, facepy, flask-ask, flask-cors, freezegun, gcs-oauth2-boto-plugin, google-api-python-client, google-apitools, gsutil, html5lib, mock, oauth2client, pathlib2, pip-tools, pre-commit, prompt-toolkit, pylint, pynacl, pyopenssl, python-dateutil, rollbar, saws, singledispatch, traitlets, twilio, websocket-client, webtest
 slacker==0.9.50
 smmap2==2.0.3             # via gitdb2
 socksipy-branch==1.01     # via gcs-oauth2-boto-plugin, gsutil

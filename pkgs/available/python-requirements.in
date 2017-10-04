@@ -21,6 +21,7 @@ dnspython
 docutils
 fabric
 flake8
+facepy
 flask
 Flask-Ask
 flask-assets

@@ -9,6 +9,9 @@ sudo ucf --purge /boot/grub/menu.lst
 sudo apt-get update
 sudo apt-get -y --force-yes -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
 
+# LTS hardware enablement kernel
+sudo apt-get -y install --install-recommends linux-generic-hwe-16.04
+
 sudo apt-get -y install \
 acpid \
 atop \

@@ -49,29 +49,35 @@ Currently, it supports the Ubuntu (16.04 LTS) and recent versions of Mac OSX
 to Ubuntu using the same versions of all of these tools with a relatively small
 number of system shared-library dependencies.
 
-As of 08/02/2017 it contains:
+As of 10/20/2017 it contains:
 
-$ grep -h _VERSION= pkgs/*.sh | sed -e 's/_VERSION=/ /g' -e 's/"//g' | awk '{printf "%-10s %12s\n", $1, $2}' | sort
+r$ grep -h _VERSION= pkgs/available/*.sh | sed -e 's/_VERSION=/ /g' -e 's/"//g' -e '/^#/d' | awk '{printf "%-10s %12s\n", $1, $2}' | sort
 
+AIRFLOW         1.7.1.3
+BEANSTALKD         1.10
+CONSUL            0.6.3
 DNSMASQ            2.75
+GOLANG            1.8.3
 GRAPHITE    GITHUB_HEAD
 HAPROXY          1.5.15
-MEMCACHED        1.4.25
-MONGODB           3.4.2
-NODEJS            5.9.1
+MARIADB         10.1.13
+MEMCACHED         1.5.0
+MONGODB           3.4.7
+NODEJS           6.11.2
 NSQ               0.3.8
-OPENRESTY      1.11.2.2
+OPENRESTY      1.11.2.4
 PERL             5.18.2
 PGBOUNCER         1.6.1
 PHANTOMJS         2.1.1
-POSTGRES          9.5.3
-PYPY             v5.4.1
-PYTHON            3.6.1
+POSTGRES          9.5.8
+PYPY             v5.8.0
+PYTHON            3.6.2
 PYTHON           2.7.13
-REDIS             3.0.7
-RUBY              2.2.6
-SQUID            3.5.24
-VARNISH           4.1.3
+REDIS            3.2.10
+RUBY              2.2.7
+SQUID            3.5.26
+VARNISH           4.1.8
+YARN              1.0.1
 
 
 Where:

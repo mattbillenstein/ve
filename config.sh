@@ -44,7 +44,7 @@ function getpkg() {
     mkdir -p $PKG_CACHE
 
     if [ ! -f "$PKG_CACHE/$FILENAME" ]; then
-        curl -s -L -o "$PKG_CACHE/$FILENAME" $URL
+        curl -s -L --retry 2 --retry-delay 10 -o "$PKG_CACHE/$FILENAME" $URL
     fi
     cp "$PKG_CACHE/$FILENAME" $DST
 }

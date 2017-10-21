@@ -13,6 +13,8 @@ if [ "$BREW_USER" != "$USER" ]; then
 BREW="sudo -i -u $BREW_USER $BREW"
 fi
 
+sudo xcodebuild -license accept || true
+
 $BREW update
 $BREW upgrade
 
@@ -31,10 +33,12 @@ file-formula \
 findutils \
 fortune \
 freetype \
+gawk \
 gcc \
 gdbm \
 gettext \
 git \
+gnu-sed \
 gnu-tar \
 gzip \
 https://raw.githubusercontent.com/youtux/homebrew-binary/pdftk/pdftk.rb \

@@ -27,7 +27,7 @@ pybloom==1.1
 pymongo==3.4.0
 python-dateutil==2.5.3    # via botocore
 requests==2.10.0
-rollbar==0.13.0
+rollbar==0.13.16
 rsa==3.4.2                # via oauth2client
 simplejson==3.11.1
 six==1.10.0               # via google-api-python-client, oauth2client, pip-tools, psycopg2cffi, python-dateutil, rollbar

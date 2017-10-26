@@ -72,6 +72,7 @@ pymysql
 PyNaCl
 pynsq
 PyPDF2
+python-Levenshtein
 python-magic
 pytz
 redis

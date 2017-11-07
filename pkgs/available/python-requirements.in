@@ -21,7 +21,7 @@ dnspython
 docutils
 fabric
 flake8
-facepy
+-e git+https://github.com/mattbillenstein/facepy.git#egg=facepy
 flask
 Flask-Ask
 flask-assets

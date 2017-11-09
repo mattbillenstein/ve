@@ -183,6 +183,7 @@ supervisor-wildcards==0.1.3
 supervisor==3.3.3
 tornado==4.5.1            # via luigi, pynsq, salt
 traitlets==4.3.2          # via ipython
+tweepy==3.5.0
 twilio==6.5.1
 typing==3.6.2
 u-msgpack-python==2.4.1   # via clinacl

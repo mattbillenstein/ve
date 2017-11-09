@@ -94,6 +94,7 @@ sqlparse
 stripe
 supervisor
 supervisor-wildcards
+tweepy
 twilio
 typing
 unidecode

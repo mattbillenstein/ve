@@ -98,6 +98,7 @@ tweepy
 twilio
 typing
 unidecode
+vcrpy
 virtualenv
 webassets
 websocket-client

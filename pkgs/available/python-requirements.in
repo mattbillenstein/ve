@@ -104,3 +104,4 @@ webassets
 websocket-client
 webtest
 werkzeug
+xmltodict

@@ -1,4 +1,4 @@
-NODEJS_VERSION="6.11.2"
+NODEJS_VERSION="6.11.5"
 
 getpkg https://nodejs.org/dist/v${NODEJS_VERSION}/node-v${NODEJS_VERSION}.tar.gz
 tar zxf node-v${NODEJS_VERSION}.tar.gz

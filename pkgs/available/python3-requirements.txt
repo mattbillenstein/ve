@@ -4,5 +4,5 @@
 #
 #    pip-compile --output-file python3-requirements.txt python3-requirements.txt
 #
-mypy==0.501
-typed-ast==1.0.4          # via mypy
+mypy==0.560
+typed-ast==1.1.0          # via mypy

@@ -27,6 +27,7 @@ Flask-Ask
 flask-assets
 flask-cors
 flask-login
+Flask-Classful
 Flask-Mako
 -e git+https://github.com/kennethreitz/flask-sockets.git#egg=flask-sockets
 freezegun
@@ -34,7 +35,6 @@ fuzzywuzzy
 geoip2
 gevent
 gevent-socketio
--e git+https://github.com/teracyhq/flask-classful.git@develop#egg=flask-classful
 gitpython
 google-api-python-client
 greenlet

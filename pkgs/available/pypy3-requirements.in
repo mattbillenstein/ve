@@ -1,0 +1,10 @@
+boto
+boto3
+enum34
+google-api-python-client
+pip-tools
+psycopg2cffi
+pymongo
+requests
+rollbar
+simplejson

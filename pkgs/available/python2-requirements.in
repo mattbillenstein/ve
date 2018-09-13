@@ -18,17 +18,15 @@ decorator
 dill
 dnspython
 docutils
+-e git+https://github.com/kennethreitz/flask-sockets.git#egg=flask-sockets
 fabric
-flake8
 facepy
+flake8
 flask
-Flask-Ask
-flask-assets
+Flask-Classful
 flask-cors
 flask-login
-Flask-Classful
 Flask-Mako
--e git+https://github.com/kennethreitz/flask-sockets.git#egg=flask-sockets
 freezegun
 geoip2
 gevent
@@ -36,7 +34,6 @@ gevent-socketio
 gitpython
 google-api-python-client
 greenlet
-grequests
 gstatsd
 gsutil
 gunicorn
@@ -51,8 +48,10 @@ lptrace
 mock
 nose
 nose-parallel
+numpy
 oauth2
 objgraph
+pandas
 phonenumbers
 pillow
 pip-tools
@@ -67,7 +66,6 @@ pymysql
 PyNaCl
 pynsq
 PyPDF2
-python-magic
 pytz
 redis
 requests
@@ -76,6 +74,8 @@ rollbar
 rq
 salt
 saws
+scikit-learn
+scipy
 sendgrid
 setproctitle
 simplejson

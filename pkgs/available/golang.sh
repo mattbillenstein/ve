@@ -1,4 +1,4 @@
-GOLANG_VERSION="1.8.3"
+GOLANG_VERSION="1.8.7"
 GOLANG_KERNEL="linux"
 if [ "$MOS" == "OSX" ]; then
 GOLANG_KERNEL="darwin"

@@ -1,7 +1,7 @@
 
 # subshell it real good -- install airflow in its own virtualenv
 
-AIRFLOW_VERSION="1.7.1.3"
+AIRFLOW_VERSION="1.10.0"
 
 (
 rm -fR $VENV/opt/airflow
@@ -9,5 +9,7 @@ rm -fR $VENV/opt/airflow
 $VENV/bin/virtualenv $VENV/opt/airflow
 source $VENV/opt/airflow/bin/activate
 
-$VENV/opt/airflow/bin/pip install 'airflow[s3, postgres, slack, crypto, celery, async]==1.7.1.3'
+export AIRFLOW_GPL_UNIDECODE=1
+
+$VENV/opt/airflow/bin/pip install "apache-airflow[s3, postgres, slack, crypto, celery, async]==$AIRFLOW_VERSION"
 )

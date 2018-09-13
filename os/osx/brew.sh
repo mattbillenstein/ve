@@ -14,6 +14,7 @@ BREW="sudo -i -u $BREW_USER $BREW"
 fi
 
 sudo xcodebuild -license accept || true
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer || true
 
 $BREW update
 $BREW upgrade
@@ -41,7 +42,6 @@ git \
 gnu-sed \
 gnu-tar \
 gzip \
-https://raw.githubusercontent.com/youtux/homebrew-binary/pdftk/pdftk.rb \
 icu4c \
 jq \
 libevent \

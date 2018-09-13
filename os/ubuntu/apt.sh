@@ -7,10 +7,7 @@ export UCF_FORCE_CONFFNEW=YES
 sudo ucf --purge /boot/grub/menu.lst
 
 sudo apt-get update
-sudo apt-get -y --force-yes -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
-
-# LTS hardware enablement kernel
-sudo apt-get -y install --install-recommends linux-generic-hwe-16.04
+sudo DEBIAN_FRONTEND=noninteractive apt-get -fuy --force-yes -o Dpkg::Options::="--force-confnew" upgrade
 
 sudo apt-get -y install \
 acpid \
@@ -39,7 +36,6 @@ man-db \
 ntp \
 numactl \
 pigz \
-pdftk \
 pkg-config \
 psmisc \
 python-dev \
@@ -65,14 +61,11 @@ libffi-dev \
 libfreetype6-dev \
 libicu-dev \
 libjpeg-dev \
-libmagic1 \
 libncurses5-dev \
 libpcap-dev \
 libpcre3-dev \
 libperl-dev \
-libpng12-dev \
 libreadline-dev \
-libreadline6 \
 libssl-dev \
 libsqlite3-dev \
 libuuid1 \
@@ -80,5 +73,16 @@ libwebp-dev \
 libxml2-dev \
 uuid-dev \
 zlib1g-dev
+
+if [ "$OS" == "Ubuntu_16.04" ]; then
+sudo apt-get -y install \
+libpng12-dev \
+libreadline6
+else
+# 18.04
+sudo apt-get -y install \
+libpng-dev \
+libreadline7
+fi
 
 sudo locale-gen en_US.UTF-8

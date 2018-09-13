@@ -11,7 +11,7 @@ source $VENV/opt/graphite/bin/activate
 # hmm, why is this hack needed for twisted??
 export CFLAGS="-I$VENV/opt/graphite/include/python2.7"
 
-$VENV/opt/graphite/bin/pip install git+https://github.com/benoitc/gunicorn.git
+$VENV/opt/graphite/bin/pip install gunicorn
 $VENV/opt/graphite/bin/pip install 'twisted<=12.0'
 $VENV/opt/graphite/bin/pip install 'django<1.7'
 
@@ -32,5 +32,6 @@ $VENV/opt/graphite/bin/pip install git+https://github.com/graphite-project/graph
 
 # HACK - local_settings import so we can stage this outside of the graphite
 # package
-sed -i -e 's/graphite\.local_settings/local_settings/g' $VENV/opt/graphite/webapp/graphite/settings.py
+# mattb 2018-09-11 -- not present, investigate if this gets used
+#sed -i -e 's/graphite\.local_settings/local_settings/g' $VENV/opt/graphite/webapp/graphite/settings.py
 )

@@ -1,23 +1,24 @@
-OPENRESTY_VERSION="1.11.2.4"
+OPENRESTY_VERSION="1.13.6.2"
 rm -fR openresty-${OPENRESTY_VERSION}* ngx_* nginx_*
 
 git clone https://github.com/yaoweibin/nginx_upstream_check_module.git
 cd nginx_upstream_check_module
-git checkout d6341aeeb8
+git checkout 9aecf15
 cd $BUILD_DIR
 
 #git clone https://github.com/zebrafishlabs/nginx-statsd.git   # dead repo
 git clone https://github.com/apcera/nginx-statsd
 cd nginx-statsd
-git checkout 2147d61dc3
+git checkout b970e40
 cd $BUILD_DIR
 
 getpkg https://openresty.org/download/openresty-${OPENRESTY_VERSION}.tar.gz
 tar zxf openresty-${OPENRESTY_VERSION}.tar.gz
 
-cd openresty-${OPENRESTY_VERSION}/bundle/nginx-1.11.2
-patch -p0 < $BUILD_DIR/nginx_upstream_check_module/check_1.11.1+.patch
+cd openresty-${OPENRESTY_VERSION}/bundle/nginx-1.13.6
+patch -p1 < $BUILD_DIR/nginx_upstream_check_module/check_1.12.1+.patch
 cd $BUILD_DIR
+
 cd openresty-${OPENRESTY_VERSION}
 
 ./configure --prefix=$VENV/opt/openresty \

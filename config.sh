@@ -21,7 +21,7 @@ elif [ -f /etc/pacman.conf ]; then
     PROCS=$(grep -c '^processor' /proc/cpuinfo)
 elif [ "$(lsb_release -si)" == "Ubuntu" ]; then
     ver="$(lsb_release -sr)"
-    if [ "$ver" != "14.04" ] && [ "$ver" != "16.04" ]; then
+    if [ "$ver" != "16.04" ] && [ "$ver" != "18.04" ]; then
         echo "It's recommended to run on an Ubuntu LTS release ($ver)-- do you want to continue?  (Ctrl-C aborts)"
         read foo
     fi

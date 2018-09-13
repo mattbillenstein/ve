@@ -1,4 +1,4 @@
-VARNISH_VERSION="4.1.8"
+VARNISH_VERSION="4.1.10"
 
 rm -fR varnish-${VARNISH_VERSION}*
 getpkg http://varnish-cache.org/_downloads/varnish-${VARNISH_VERSION}.tgz

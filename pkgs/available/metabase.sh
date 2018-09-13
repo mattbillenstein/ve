@@ -1,4 +1,4 @@
-METABASE_VERSION="0.28.1"
+METABASE_VERSION="0.30.2"
 
 getpkg http://downloads.metabase.com/v${METABASE_VERSION}/metabase.jar
 

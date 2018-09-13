@@ -1,4 +1,4 @@
-PGBOUNCER_VERSION="1.6.1"
+PGBOUNCER_VERSION="1.8.1"
 
 getpkg https://pgbouncer.github.io/downloads/files/${PGBOUNCER_VERSION}/pgbouncer-${PGBOUNCER_VERSION}.tar.gz
 tar zxf pgbouncer-${PGBOUNCER_VERSION}.tar.gz

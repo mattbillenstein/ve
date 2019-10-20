@@ -28,29 +28,33 @@ tools with a relatively small number of system shared-library dependencies.
 
 As of 03/16/2016 it contains:
 
-$ grep -h _VERSION= pkgs/*.sh | sed -e 's/_VERSION=/ /g' -e 's/"//g' | awk '{printf "%-10s %12s\n", $1, $2}' | sort
+$ grep -h _VERSION= pkgs/available/*.sh | sed -e 's/_VERSION=/ /g' -e 's/"//g' | awk '{printf "%-10s %12s\n", $1, $2}' | sort
 
+AIRFLOW          1.10.2
 BEANSTALKD         1.10
 CONSUL            0.6.3
-DNSMASQ            2.75
-GOLANG              1.6
-GRAPHITE    GITHUB_HEAD
-HAPROXY          1.5.15
-#HAPROXY          1.6.1
-MARIADB         10.1.11
-MEMCACHED        1.4.25
-MONGODB           3.2.3
-NGINX             1.8.1
-NODEJS           0.12.7
-NSQ               0.3.7
-PGBOUNCER         1.6.1
-POSTGRES          9.4.6
-PYPY              4.0.1
-PYTHON           2.7.11
-REDIS             3.0.7
-RUBY              2.2.4
-VARNISH           4.0.3
-
+DNSMASQ            2.79
+GOLANG           1.11.1
+HAPROXY          1.8.13
+MARIADB         10.1.13
+MEMCACHED        1.5.10
+METABASE         0.32.8
+MONGODB           3.4.7
+NODEJS          10.16.3
+NSQ               1.2.0
+OPENRESTY      1.13.6.2
+PERL             5.26.2
+PGBOUNCER         1.8.1
+PHANTOMJS         2.1.1
+POSTGIS           2.5.2
+POSTGRES           11.5
+PYPY             v6.0.0
+PYTHON            3.7.5
+REDIS             5.0.5
+RUBY              2.4.4
+SQUID               4.7
+VARNISH          4.1.10
+YARN             1.17.3
 
 Where:
 

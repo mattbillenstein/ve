@@ -77,9 +77,9 @@ fi
 
 echo "System Link Report:"
 if [ "$MOS" == "MacOS" ]; then
-otool -L $(/usr/bin/file $(find /ove -type f | egrep '/s*bin/') | grep 'executable x86_64' | awk -F : '{print $1}') | egrep -v ':$' | sort | uniq -c | sort -k1n
+otool -L $(/usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep 'executable x86_64' | awk -F : '{print $1}') | egrep -v ':$' | sort | uniq -c | sort -k1n
 else
-ldd $(/usr/bin/file $(find /ove -type f | egrep '/s*bin/') | grep 'dynamically linked' | awk -F : '{print $1}') | grep '=>' | awk '{print $1, $2, $3}' | sort | uniq -c | sort -k1n
+ldd $(/usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep 'dynamically linked' | awk -F : '{print $1}') | grep '=>' | awk '{print $1, $2, $3}' | sort | uniq -c | sort -k1n
 fi
 
 du -h -s $VENV

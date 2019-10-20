@@ -12,41 +12,39 @@ ARCH="$(uname -m | sed -e 's/i686/i386/g')"
 MARCH="$(uname -m)"
 
 if [ "$(uname)" == "Darwin" ];then
-    OS="OSX_10.X"
-    MOS="OSX"
-    PROCS="$(sysctl -n hw.ncpu)"
-elif [ -f /etc/pacman.conf ]; then
-    OS="Arch"
-    MOS="Arch"
-    PROCS=$(grep -c '^processor' /proc/cpuinfo)
+    MOS="MacOS"
+    PROCS="$(/usr/sbin/sysctl -n hw.ncpu)"
 elif [ "$(lsb_release -si)" == "Ubuntu" ]; then
     ver="$(lsb_release -sr)"
     if [ "$ver" != "16.04" ] && [ "$ver" != "18.04" ]; then
         echo "It's recommended to run on an Ubuntu LTS release ($ver)-- do you want to continue?  (Ctrl-C aborts)"
         read foo
     fi
-    OS="Ubuntu_$ver"
     MOS="Ubuntu"
     PROCS=$(grep -c '^processor' /proc/cpuinfo)
 fi
+
+OS="$MOS-$MARCH"
 
 PMAKE="nice -n 10 make -j $PROCS"
 
 function getpkg() {
     URL=$1
-    DST=$2
-    if [ "$DST" == "" ]; then
-        DST=$BUILD_DIR
-    fi
-
     FILENAME=$(basename "$URL")
 
     mkdir -p $PKG_CACHE
 
-    if [ ! -f "$PKG_CACHE/$FILENAME" ]; then
-        curl -s -L --retry 2 --retry-delay 10 -o "$PKG_CACHE/$FILENAME" $URL
+    ETAG=$(curl -s -L --retry 2 --retry-delay 10 --head $URL | egrep -i '^etag:' | awk -F : '{print $2}' | tr -d '" \t\r\n$')
+
+    if [ ! -f "$PKG_CACHE/$FILENAME-$ETAG" ]; then
+        curl -s -L --retry 2 --retry-delay 10 -o "$PKG_CACHE/$FILENAME-$ETAG" $URL
     fi
-    cp "$PKG_CACHE/$FILENAME" $DST
+
+    cp "$PKG_CACHE/$FILENAME-$ETAG" $BUILD_DIR/$FILENAME
+
+    if [ "$ETAG" == "" ]; then
+        rm "$PKG_CACHE/$FILENAME-$ETAG"
+    fi
 }
 
 # might want to override these in config_local.sh

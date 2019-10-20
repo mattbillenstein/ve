@@ -14,7 +14,6 @@ The intention of this project is to stage all the common tooling into the same
 build prefix -- not relying too much on the underlying system packages gives us
 more control over which versions of each tool we use and when they get updated.
 
-
 What:
 
 This is a set of build scripts for compiling tools and libraries I use in
@@ -22,10 +21,10 @@ building backend systems.  It's intended as a way to keep these tools in sync
 across multiple hosts using rsync as well as supporting multiple operating
 systems and underlying package management systems.
 
-Currently, it supports the Ubuntu (14.04 LTS) and recent versions of Mac OSX
-(using fink), so it allows you to develop natively on OSX or Ubuntu and deploy
-to Ubuntu using the same versions of all of these tools with a relatively small
-number of system shared-library dependencies.
+Currently, it supports recent Ubuntu LTS releases (16.04 / 18.04) and recent
+versions of MacOS (using homebrew), so it allows you to develop natively on
+MacOS or Ubuntu and deploy to Ubuntu using the same versions of all of these
+tools with a relatively small number of system shared-library dependencies.
 
 As of 03/16/2016 it contains:
 
@@ -55,29 +54,6 @@ VARNISH           4.0.3
 
 Where:
 
-You can try this out by pulling from my staging host (it is big, ~2G).  You
-may need to sudo and make the /ve directory first and make sure you own it:
-
-    $ sudo mkdir /ve
-    $ sudo chown <USER>:<GROUP> /ve
-    $ RSYNC_PASSWORD=v3rys3cr3t rsync -av --delete ve@vazor.com::ve/$OS/ /ve
-
-Where $OS is one of OSX_10.X, Ubuntu_14.04, or Arch
-
-After you have it, run the deps script (you will need to install fink first on
-OSX):
-
-    $ /ve/ve/deps.sh
-
-Then add it to your environment:
-
-    $ source /ve/bin/activate
-
-Then you should see:
-
-    $ which python
-    /ve/bin/python
-
 If you want to use this for real in any sort of production environment, you
 should fork this repo and build it yourself.  Stage your own config_local.sh
 and optionally use a staging host to synchronize this between your systems via
@@ -85,11 +61,6 @@ rsync and ssh (see push/pull.sh).
 
 
 Notes:
-
-I typically build this once and do incremental updates on top of the existing
-version manually keeping the build scripts in sync as I do -- this allows
-updates to roll very quickly.  Re-compiling everything makes many of the
-binaries change since they have a build date in them.
 
 I recommend using supervisord as your init for starting servers -- I plan to
 add example configs for these eventually.

@@ -1,7 +1,7 @@
 
 # subshell it real good -- install airflow in its own virtualenv
 
-AIRFLOW_VERSION="1.10.0"
+AIRFLOW_VERSION="1.10.2"
 
 (
 rm -fR $VENV/opt/airflow

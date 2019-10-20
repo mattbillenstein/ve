@@ -1,4 +1,4 @@
-PERL_VERSION="5.18.2"
+PERL_VERSION="5.26.2"
 
 rm -fR ~/.cpan
 

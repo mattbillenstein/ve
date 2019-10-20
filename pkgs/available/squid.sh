@@ -1,4 +1,4 @@
-SQUID_VERSION="4.2-20180910-r6d8f397"
+SQUID_VERSION="4.7"
 getpkg http://www.squid-cache.org/Versions/v4/squid-${SQUID_VERSION}.tar.gz
 tar zxf squid-${SQUID_VERSION}.tar.gz
 cd squid-${SQUID_VERSION}

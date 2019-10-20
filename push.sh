@@ -11,4 +11,4 @@ rm -fR $VENV/ve
 git gc --aggressive
 cp -a $SCRIPTPATH $VENV/ve
 
-rsync -a --delete --delete-excluded --exclude '*.swp' $* $VENV/ $RSYNC_USER@$RSYNC_HOST:$RSYNC_PATH/$OS
+rsync -a --checksum --delete --delete-excluded --exclude '*.swp' --rsync-path="mkdir -p $RSYNC_PATH && rsync" $* $VENV/ $RSYNC_USER@$RSYNC_HOST:$RSYNC_PATH/$OS

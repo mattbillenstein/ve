@@ -3,7 +3,7 @@ getpkg https://downloads.mariadb.org/interstitial/mariadb-${MARIADB_VERSION}/sou
 tar zxf mariadb-${MARIADB_VERSION}.tar.gz
 cd mariadb-${MARIADB_VERSION}
 
-# FIXME - this links against the system openssl on OSX instead of the Fink
+# FIXME - this links against the system openssl on MacOS instead of the Fink
 # version...
 
 mkdir -p $VENV/opt/mysql

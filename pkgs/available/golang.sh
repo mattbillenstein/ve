@@ -1,6 +1,6 @@
-GOLANG_VERSION="1.8.7"
+GOLANG_VERSION="1.11.1"
 GOLANG_KERNEL="linux"
-if [ "$MOS" == "OSX" ]; then
+if [ "$MOS" == "MacOS" ]; then
 GOLANG_KERNEL="darwin"
 fi
 
@@ -15,7 +15,8 @@ mkdir -p $VENV/opt
 mv go $VENV/opt/
 
 # Dep - pkg management
-getpkg https://github.com/golang/dep/releases/download/v0.4.1/dep-${GOLANG_KERNEL}-amd64 $VENV/opt/go/bin/dep
+getpkg https://github.com/golang/dep/releases/download/v0.5.0/dep-${GOLANG_KERNEL}-amd64
+cp dep-${GOLANG_KERNEL}-amd64 $VENV/opt/go/bin/dep
 chmod 755 $VENV/opt/go/bin/dep
 
 export GOROOT="$VENV/opt/go"

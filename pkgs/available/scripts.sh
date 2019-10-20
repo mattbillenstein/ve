@@ -21,6 +21,7 @@ deactivate () {
     unset GOROOT
     unset AIRFLOW_HOME
     unset NODE_PATH
+#    unset PYTHONPATH
 
     # This should detect bash and zsh, which have a hash command that must
     # be called to get it to forget past commands.  Without forgetting
@@ -71,6 +72,7 @@ export PATH
 
 export AIRFLOW_HOME="/data/airflow"
 export NODE_PATH="\$VIRTUAL_ENV/lib/node_modules"
+#export PYTHONPATH="/foo/bar"
 
 _OLD_VIRTUAL_PYTHONPATH="\$PYTHONPATH"
 
@@ -105,4 +107,93 @@ alias pydoc="python -m pydoc"
 if [ -n "\$BASH" -o -n "\$ZSH_VERSION" ] ; then
     hash -r 2>/dev/null
 fi
+EOF
+
+cat > $VENV/bin/activate.fish <<EOF
+# This file must be used using ". bin/activate.fish" *within a running fish ( http://fishshell.com ) session*.
+# Do not run it directly.
+
+function deactivate -d 'Exit virtualenv mode and return to the normal environment.'
+    # reset old environment variables
+    if test -n "\$_OLD_VIRTUAL_PATH"
+        set -gx PATH \$_OLD_VIRTUAL_PATH
+        set -e _OLD_VIRTUAL_PATH
+    end
+
+    if test -n "\$_OLD_VIRTUAL_PYTHONHOME"
+        set -gx PYTHONHOME \$_OLD_VIRTUAL_PYTHONHOME
+        set -e _OLD_VIRTUAL_PYTHONHOME
+    end
+
+    if test -n "\$_OLD_FISH_PROMPT_OVERRIDE"
+        # Set an empty local "\$fish_function_path" to allow the removal of "fish_prompt" using "functions -e".
+        set -l fish_function_path
+
+        # Erase virtualenv's "fish_prompt" and restore the original.
+        functions -e fish_prompt
+        functions -c _old_fish_prompt fish_prompt
+        functions -e _old_fish_prompt
+        set -e _OLD_FISH_PROMPT_OVERRIDE
+    end
+
+    set -e VIRTUAL_ENV
+
+    set -e GOROOT
+    set -e AIRFLOW_HOME
+    set -e NODE_PATH
+#    set -e PYTHONPATH
+
+    if test "\$argv[1]" != 'nondestructive'
+        # Self-destruct!
+        functions -e pydoc
+        functions -e deactivate
+    end
+end
+
+# Unset irrelevant variables.
+deactivate nondestructive
+
+set -gx VIRTUAL_ENV "/ove"
+
+set -gx _OLD_VIRTUAL_PATH \$PATH
+set -gx PATH "\$VIRTUAL_ENV/bin" \$PATH
+set -gx PATH "\$VIRTUAL_ENV//opt/go/bin" \$PATH
+
+set -gx AIRFLOW_HOME "/data/airflow"
+set -gx NODE_PATH "\$VIRTUAL_ENV/lib/node_modules"
+#set -gx PYTHONPATH "/foo/bar"
+
+# Unset "\$PYTHONHOME" if set.
+if set -q PYTHONHOME
+    set -gx _OLD_VIRTUAL_PYTHONHOME \$PYTHONHOME
+    set -e PYTHONHOME
+end
+
+function pydoc
+    python -m pydoc \$argv
+end
+
+if test -z "\$VIRTUAL_ENV_DISABLE_PROMPT"
+    # Copy the current "fish_prompt" function as "_old_fish_prompt".
+    functions -c fish_prompt _old_fish_prompt
+
+    function fish_prompt
+        # Save the current \$status, for fish_prompts that display it.
+        set -l old_status \$status
+
+        # Prompt override provided?
+        # If not, just prepend the environment name.
+        if test -n ""
+            printf '%s%s' "" (set_color normal)
+        else
+            printf '%s(%s) ' (set_color normal) (basename "\$VIRTUAL_ENV")
+        end
+
+        # Restore the original \$status
+        echo "exit \$old_status" | source
+        _old_fish_prompt
+    end
+
+    set -gx _OLD_FISH_PROMPT_OVERRIDE "\$VIRTUAL_ENV"
+end
 EOF

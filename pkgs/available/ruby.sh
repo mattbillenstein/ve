@@ -5,7 +5,7 @@ tar zxf ruby-${RUBY_VERSION}.tar.gz
 cd ruby-${RUBY_VERSION}
 
 OPTS="--disable-install-doc --enable-shared --enable-static"
-if [ "$MOS" == "OSX" ]; then
+if [ "$MOS" == "MacOS" ]; then
 OPTS="$OPTS --without-gmp --with-openssl-dir=/usr/local/opt/openssl"
 fi
 

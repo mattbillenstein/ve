@@ -7,8 +7,6 @@ cd $BUILD_DIR
 # needed for mk-ca-bundle.pl
 if [ "$MOS" == "Ubuntu" ]; then
 sudo apt-get -y install liblwp-useragent-determined-perl
-elif [ "$MOS" == "Arch" ]; then
-sudo pacman --sync --needed --noconfirm perl-lwp-protocol-https
 fi
 
 #curl -O http://curl.haxx.se/ca/cacert.pem

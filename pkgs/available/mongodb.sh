@@ -1,5 +1,5 @@
 MONGODB_VERSION="3.4.7"
-if [ "$MOS" == "OSX" ]; then
+if [ "$MOS" == "MacOS" ]; then
 getpkg https://fastdl.mongodb.org/osx/mongodb-osx-x86_64-${MONGODB_VERSION}.tgz
 mv mongodb-osx-x86_64-${MONGODB_VERSION}.tgz mongodb.tgz
 else

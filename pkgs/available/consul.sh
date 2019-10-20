@@ -1,7 +1,7 @@
 CONSUL_VERSION="0.6.3"
 
 CONSUL_PLATFORM="linux"
-if [ "$MOS" == "OSX" ]; then
+if [ "$MOS" == "MacOS" ]; then
 CONSUL_PLATFORM="darwin"
 fi
 getpkg https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_${CONSUL_PLATFORM}_amd64.zip

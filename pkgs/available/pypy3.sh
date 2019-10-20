@@ -4,7 +4,7 @@ PYPY_ARCH="linux64"
 rm -fR $VENV/opt/pypy3
 mkdir -p $VENV/opt
 
-if [ "$MOS" == "OSX" ]; then
+if [ "$MOS" == "MacOS" ]; then
 PYPY_ARCH="osx64"
 fi
 
@@ -13,7 +13,7 @@ getpkg https://bitbucket.org/pypy/pypy/downloads/pypy3-${PYPY_VERSION}-${PYPY_AR
 tar jxf pypy3-${PYPY_VERSION}-${PYPY_ARCH}.tar.bz2
 mv pypy3-${PYPY_VERSION}-${PYPY_ARCH} $VENV/opt/pypy3
 else
-# the official binaries are built on Ubuntu and OSX -- on other distros, build
+# the official binaries are built on Ubuntu and MacOS -- on other distros, build
 # from source; it's best to actually install pypy on those platforms so the
 # build doesn't take as long
 rm -fR /tmp/usession-release-*

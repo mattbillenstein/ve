@@ -6,6 +6,7 @@ unset UCF_FORCE_CONFFOLD
 export UCF_FORCE_CONFFNEW=YES
 sudo ucf --purge /boot/grub/menu.lst
 
+sudo apt-add-repository multiverse
 sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get -fuy --force-yes -o Dpkg::Options::="--force-confnew" upgrade
 
@@ -59,13 +60,20 @@ libcurl4-openssl-dev \
 libevent-dev \
 libffi-dev \
 libfreetype6-dev \
+libgdal-dev \
+libgeos-dev \
 libicu-dev \
 libjpeg-dev \
+libjson-c-dev \
 libncurses5-dev \
+libpango-1.0.0 \
+libpangocairo-1.0-0 \
 libpcap-dev \
 libpcre3-dev \
 libperl-dev \
+libproj-dev \
 libreadline-dev \
+libsodium-dev \
 libssl-dev \
 libsqlite3-dev \
 libuuid1 \

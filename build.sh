@@ -7,7 +7,7 @@ SCRIPTPATH="$(pwd)"
 popd > /dev/null
 
 source $SCRIPTPATH/config.sh
-source $SCRIPTPATH/deps.sh
+#source $SCRIPTPATH/deps.sh
 
 if [ "$1" == "--clean" ]; then
 shift

@@ -1,5 +1,5 @@
 HAPROXY_VERSION="2.0.13"
-HAPROXY_SHA256SUM="b"
+HAPROXY_SHA256SUM="21f932ae18131ad58cb2f9d7cf2338349b6ccf3f5c33382624bbf1d3760b9be1"
 
 getpkg http://www.haproxy.org/download/${HAPROXY_VERSION:0:3}/src/haproxy-${HAPROXY_VERSION}.tar.gz $HAPROXY_SHA256SUM
 tar zxf haproxy-${HAPROXY_VERSION}.tar.gz

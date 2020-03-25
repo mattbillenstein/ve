@@ -43,6 +43,7 @@ function getpkg() {
 
     if [ "$(openssl dgst -sha256 $PKG_CACHE/$FILENAME-$ETAG | awk '{print $NF}')" != "$SHA256SUM" ]; then
         echo "SHA256SUM mismatch $PKG_CACHE/$FILENAME-$ETAG $SHA256SUM"
+        ls -l $PKG_CACHE/$FILENAME-$ETAG
         exit 1
     fi
 

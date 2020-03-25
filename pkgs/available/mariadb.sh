@@ -1,5 +1,5 @@
 MARIADB_VERSION="10.4.12"
-MARIADB_SHA256SUM=""
+MARIADB_SHA256SUM="fef1e1d38aa253dd8a51006bd15aad184912fce31c446bb69434fcde735aa208"
 
 getpkg https://downloads.mariadb.org/interstitial/mariadb-${MARIADB_VERSION}/source/mariadb-${MARIADB_VERSION}.tar.gz $MARIADB_SHA256SUM
 tar zxf mariadb-${MARIADB_VERSION}.tar.gz

@@ -1,5 +1,5 @@
 SQUID_VERSION="4.10"
-SQUID_SHA256SUM=""
+SQUID_SHA256SUM="df0685e851a1b68eede3790423986e30f4e162e9f7cd1cf92dbea65177201c8f"
 
 getpkg http://www.squid-cache.org/Versions/v4/squid-${SQUID_VERSION}.tar.gz $SQUID_SHA256SUM
 tar zxf squid-${SQUID_VERSION}.tar.gz

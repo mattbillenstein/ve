@@ -7,7 +7,7 @@ mkdir -p $VENV/opt
 
 if [ "$MOS" == "MacOS" ]; then
 PYPY_ARCH="osx64"
-PYPY_SHA256SUM=""
+PYPY_SHA256SUM="87b2545dad75fe3027b4b2108aceb9fdadcdd24e61ae312ac48b449fdd452bf3"
 fi
 
 if [ "$MOS" != "Arch" ]; then

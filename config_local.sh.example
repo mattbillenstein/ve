@@ -1,12 +1,12 @@
 # install prefix
-VENV="/ve"
+VENV="/opt/ve"
 
 # cache package downloads
 PKG_CACHE="/tmp/venv-pkg"
 
 # build directory
 BUILD_DIR="$VENV/build"
-DATA_DIR="/data"
+DATA_DIR="/opt/data"
 
 # remote rsync for push/pull
 RSYNC_USER="me"

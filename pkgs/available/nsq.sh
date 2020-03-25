@@ -5,7 +5,7 @@ NSQ_GO="go1.12.9"
 NSQ_PLATFORM="linux"
 if [ "$MOS" == "MacOS" ]; then
 NSQ_PLATFORM="darwin"
-NSQ_SHA256SUM=""
+NSQ_SHA256SUM="6545f87ce1d558cc7a4aa63d1adccb6991b04104cb57e74f3774e3f535c079f8"
 fi
 
 NSQ_ARCH="$ARCH"

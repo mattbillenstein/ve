@@ -1,9 +1,11 @@
 NSQ_VERSION="1.2.0"
+NSQ_SHA256SUM=""
 NSQ_GO="go1.12.9"
 
 NSQ_PLATFORM="linux"
 if [ "$MOS" == "MacOS" ]; then
 NSQ_PLATFORM="darwin"
+NSQ_SHA256SUM=""
 fi
 
 NSQ_ARCH="$ARCH"
@@ -13,7 +15,7 @@ fi
 
 NSQ_NAME="nsq-${NSQ_VERSION}.${NSQ_PLATFORM}-${NSQ_ARCH}.${NSQ_GO}"
 
-getpkg https://s3.amazonaws.com/bitly-downloads/nsq/${NSQ_NAME}.tar.gz
+getpkg https://s3.amazonaws.com/bitly-downloads/nsq/${NSQ_NAME}.tar.gz $NSQ_SHA256SUM
 tar zxf ${NSQ_NAME}.tar.gz
 mv ${NSQ_NAME}/bin/* $VENV/bin/
 

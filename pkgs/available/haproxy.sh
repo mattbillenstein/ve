@@ -1,6 +1,7 @@
-HAPROXY_VERSION="1.8.13"
+HAPROXY_VERSION="2.0.13"
+HAPROXY_SHA256SUM="b"
 
-getpkg http://www.haproxy.org/download/${HAPROXY_VERSION:0:3}/src/haproxy-${HAPROXY_VERSION}.tar.gz
+getpkg http://www.haproxy.org/download/${HAPROXY_VERSION:0:3}/src/haproxy-${HAPROXY_VERSION}.tar.gz $HAPROXY_SHA256SUM
 tar zxf haproxy-${HAPROXY_VERSION}.tar.gz
 cd haproxy-${HAPROXY_VERSION}
 

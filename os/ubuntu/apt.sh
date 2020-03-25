@@ -44,6 +44,7 @@ rsync \
 ssh \
 strace \
 swig \
+texinfo \
 tmux \
 unzip \
 vim \

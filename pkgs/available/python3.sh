@@ -1,13 +1,7 @@
-PYTHON_VERSION="3.7.5"
-PYTHON_MD5SUM="1cd071f78ff6d9c7524c95303a3057aa"
+PYTHON_VERSION="3.7.6"
+PYTHON_SHA256SUM="aeee681c235ad336af116f08ab6563361a0c81c537072c1b309d6e4050aa2114"
 
-getpkg https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz
-
-if [ "$(md5sum Python-${PYTHON_VERSION}.tgz | awk '{print $1}')" != "$PYTHON_MD5SUM" ]; then
-    echo "Bad release?"
-    exit 1
-fi
-
+getpkg https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz $PYTHON_SHA256SUM
 tar zxf Python-${PYTHON_VERSION}.tgz
 cd Python-${PYTHON_VERSION}
 ./configure --prefix=$VENV --enable-shared --with-system-expat # --enable-optimizations

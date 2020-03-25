@@ -18,7 +18,7 @@ elif [ "$(lsb_release -si)" == "Ubuntu" ]; then
     ver="$(lsb_release -sr)"
     if [ "$ver" != "16.04" ] && [ "$ver" != "18.04" ]; then
         echo "It's recommended to run on an Ubuntu LTS release ($ver)-- do you want to continue?  (Ctrl-C aborts)"
-        read foo
+        read _
     fi
     MOS="Ubuntu"
     PROCS=$(grep -c '^processor' /proc/cpuinfo)
@@ -30,6 +30,7 @@ PMAKE="nice -n 10 make -j $PROCS"
 
 function getpkg() {
     URL=$1
+    SHA256SUM=$2
     FILENAME=$(basename "$URL")
 
     mkdir -p $PKG_CACHE
@@ -40,6 +41,11 @@ function getpkg() {
         curl -s -L --retry 2 --retry-delay 10 -o "$PKG_CACHE/$FILENAME-$ETAG" $URL
     fi
 
+    if [ "$(openssl dgst -sha256 $PKG_CACHE/$FILENAME-$ETAG | awk '{print $NF}')" != "$SHA256SUM" ]; then
+        echo "SHA256SUM mismatch $PKG_CACHE/$FILENAME-$ETAG $SHA256SUM"
+        exit 1
+    fi
+
     cp "$PKG_CACHE/$FILENAME-$ETAG" $BUILD_DIR/$FILENAME
 
     if [ "$ETAG" == "" ]; then
@@ -48,8 +54,8 @@ function getpkg() {
 }
 
 # might want to override these in config_local.sh
-LOG_DIR=/data/log
-RUN_DIR=/data/run
+LOG_DIR="$DATA_DIR/log"
+RUN_DIR="$DATA_DIR/run"
 
 pushd $(dirname $0) > /dev/null
 SCRIPTPATH="$(pwd)"

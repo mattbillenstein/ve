@@ -6,8 +6,16 @@ PKG_CACHE="/tmp/venv-pkg"
 
 # build directory
 BUILD_DIR="$VENV/build"
+DATA_DIR="/data"
 
 # remote rsync for push/pull
 RSYNC_USER="me"
 RSYNC_HOST="me.com"
 RSYNC_PATH="ve"
+
+SUBPATH="$(echo $BUILDKITE_BRANCH | tr '/' '-')"
+if [ "$SUBPATH" == "" ]; then
+SUBPATH="$(git rev-parse --abbrev-ref HEAD | tr '/' '-')"
+fi
+
+RSYNC_PATH="ve/$SUBPATH"

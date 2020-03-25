@@ -1,5 +1,7 @@
-MARIADB_VERSION="10.1.13"
-getpkg https://downloads.mariadb.org/interstitial/mariadb-${MARIADB_VERSION}/source/mariadb-${MARIADB_VERSION}.tar.gz
+MARIADB_VERSION="10.4.12"
+MARIADB_SHA256SUM=""
+
+getpkg https://downloads.mariadb.org/interstitial/mariadb-${MARIADB_VERSION}/source/mariadb-${MARIADB_VERSION}.tar.gz $MARIADB_SHA256SUM
 tar zxf mariadb-${MARIADB_VERSION}.tar.gz
 cd mariadb-${MARIADB_VERSION}
 
@@ -13,7 +15,7 @@ cmake . \
 -DCMAKE_PREFIX_PATH=$VENV \
 -DCMAKE_FIND_FRAMEWORK=LAST \
 -DCMAKE_VERBOSE_MAKEFILE=ON \
--DMYSQL_DATADIR=/data/mysql \
+-DMYSQL_DATADIR=$DATA_DIR/mysql \
 -DWITH_SSL=system \
 -DDEFAULT_CHARSET=utf8 \
 -DDEFAULT_COLLATION=utf8_general_ci \

@@ -16,6 +16,12 @@ cd curl/lib
 cp ca-bundle.crt $BUILD_DIR/cacert.pem
 
 cd $BUILD_DIR
+
 for target in $(find $VENV -name 'cacert.pem' | grep -v $VENV/build/cacert.pem); do
 cp cacert.pem $target
 done
+
+for target in $(find $VENV -name 'cert.pem'); do
+cp cacert.pem $target
+done
+

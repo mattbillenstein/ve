@@ -1,4 +1,6 @@
 OPENRESTY_VERSION="1.13.6.2"
+OPENRESTY_SHA256SUM="946e1958273032db43833982e2cec0766154a9b5cb8e67868944113208ff2942"
+
 rm -fR openresty-${OPENRESTY_VERSION}* ngx_* nginx_*
 
 git clone https://github.com/yaoweibin/nginx_upstream_check_module.git
@@ -13,7 +15,7 @@ cd nginx-statsd
 git checkout b970e40
 cd $BUILD_DIR
 
-getpkg https://openresty.org/download/openresty-${OPENRESTY_VERSION}.tar.gz
+getpkg https://openresty.org/download/openresty-${OPENRESTY_VERSION}.tar.gz $OPENRESTY_SHA256SUM
 tar zxf openresty-${OPENRESTY_VERSION}.tar.gz
 
 cd openresty-${OPENRESTY_VERSION}/bundle/nginx-1.13.6

@@ -14,13 +14,13 @@ shift
 sudo rm -fR $VENV
 elif [ "$1" == "--realclean" ]; then
 shift
-sudo rm -fR $VENV $PKG_CACHE /data
+sudo rm -fR $VENV $PKG_CACHE $DATA_DIR
 if [ "$MOS" == "MacOS" ]; then
 rm -fR ~/Library/Caches/pip
 fi
 else
 echo 'Doing an incremental build, are you sure?  (Ctrl-C to abort)'
-read foo
+read _
 fi
 
 sudo rm -fR $VENV/ve $BUILD_DIR
@@ -30,10 +30,10 @@ sudo chown -R $USER:$GROUP $VENV $BUILD_DIR $LOG_DIR $RUN_DIR
 # make everything world readable
 sudo chmod -R a+r $VENV
 
-# some of the build tools point various /var stuff at /data -- make sure it
+# some of the build tools point various /var stuff at $DATA_DIR -- make sure it
 # exists
-sudo mkdir -p /data
-sudo chown $USER:$GROUP /data
+sudo mkdir -p $DATA_DIR
+sudo chown $USER:$GROUP $DATA_DIR
 
 # copy snapshot of these scripts to the venv for running deps.sh on new hosts
 cp -a . $VENV/ve
@@ -77,7 +77,7 @@ fi
 
 echo "System Link Report:"
 if [ "$MOS" == "MacOS" ]; then
-otool -L $(/usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep 'executable x86_64' | awk -F : '{print $1}') | egrep -v ':$' | sort | uniq -c | sort -k1n
+otool -L $(/usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep 'executable x86_64' | awk -F : '{print $1}') | egrep -v ':$' | awk '{print $1}' | sort | uniq -c | sort -k1n
 else
 ldd $(/usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep 'dynamically linked' | awk -F : '{print $1}') | grep '=>' | awk '{print $1, $2, $3}' | sort | uniq -c | sort -k1n
 fi

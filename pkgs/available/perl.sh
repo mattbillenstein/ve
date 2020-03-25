@@ -1,8 +1,9 @@
-PERL_VERSION="5.26.2"
+PERL_VERSION="5.30.2"
+PERL_SHA256SUM=""
 
 rm -fR ~/.cpan
 
-getpkg http://www.cpan.org/src/5.0/perl-${PERL_VERSION}.tar.gz
+getpkg http://www.cpan.org/src/5.0/perl-${PERL_VERSION}.tar.gz $PERL_SHA256SUM
 
 tar -xzf perl-${PERL_VERSION}.tar.gz
 cd perl-${PERL_VERSION}

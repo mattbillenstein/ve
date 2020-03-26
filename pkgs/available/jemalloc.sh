@@ -7,9 +7,10 @@ tar jxvf jemalloc-${JEMALLOC_VERSION}.tar.bz2
 cd jemalloc-${JEMALLOC_VERSION}
 
 OPTS="--prefix=$VENV --disable-debug --disable-install-rdoc"
-if [ "$MOS" == "MacOS" ]; then
-OPTS="$OPTS --with-jemalloc-prefix="
-fi
+# this currently fails the macos build
+#if [ "$MOS" == "MacOS" ]; then
+#OPTS="$OPTS --with-jemalloc-prefix="
+#fi
 ./configure $OPTS
 $PMAKE
 make install

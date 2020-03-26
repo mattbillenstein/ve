@@ -16,8 +16,8 @@ elif [ "$MOS" == "Ubuntu" ]; then
 
 source $SCRIPTPATH/os/ubuntu/apt.sh
 
-sudo bash -c "echo $VENV/lib > /etc/ld.so.conf.d/venv.conf"
-sudo ldconfig
+#sudo bash -c "echo $VENV/lib > /etc/ld.so.conf.d/venv.conf"
+#sudo ldconfig
 
 else
 echo "Error -- unsupported platform"

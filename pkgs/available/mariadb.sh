@@ -5,9 +5,6 @@ getpkg https://downloads.mariadb.org/interstitial/mariadb-${MARIADB_VERSION}/sou
 tar zxf mariadb-${MARIADB_VERSION}.tar.gz
 cd mariadb-${MARIADB_VERSION}
 
-# FIXME - this links against the system openssl on MacOS instead of the Fink
-# version...
-
 mkdir -p $VENV/opt/mysql
 
 cmake . \
@@ -21,7 +18,11 @@ cmake . \
 -DDEFAULT_COLLATION=utf8_general_ci \
 -DWITHOUT_TOKUDB=1 \
 -DWITH_UNIT_TESTS=OFF \
--DENABLED_LOCAL_INFILE=1
+-DENABLED_LOCAL_INFILE=1 \
+-DCMAKE_C_ARCHIVE_CREATE="<CMAKE_AR> Scr <TARGET> <LINK_FLAGS> <OBJECTS>" \
+-DCMAKE_CXX_ARCHIVE_CREATE="<CMAKE_AR> Scr <TARGET> <LINK_FLAGS> <OBJECTS>" \
+-DCMAKE_C_ARCHIVE_FINISH="<CMAKE_RANLIB> -no_warning_for_no_symbols -c <TARGET>" \
+-DCMAKE_CXX_ARCHIVE_FINISH="<CMAKE_RANLIB> -no_warning_for_no_symbols -c <TARGET>"
 
 $PMAKE
 make install

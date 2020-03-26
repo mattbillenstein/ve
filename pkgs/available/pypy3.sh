@@ -31,7 +31,7 @@ mv /tmp/usession-release-7.0-1/build/pypy-nightly $VENV/opt/pypy3
 fi
 
 cd $BUILD_DIR
-getpkg https://bootstrap.pypa.io/get-pip.py
+curl -O https://bootstrap.pypa.io/get-pip.py
 $VENV/opt/pypy3/bin/pypy3 ./get-pip.py
 
 $VENV/opt/pypy3/bin/pip install -r ${SCRIPTPATH}/pkgs/available/pypy3-requirements.txt --src $BUILD_DIR

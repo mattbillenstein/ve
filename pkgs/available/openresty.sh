@@ -1,11 +1,11 @@
-OPENRESTY_VERSION="1.13.6.2"
-OPENRESTY_SHA256SUM="946e1958273032db43833982e2cec0766154a9b5cb8e67868944113208ff2942"
+OPENRESTY_VERSION="1.15.8.3"
+OPENRESTY_SHA256SUM="b68cf3aa7878db16771c96d9af9887ce11f3e96a1e5e68755637ecaff75134a8"
 
 rm -fR openresty-${OPENRESTY_VERSION}* ngx_* nginx_*
 
 git clone https://github.com/yaoweibin/nginx_upstream_check_module.git
 cd nginx_upstream_check_module
-git checkout 9aecf15
+git checkout e538034b6ad79
 cd $BUILD_DIR
 
 # git clone https://github.com/zebrafishlabs/nginx-statsd.git   # dead repo
@@ -18,12 +18,14 @@ cd $BUILD_DIR
 getpkg https://openresty.org/download/openresty-${OPENRESTY_VERSION}.tar.gz $OPENRESTY_SHA256SUM
 tar zxf openresty-${OPENRESTY_VERSION}.tar.gz
 
-cd openresty-${OPENRESTY_VERSION}/bundle/nginx-1.13.6
-patch -p1 < $BUILD_DIR/nginx_upstream_check_module/check_1.12.1+.patch
+cd openresty-${OPENRESTY_VERSION}/bundle/nginx-1.15.8
+patch -p1 < $BUILD_DIR/nginx_upstream_check_module/check_1.14.0+.patch
 cd $BUILD_DIR
 
 cd openresty-${OPENRESTY_VERSION}
 
+# hack for macos 10.15 xcode bug - 2020/03/26
+CFLAGS="$CFLAGS -fno-stack-check" \
 ./configure --prefix=$VENV/opt/openresty \
 --with-http_ssl_module \
 --with-http_stub_status_module \

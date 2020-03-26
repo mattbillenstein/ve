@@ -1,1 +1,0 @@
-available/curl.sh

@@ -5,11 +5,7 @@ getpkg https://cache.ruby-lang.org/pub/ruby/2.6/ruby-${RUBY_VERSION}.tar.gz $RUB
 tar zxf ruby-${RUBY_VERSION}.tar.gz
 cd ruby-${RUBY_VERSION}
 
-OPTS="--disable-install-doc --enable-shared --enable-static --with-jemalloc"
-if [ "$MOS" == "MacOS" ]; then
-OPTS="$OPTS --without-gmp"
-fi
-
+OPTS="--disable-install-doc --enable-shared --enable-static"
 ./configure --prefix=$VENV $OPTS
 $PMAKE
 make install

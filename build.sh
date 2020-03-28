@@ -10,17 +10,14 @@ source $SCRIPTPATH/config.sh
 source $SCRIPTPATH/deps.sh
 
 if [ "$1" == "--clean" ]; then
-shift
-sudo rm -fR $VENV
+    shift
+    sudo rm -fR $VENV
 elif [ "$1" == "--realclean" ]; then
-shift
-sudo rm -fR $VENV $PKG_CACHE $DATA_DIR
-if [ "$MOS" == "MacOS" ]; then
-rm -fR ~/Library/Caches/pip
-fi
-else
-echo 'Doing an incremental build, are you sure?  (Ctrl-C to abort)'
-read _
+    shift
+    sudo rm -fR $VENV $PKG_CACHE $DATA_DIR
+    if [ "$MOS" == "MacOS" ]; then
+        rm -fR ~/Library/Caches/pip
+    fi
 fi
 
 sudo rm -fR $VENV/ve $BUILD_DIR
@@ -41,18 +38,18 @@ cp -a . $VENV/ve
 # debug
 if [ "$1" != "" ]; then
 
-for f in $*; do
-cd $BUILD_DIR
-source $SCRIPTPATH/$f
-done
+    for f in $*; do
+        cd $BUILD_DIR
+        source $SCRIPTPATH/$f
+    done
 
 else
 
-# main install
-for f in $SCRIPTPATH/pkgs/*.sh; do
-cd $BUILD_DIR
-source $f
-done
+    # main install
+    for f in $SCRIPTPATH/pkgs/*.sh; do
+        cd $BUILD_DIR
+        source $f
+    done
 
 fi
 
@@ -77,9 +74,9 @@ find $VENV -type f -perm -100 ! -perm -001 -print0 | xargs -0 -n 100 chmod ag+x 
 
 echo "System Link Report:"
 if [ "$MOS" == "MacOS" ]; then
-otool -L $(/usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep 'executable x86_64' | awk -F : '{print $1}') | egrep -v ':$' | awk '{print $1}' | sort | uniq -c | sort -k1n
+    otool -L $(/usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep 'executable x86_64' | awk -F : '{print $1}') | egrep -v ':$' | awk '{print $1}' | sort | uniq -c | sort -k1n
 else
-ldd $(/usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep 'dynamically linked' | awk -F : '{print $1}') | grep '=>' | awk '{print $1, $2, $3}' | sort | uniq -c | sort -k1n
+    ldd $(/usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep 'dynamically linked' | awk -F : '{print $1}') | grep '=>' | awk '{print $1, $2, $3}' | sort | uniq -c | sort -k1n
 fi
 
 du -h -s $VENV

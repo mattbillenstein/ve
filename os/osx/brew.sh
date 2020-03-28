@@ -6,8 +6,8 @@ echo 'Installing homebrew...'
 else
 echo 'You have an existing Homebrew installation - if this is your first
 bootstrap, I highly recommend you purge homebrew (sudo rm -fR /usr/local/*) and
-restart this script...  (Ctrl-C to abort)'
-sleep 10
+restart this script...  (Enter to continue, Ctrl-C to abort)'
+read _
 fi
 
 BREW="$(readlink /usr/local/bin/brew)"

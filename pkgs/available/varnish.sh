@@ -6,6 +6,6 @@ getpkg http://varnish-cache.org/_downloads/varnish-${VARNISH_VERSION}.tgz $VARNI
 
 tar zxf varnish-${VARNISH_VERSION}.tgz
 cd varnish-${VARNISH_VERSION}
-./configure --prefix=$VENV --localstatedir=$DATA_DIR/varnish
+./configure --prefix=$VENV --localstatedir=$DATA_DIR/varnish --with-sphinx-build=false
 $PMAKE
 make install

@@ -6,6 +6,6 @@ getpkg https://invisible-mirror.net/archives/ncurses/ncurses-${NCURSES_VERSION}.
 tar zxvf ncurses-${NCURSES_VERSION}.tar.gz 
 cd ncurses-${NCURSES_VERSION}
 
-./configure --prefix=$VENV
+./configure --prefix=$VENV --with-shared
 $PMAKE
 make install

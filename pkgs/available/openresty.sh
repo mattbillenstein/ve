@@ -1,5 +1,5 @@
-OPENRESTY_VERSION="1.15.8.3"
-OPENRESTY_SHA256SUM="b68cf3aa7878db16771c96d9af9887ce11f3e96a1e5e68755637ecaff75134a8"
+OPENRESTY_VERSION="1.17.8.2"
+OPENRESTY_SHA256SUM="2f321ab11cb228117c840168f37094ee97f8f0316eac413766305409c7e023a0"
 
 rm -fR openresty-${OPENRESTY_VERSION}* ngx_* nginx_*
 
@@ -18,8 +18,8 @@ cd $BUILD_DIR
 getpkg https://openresty.org/download/openresty-${OPENRESTY_VERSION}.tar.gz $OPENRESTY_SHA256SUM
 tar zxf openresty-${OPENRESTY_VERSION}.tar.gz
 
-cd openresty-${OPENRESTY_VERSION}/bundle/nginx-1.15.8
-patch -p1 < $BUILD_DIR/nginx_upstream_check_module/check_1.14.0+.patch
+cd openresty-${OPENRESTY_VERSION}/bundle/nginx-1.17.8
+patch -p1 < $BUILD_DIR/nginx_upstream_check_module/check_1.16.1+.patch
 cd $BUILD_DIR
 
 cd openresty-${OPENRESTY_VERSION}

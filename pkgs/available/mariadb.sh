@@ -5,10 +5,10 @@ getpkg https://downloads.mariadb.org/interstitial/mariadb-${MARIADB_VERSION}/sou
 tar zxf mariadb-${MARIADB_VERSION}.tar.gz
 cd mariadb-${MARIADB_VERSION}
 
-mkdir -p $VENV/opt/mysql
+mkdir -p $VENV/opt/mariadb
 
 cmake . \
--DCMAKE_INSTALL_PREFIX=$VENV/opt/mysql \
+-DCMAKE_INSTALL_PREFIX=$VENV/opt/mariadb \
 -DCMAKE_PREFIX_PATH=$VENV \
 -DCMAKE_FIND_FRAMEWORK=LAST \
 -DCMAKE_VERBOSE_MAKEFILE=ON \

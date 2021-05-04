@@ -63,6 +63,7 @@ libffi-dev \
 libfreetype6-dev \
 libgdal-dev \
 libgeos-dev \
+libgnutls28-dev \
 libicu-dev \
 libjpeg-dev \
 libjson-c-dev \

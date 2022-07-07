@@ -31,11 +31,17 @@ PMAKE="nice -n 10 make -j $PROCS"
 function getpkg() {
     URL=$1
     SHA256SUM=$2
-    FILENAME=$(basename "$URL")
+    FILENAME=$3
+    if [ "$FILENAME" == "" ]; then
+      FILENAME=$(basename "$URL")
+    fi
 
     mkdir -p $PKG_CACHE
 
     ETAG=$(curl -s -L --retry 2 --retry-delay 10 --head $URL | egrep -i '^etag:' | awk -F : '{print $2}' | tr -d '" \t\r\n$')
+    if [ "$ETAG" == "" ]; then
+      ETAG=$(curl -s -L --retry 2 --retry-delay 10 --head $URL | egrep -i '^content-length:' | awk -F : '{print $2}' | tr -d '" \t\r\n$')
+    fi
 
     if [ ! -f "$PKG_CACHE/$FILENAME-$ETAG" ]; then
         curl -s -L --retry 2 --retry-delay 10 -o "$PKG_CACHE/$FILENAME-$ETAG" $URL

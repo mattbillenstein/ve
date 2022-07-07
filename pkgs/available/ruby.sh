@@ -1,7 +1,7 @@
-RUBY_VERSION="2.6.5"
-RUBY_SHA256SUM="66976b716ecc1fd34f9b7c3c2b07bbd37631815377a2e3e85a5b194cfdcbed7d"
+RUBY_VERSION="2.7.4"
+RUBY_SHA256SUM="3043099089608859fc8cce7f9fdccaa1f53a462457e3838ec3b25a7d609fbc5b"
 
-getpkg https://cache.ruby-lang.org/pub/ruby/2.6/ruby-${RUBY_VERSION}.tar.gz $RUBY_SHA256SUM
+getpkg https://cache.ruby-lang.org/pub/ruby/2.7/ruby-${RUBY_VERSION}.tar.gz $RUBY_SHA256SUM
 tar zxf ruby-${RUBY_VERSION}.tar.gz
 cd ruby-${RUBY_VERSION}
 

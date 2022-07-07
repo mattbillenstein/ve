@@ -9,17 +9,21 @@ flask
 flask-cors
 flask_mako
 gevent
+GitPython
+google-api-python-client
 gunicorn
 isort
+libnacl
 mako
+oauth2client
 pip-tools
 psycopg2 --no-binary psycopg2
+pynacl
 pytz
 pyyaml
 redis
 requests
 rq
-salt
-slackclient
+slack_sdk
 supervisor
 virtualenv

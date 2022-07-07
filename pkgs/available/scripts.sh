@@ -23,8 +23,6 @@ deactivate () {
     unset NODE_PATH
     unset PYTHONPATH
     unset LD_LIBRARY_PATH
-    unset BUNDLE_PATH
-    unset GEM_HOME
 
     # This should detect bash and zsh, which have a hash command that must
     # be called to get it to forget past commands.  Without forgetting
@@ -71,14 +69,15 @@ fi
 if [ -e "\$VIRTUAL_ENV/opt/mysql" ]; then
 PATH="\$PATH:\$VIRTUAL_ENV/opt/mysql/bin"
 fi
+if [ -e "\$VIRTUAL_ENV/opt/mongodb" ]; then
+PATH="\$VIRTUAL_ENV/opt/mongodb/bin:\$PATH"
+fi
 export PATH
 
 export AIRFLOW_HOME="$DATA_DIR/airflow"
 export NODE_PATH="\$VIRTUAL_ENV/lib/node_modules"
 #export PYTHONPATH="/foo/bar"
 export LD_LIBRARY_PATH="$VENV/lib:/usr/lib"
-export BUNDLE_PATH="bundle"
-export GEM_HOME="bundle/ruby/2.6.0"
 
 _OLD_VIRTUAL_PYTHONPATH="\$PYTHONPATH"
 
@@ -149,8 +148,6 @@ function deactivate -d 'Exit virtualenv mode and return to the normal environmen
     set -e NODE_PATH
     set -e PYTHONPATH
     set -e LD_LIBRARY_PATH
-    set -e BUNDLE_PATH
-    set -e GEM_HOME
 
     if test "\$argv[1]" != 'nondestructive'
         # Self-destruct!
@@ -166,7 +163,7 @@ set -gx VIRTUAL_ENV "\$VIRTUAL_ENV"
 
 set -gx _OLD_VIRTUAL_PATH \$PATH
 set -gx PATH "\$VIRTUAL_ENV/bin" \$PATH
-set -gx PATH "\$VIRTUAL_ENV//opt/go/bin" \$PATH
+set -gx PATH "\$VIRTUAL_ENV/opt/go/bin" \$PATH
 
 set -gx AIRFLOW_HOME "$DATA_DIR/airflow"
 set -gx NODE_PATH "\$VIRTUAL_ENV/lib/node_modules"

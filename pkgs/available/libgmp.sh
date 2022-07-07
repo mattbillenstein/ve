@@ -1,9 +1,9 @@
-GMP_VERSION="6.2.0"
-GMP_SHA256SUM="cadd49052b740ccc3d8075c24ceaefbe5128d44246d91d0ecc818b2f78b0ec9c"
+GMP_VERSION="6.2.1"
+GMP_SHA256SUM="fd4829912cddd12f84181c3451cc752be224643e87fac497b69edddadc49b4f2"
 
 rm -fR gmp*
-getpkg https://gmplib.org/download/gmp/gmp-${GMP_VERSION}.tar.gz $GMP_SHA256SUM
-tar zxvf gmp-${GMP_VERSION}.tar.gz 
+getpkg https://gmplib.org/download/gmp/gmp-${GMP_VERSION}.tar.xz $GMP_SHA256SUM
+tar Jxf gmp-${GMP_VERSION}.tar.xz
 cd gmp-${GMP_VERSION}
 
 ./configure --prefix=$VENV

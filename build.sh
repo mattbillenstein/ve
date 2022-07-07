@@ -40,6 +40,7 @@ if [ "$1" != "" ]; then
 
     for f in $*; do
         cd $BUILD_DIR
+        rm -fR *
         source $SCRIPTPATH/$f
     done
 
@@ -48,6 +49,7 @@ else
     # main install
     for f in $SCRIPTPATH/pkgs/*.sh; do
         cd $BUILD_DIR
+        rm -fR *
         source $f
     done
 

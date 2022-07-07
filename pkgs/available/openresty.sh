@@ -15,6 +15,9 @@ cd nginx-statsd
 git checkout b970e40
 cd $BUILD_DIR
 
+getpkg https://github.com/leev/ngx_http_geoip2_module/archive/refs/tags/3.3.tar.gz 41378438c833e313a18869d0c4a72704b4835c30acaf7fd68013ab6732ff78a7
+tar zxf 3.3.tar.gz
+
 getpkg https://openresty.org/download/openresty-${OPENRESTY_VERSION}.tar.gz $OPENRESTY_SHA256SUM
 tar zxf openresty-${OPENRESTY_VERSION}.tar.gz
 
@@ -31,6 +34,7 @@ CFLAGS="$CFLAGS -fno-stack-check" \
 --with-http_stub_status_module \
 --with-http_v2_module \
 --with-http_auth_request_module \
+--with-http_realip_module \
 --http-client-body-temp-path=$RUN_DIR/nginx/client_body_temp \
 --http-proxy-temp-path=$RUN_DIR/nginx/proxy_temp \
 --http-fastcgi-temp-path=$RUN_DIR/nginx/fastcgi_temp \
@@ -43,7 +47,8 @@ CFLAGS="$CFLAGS -fno-stack-check" \
 --with-cc-opt="$CPPFLAGS" \
 --with-ld-opt="$LDFLAGS -Wl,-rpath,$VENV/lib" \
 --add-module=$BUILD_DIR/nginx_upstream_check_module \
---add-module=$BUILD_DIR/nginx-statsd
+--add-module=$BUILD_DIR/nginx-statsd \
+--add-module=$BUILD_DIR/ngx_http_geoip2_module-3.3
 
 $PMAKE
 make install

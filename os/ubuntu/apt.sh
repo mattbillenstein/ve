@@ -31,6 +31,7 @@ gfortran \
 git-core \
 jq \
 libtool \
+locales \
 lsof \
 make \
 man-db \
@@ -67,14 +68,17 @@ libgnutls28-dev \
 libicu-dev \
 libjpeg-dev \
 libjson-c-dev \
+libmaxminddb-dev \
 libncurses5-dev \
 libpango-1.0.0 \
 libpangocairo-1.0-0 \
 libpcap-dev \
 libpcre3-dev \
 libperl-dev \
+libpng-dev \
 libproj-dev \
 libreadline-dev \
+libreadline8 \
 libsodium-dev \
 libssl-dev \
 libsqlite3-dev \
@@ -83,16 +87,5 @@ libwebp-dev \
 libxml2-dev \
 uuid-dev \
 zlib1g-dev
-
-if [ "$OS" == "Ubuntu_16.04" ]; then
-sudo apt-get -y install \
-libpng12-dev \
-libreadline6
-else
-# 18.04
-sudo apt-get -y install \
-libpng-dev \
-libreadline7
-fi
 
 sudo locale-gen en_US.UTF-8

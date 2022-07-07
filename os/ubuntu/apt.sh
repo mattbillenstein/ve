@@ -6,7 +6,7 @@ unset UCF_FORCE_CONFFOLD
 export UCF_FORCE_CONFFNEW=YES
 sudo ucf --purge /boot/grub/menu.lst
 
-sudo apt-add-repository multiverse
+sudo apt-add-repository -y multiverse
 sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get -fuy --force-yes -o Dpkg::Options::="--force-confnew" upgrade
 
@@ -40,7 +40,7 @@ numactl \
 pigz \
 pkg-config \
 psmisc \
-python-dev \
+python3-dev \
 rsync \
 ssh \
 strace \

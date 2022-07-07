@@ -16,7 +16,7 @@ if [ "$(uname)" == "Darwin" ];then
     PROCS="$(/usr/sbin/sysctl -n hw.ncpu)"
 elif [ "$(lsb_release -si)" == "Ubuntu" ]; then
     ver="$(lsb_release -sr)"
-    if [ "$ver" != "16.04" ] && [ "$ver" != "18.04" ]; then
+    if [ "$ver" != "20.04" ] && [ "$ver" != "22.04" ]; then
         echo "It's recommended to run on an Ubuntu LTS release ($ver)-- do you want to continue?  (Ctrl-C aborts)"
         read _
     fi

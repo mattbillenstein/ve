@@ -1,13 +1,13 @@
 #!/bin/bash
 
 if [ ! -e /usr/local/bin/brew ]; then
-echo 'Installing homebrew...'
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  echo 'Installing homebrew...'
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 else
-echo 'You have an existing Homebrew installation - if this is your first
+  echo 'You have an existing Homebrew installation - if this is your first
 bootstrap, I highly recommend you purge homebrew (sudo rm -fR /usr/local/*) and
 restart this script...  (Enter to continue, Ctrl-C to abort)'
-read _
+#  read _
 fi
 
 BREW="$(readlink /usr/local/bin/brew)"
@@ -15,7 +15,7 @@ BREW="$(readlink /usr/local/bin/brew)"
 # make sure we run as the user that installed brew
 BREW_USER="$(ls -ld $BREW | awk '{print $3}')"
 if [ "$BREW_USER" != "$USER" ]; then
-BREW="sudo -i -u $BREW_USER $BREW"
+  BREW="sudo -i -u $BREW_USER $BREW"
 fi
 
 sudo chown -R $(id -u $BREW_USER):$(id -g $BREW_USER) /usr/local/* || true

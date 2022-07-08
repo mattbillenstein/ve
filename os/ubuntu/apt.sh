@@ -1,7 +1,5 @@
 #!/bin/bash
 
-export DEBIAN_FRONTEND=noninteractive
-
 unset UCF_FORCE_CONFFOLD
 export UCF_FORCE_CONFFNEW=YES
 sudo ucf --purge /boot/grub/menu.lst
@@ -10,7 +8,7 @@ sudo apt-add-repository -y multiverse
 sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get -fuy --force-yes -o Dpkg::Options::="--force-confnew" upgrade
 
-sudo apt-get -y install \
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y install \
 acpid \
 atop \
 autoconf \

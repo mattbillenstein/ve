@@ -6,6 +6,18 @@ getpkg https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz $OPENSSL
 tar zxf openssl-${OPENSSL_VERSION}.tar.gz
 cd openssl-${OPENSSL_VERSION}
 
+patch -p0 <<EOF
+--- test/v3ext.c.orig	2022-07-07 23:23:39.000000000 -0700
++++ test/v3ext.c	2022-07-07 23:23:40.000000000 -0700
+@@ -15,6 +15,7 @@
+ #include "internal/nelem.h"
+ 
+ #include "testutil.h"
++#include <string.h>
+ 
+ static const char *infile;
+EOF
+ 
 OPTS="--prefix=$VENV -shared"
 if [ "$MOS" == "MacOS" ]; then
 OPTS="$OPTS darwin64-x86_64-cc"

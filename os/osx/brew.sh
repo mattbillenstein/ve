@@ -44,6 +44,7 @@ gnu-sed \
 gnu-tar \
 gzip \
 jq \
+libmaxminddb \
 libtool \
 make \
 openssl \

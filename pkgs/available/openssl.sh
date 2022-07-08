@@ -3,7 +3,7 @@ OPENSSL_SHA256SUM="14cb464efe7ac6b54799b34456bd69558a749a4931ecfd9cf9f71d7881cac
 
 rm -fR openssl*
 getpkg https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz $OPENSSL_SHA256SUM
-tar zxvf openssl-${OPENSSL_VERSION}.tar.gz 
+tar zxf openssl-${OPENSSL_VERSION}.tar.gz
 cd openssl-${OPENSSL_VERSION}
 
 OPTS="--prefix=$VENV -shared"

@@ -22,7 +22,7 @@ tar zxf 3.3.tar.gz
 getpkg https://openresty.org/download/openresty-${OPENRESTY_VERSION}.tar.gz $OPENRESTY_SHA256SUM
 tar zxf openresty-${OPENRESTY_VERSION}.tar.gz
 
-cd openresty-${OPENRESTY_VERSION}/bundle/nginx-1.19.9
+cd openresty-${OPENRESTY_VERSION}/bundle/nginx-$NGINX_VERSION
 patch -p1 < $BUILD_DIR/nginx_upstream_check_module/check_1.16.1+.patch
 cd $BUILD_DIR
 

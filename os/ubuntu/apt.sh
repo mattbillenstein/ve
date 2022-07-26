@@ -45,6 +45,7 @@ strace \
 swig \
 texinfo \
 tmux \
+ufw \
 unzip \
 vim \
 wamerican \

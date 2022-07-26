@@ -22,6 +22,7 @@ deactivate () {
     unset AIRFLOW_HOME
     unset NODE_PATH
     unset PYTHONPATH
+    unset PYTHONPYCACHEPREFIX
     unset LD_LIBRARY_PATH
 
     # This should detect bash and zsh, which have a hash command that must
@@ -77,6 +78,7 @@ export PATH
 export AIRFLOW_HOME="$DATA_DIR/airflow"
 export NODE_PATH="\$VIRTUAL_ENV/lib/node_modules"
 #export PYTHONPATH="/foo/bar"
+export PYTHONPYCACHEPREFIX="/tmp/__ve_pycache__"
 export LD_LIBRARY_PATH="$VENV/lib:/usr/lib"
 
 _OLD_VIRTUAL_PYTHONPATH="\$PYTHONPATH"
@@ -147,6 +149,7 @@ function deactivate -d 'Exit virtualenv mode and return to the normal environmen
     set -e AIRFLOW_HOME
     set -e NODE_PATH
     set -e PYTHONPATH
+    set -e PYTHONPYCACHEPREFIX
     set -e LD_LIBRARY_PATH
 
     if test "\$argv[1]" != 'nondestructive'
@@ -159,7 +162,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "\$VIRTUAL_ENV"
+set -gx VIRTUAL_ENV "$VENV"
 
 set -gx _OLD_VIRTUAL_PATH \$PATH
 set -gx PATH "\$VIRTUAL_ENV/bin" \$PATH
@@ -168,6 +171,7 @@ set -gx PATH "\$VIRTUAL_ENV/opt/go/bin" \$PATH
 set -gx AIRFLOW_HOME "$DATA_DIR/airflow"
 set -gx NODE_PATH "\$VIRTUAL_ENV/lib/node_modules"
 #set -gx PYTHONPATH "/foo/bar"
+set -gx PYTHONPYCACHEPREFIX "/tmp/__wve_pycache__"
 
 # Unset "\$PYTHONHOME" if set.
 if set -q PYTHONHOME

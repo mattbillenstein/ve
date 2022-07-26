@@ -20,9 +20,9 @@ EOF
  
 OPTS="--prefix=$VENV -shared"
 if [ "$MOS" == "MacOS" ]; then
-OPTS="$OPTS darwin64-x86_64-cc"
+OPTS="$OPTS darwin64-${MARCH}-cc"
 else
-OPTS="$OPTS linux-x86_64"
+OPTS="$OPTS linux-${MARCH}"
 fi
 
 ./Configure $OPTS

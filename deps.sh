@@ -10,7 +10,7 @@ source $SCRIPTPATH/config.sh
 
 if [ "$MOS" == "MacOS" ]; then
 
-    source $SCRIPTPATH/os/osx/brew.sh
+    source $SCRIPTPATH/os/macos/brew.sh
 
 elif [ "$MOS" == "Ubuntu" ]; then
 

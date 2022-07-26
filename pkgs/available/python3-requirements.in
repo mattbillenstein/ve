@@ -14,7 +14,9 @@ google-api-python-client
 gunicorn
 isort
 libnacl
+linode-cli
 mako
+msgpack
 oauth2client
 pip-tools
 psycopg2 --no-binary psycopg2
@@ -27,3 +29,5 @@ rq
 slack_sdk
 supervisor
 virtualenv
+websocket-client
+werkzeug==2.0.3

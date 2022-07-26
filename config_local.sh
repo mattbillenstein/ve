@@ -1,3 +1,5 @@
+# You should fork and change this...
+
 # install prefix
 VENV="/opt/ve"
 

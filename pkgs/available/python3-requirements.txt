@@ -94,8 +94,6 @@ httplib2==0.20.4
     #   oauth2client
 idna==3.3
     # via requests
-importlib-metadata==4.12.0
-    # via flask
 isort==5.10.1
     # via -r python3-requirements.in
 itsdangerous==2.1.2
@@ -110,7 +108,7 @@ libnacl==1.8.0
     # via -r python3-requirements.in
 linode-cli==5.21.0
     # via -r python3-requirements.in
-mako==1.2.1
+mako==1.2.2
     # via
     #   -r python3-requirements.in
     #   flask-mako
@@ -217,8 +215,6 @@ tomli==2.0.1
     #   black
     #   build
     #   pep517
-typing-extensions==4.3.0
-    # via black
 uritemplate==4.1.1
     # via google-api-python-client
 urllib3==1.26.10
@@ -237,8 +233,6 @@ wheel==0.37.1
     # via pip-tools
 wrapt==1.14.1
     # via deprecated
-zipp==3.8.0
-    # via importlib-metadata
 zope-event==4.5.0
     # via gevent
 zope-interface==5.4.0

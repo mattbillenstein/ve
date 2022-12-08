@@ -29,7 +29,7 @@ build==0.8.0
     # via pip-tools
 cachetools==5.2.0
     # via google-auth
-certifi==2022.6.15
+certifi==2022.12.7
     # via requests
 cffi==1.15.1
     # via
@@ -94,8 +94,6 @@ httplib2==0.20.4
     #   oauth2client
 idna==3.3
     # via requests
-importlib-metadata==4.12.0
-    # via flask
 isort==5.10.1
     # via -r python3-requirements.in
 itsdangerous==2.1.2
@@ -213,12 +211,7 @@ supervisor==4.2.4
 terminaltables==3.1.10
     # via linode-cli
 tomli==2.0.1
-    # via
-    #   black
-    #   build
-    #   pep517
-typing-extensions==4.3.0
-    # via black
+    # via pep517
 uritemplate==4.1.1
     # via google-api-python-client
 urllib3==1.26.10
@@ -237,8 +230,6 @@ wheel==0.37.1
     # via pip-tools
 wrapt==1.14.1
     # via deprecated
-zipp==3.8.0
-    # via importlib-metadata
 zope-event==4.5.0
     # via gevent
 zope-interface==5.4.0

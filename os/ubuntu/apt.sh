@@ -67,6 +67,7 @@ libgnutls28-dev \
 libicu-dev \
 libjpeg-dev \
 libjson-c-dev \
+liblwp-useragent-determined-perl \
 libmaxminddb-dev \
 libncurses5-dev \
 libpango-1.0.0 \

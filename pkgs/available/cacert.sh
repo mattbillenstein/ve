@@ -4,12 +4,6 @@
 
 cd $BUILD_DIR
 
-# needed for mk-ca-bundle.pl
-if [ "$MOS" == "Ubuntu" ]; then
-sudo apt-get -y install liblwp-useragent-determined-perl
-fi
-
-#curl -O http://curl.haxx.se/ca/cacert.pem
 git clone --depth=1 https://github.com/bagder/curl.git
 cd curl/scripts
 ./mk-ca-bundle.pl

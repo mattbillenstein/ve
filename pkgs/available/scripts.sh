@@ -19,8 +19,8 @@ deactivate () {
     fi
 
     unset GOROOT
-    unset AIRFLOW_HOME
     unset NODE_PATH
+    unset NODE_OPTIONS
     unset PYTHONPATH
     unset PYTHONPYCACHEPREFIX
     unset LD_LIBRARY_PATH
@@ -73,12 +73,15 @@ fi
 if [ -e "\$VIRTUAL_ENV/opt/mongodb" ]; then
 PATH="\$VIRTUAL_ENV/opt/mongodb/bin:\$PATH"
 fi
+if [ -e "\$VIRTUAL_ENV/opt/google-cloud-sdk" ]; then
+PATH="\$VIRTUAL_ENV/opt/google-cloud-sdk/bin:\$PATH"
+fi
 export PATH
 
-export AIRFLOW_HOME="$DATA_DIR/airflow"
 export NODE_PATH="\$VIRTUAL_ENV/lib/node_modules"
-#export PYTHONPATH="/foo/bar"
-export PYTHONPYCACHEPREFIX="/tmp/__ve_pycache__"
+export NODE_OPTIONS="--max-old-space-size=4096"
+export PYTHONPATH="/opt/df/src"
+export PYTHONPYCACHEPREFIX="/tmp/__\$(id -un)_pycache__"
 export LD_LIBRARY_PATH="$VENV/lib:/usr/lib"
 
 _OLD_VIRTUAL_PYTHONPATH="\$PYTHONPATH"
@@ -146,8 +149,8 @@ function deactivate -d 'Exit virtualenv mode and return to the normal environmen
     set -e VIRTUAL_ENV
 
     set -e GOROOT
-    set -e AIRFLOW_HOME
     set -e NODE_PATH
+    set -e NODE_OPTIONS
     set -e PYTHONPATH
     set -e PYTHONPYCACHEPREFIX
     set -e LD_LIBRARY_PATH
@@ -167,11 +170,12 @@ set -gx VIRTUAL_ENV "$VENV"
 set -gx _OLD_VIRTUAL_PATH \$PATH
 set -gx PATH "\$VIRTUAL_ENV/bin" \$PATH
 set -gx PATH "\$VIRTUAL_ENV/opt/go/bin" \$PATH
+set -gx PATH "\$VIRTUAL_ENV/opt/google-cloud-sdk/bin" \$PATH
 
-set -gx AIRFLOW_HOME "$DATA_DIR/airflow"
 set -gx NODE_PATH "\$VIRTUAL_ENV/lib/node_modules"
-#set -gx PYTHONPATH "/foo/bar"
-set -gx PYTHONPYCACHEPREFIX "/tmp/__wve_pycache__"
+set -gx NODE_OPTIONS "--max-old-space-size=4096"
+set -gx PYTHONPATH "/opt/df/src"
+set -gx PYTHONPYCACHEPREFIX "/tmp/__\$(id -un)_pycache__"
 
 # Unset "\$PYTHONHOME" if set.
 if set -q PYTHONHOME

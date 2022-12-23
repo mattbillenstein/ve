@@ -78,7 +78,7 @@ echo "System Link Report:"
 if [ "$MOS" == "MacOS" ]; then
     otool -L $(/usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep "executable ${MARCH}" | awk -F : '{print $1}') | egrep -v ':$' | awk '{print $1}' | sort | uniq -c | sort -k1n > $VENV/link.txt
 else
-    ldd $(/usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep 'dynamically linked' | awk -F : '{print $1}') | grep '=>' | awk '{print $1, $2, $3}' | sort | uniq -c | sort -k1n > $VENV/link.txt
+    /usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep 'dynamically linked' | awk -F : '{print $1}' | xargs -n 1 ldd | grep '=>' | awk '{print $1, $2, $3}' | sort | uniq -c | sort -k1n > $VENV/link.txt
 fi
 
 du -h -s $VENV >> $VENV/link.txt

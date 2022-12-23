@@ -9,3 +9,8 @@ cd ncurses-${NCURSES_VERSION}
 ./configure --prefix=$VENV --with-shared
 $PMAKE
 make install
+
+make distclean
+./configure --prefix=$VENV --with-shared --enable-widec
+$PMAKE
+make install

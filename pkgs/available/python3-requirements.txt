@@ -54,8 +54,6 @@ distlib==0.3.6
     # via virtualenv
 docutils==0.16
     # via awscli
-exceptiongroup==1.0.4
-    # via pytest
 filelock==3.8.2
     # via virtualenv
 flake8==6.0.0
@@ -241,11 +239,6 @@ terminaltables==3.1.10
     # via linode-cli
 toml==0.10.2
     # via pre-commit
-tomli==2.0.1
-    # via
-    #   black
-    #   build
-    #   pytest
 uritemplate==4.1.1
     # via google-api-python-client
 urllib3==1.26.13
@@ -259,7 +252,7 @@ virtualenv==20.17.1
     #   pre-commit
 websocket-client==1.4.2
     # via -r python3-requirements.in
-werkzeug==2.2.2
+werkzeug==2.2.3
     # via flask
 wheel==0.38.4
     # via pip-tools

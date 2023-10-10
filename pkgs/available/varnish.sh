@@ -1,8 +1,8 @@
-VARNISH_VERSION="6.4.0"
-VARNISH_SHA256SUM="f636ba2d881b146f480fb52efefae468b36c2c3e6620d07460f9ccbe364a76c2"
+VARNISH_VERSION="7.4.1"
+VARNISH_SHA256SUM="874d837aaf49b8f2718cb60b8c8c7900e9ea10c264f218c88cd672d596f4b89f"
 
 rm -fR varnish-${VARNISH_VERSION}*
-getpkg http://varnish-cache.org/_downloads/varnish-${VARNISH_VERSION}.tgz $VARNISH_SHA256SUM
+getpkg https://varnish-cache.org/_downloads/varnish-${VARNISH_VERSION}.tgz $VARNISH_SHA256SUM
 
 tar zxf varnish-${VARNISH_VERSION}.tgz
 cd varnish-${VARNISH_VERSION}

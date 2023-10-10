@@ -7,7 +7,12 @@ SCRIPTPATH="$(pwd)"
 popd > /dev/null
 
 source $SCRIPTPATH/config.sh
-source $SCRIPTPATH/deps.sh
+
+if [ "$1" == "--nodeps" ]; then
+  shift
+else
+  source $SCRIPTPATH/deps.sh
+fi
 
 if [ "$1" == "--clean" ]; then
     shift

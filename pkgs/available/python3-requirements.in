@@ -24,6 +24,7 @@ phonenumbers
 pillow
 pip-tools
 pre-commit
+psutil
 psycopg2
 pynacl
 pytest

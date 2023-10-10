@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ -e /etc/needrestart/conf.d ]; then
+  sudo tee /etc/needrestart/conf.d/10-uthana.conf <<EOF
+\$nrconf{override_rc}{qr(^uthana)} = 0;
+EOF
+fi
+
 unset UCF_FORCE_CONFFOLD
 export UCF_FORCE_CONFFNEW=YES
 sudo ucf --purge /boot/grub/menu.lst
@@ -85,6 +91,7 @@ libsqlite3-dev \
 libuuid1 \
 libwebp-dev \
 libxml2-dev \
+libyaml-dev \
 uuid-dev \
 zlib1g-dev
 

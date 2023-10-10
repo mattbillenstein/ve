@@ -52,6 +52,7 @@ gzip \
 jq \
 libmaxminddb \
 libtool \
+libyaml \
 make \
 openssl \
 pkgconfig \

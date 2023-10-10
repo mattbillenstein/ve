@@ -1,6 +1,6 @@
-NGINX_VERSION="1.19.9"
+NGINX_VERSION="1.21.4"
 OPENRESTY_VERSION="${NGINX_VERSION}.1"
-OPENRESTY_SHA256SUM="576ff4e546e3301ce474deef9345522b7ef3a9d172600c62057f182f3a68c1f6"
+OPENRESTY_SHA256SUM="0c5093b64f7821e85065c99e5d4e6cc31820cfd7f37b9a0dec84209d87a2af99"
 
 rm -fR openresty-${OPENRESTY_VERSION}* ngx_* nginx_*
 
@@ -11,13 +11,14 @@ cd $BUILD_DIR
 
 # git clone https://github.com/zebrafishlabs/nginx-statsd.git   # dead repo
 # git clone https://github.com/apcera/nginx-statsd  # also dead
-git clone https://github.com/lindenlab/nginx-statsd.git
-cd nginx-statsd
-git checkout b970e40
-cd $BUILD_DIR
+#git clone https://github.com/lindenlab/nginx-statsd.git
+#cd nginx-statsd
+#git checkout b970e40
+#cd $BUILD_DIR
+#--add-module=$BUILD_DIR/nginx-statsd
 
-getpkg https://github.com/leev/ngx_http_geoip2_module/archive/refs/tags/3.3.tar.gz 41378438c833e313a18869d0c4a72704b4835c30acaf7fd68013ab6732ff78a7
-tar zxf 3.3.tar.gz
+getpkg https://github.com/leev/ngx_http_geoip2_module/archive/refs/tags/3.4.tar.gz ad72fc23348d715a330994984531fab9b3606e160483236737f9a4a6957d9452
+tar zxf 3.4.tar.gz
 
 getpkg https://openresty.org/download/openresty-${OPENRESTY_VERSION}.tar.gz $OPENRESTY_SHA256SUM
 tar zxf openresty-${OPENRESTY_VERSION}.tar.gz
@@ -28,8 +29,7 @@ cd $BUILD_DIR
 
 cd openresty-${OPENRESTY_VERSION}
 
-# hack for macos 10.15 xcode bug - 2020/03/26
-CFLAGS="$CFLAGS -fno-stack-check" \
+CFLAGS="$CFLAGS" \
 ./configure --prefix=$VENV/opt/openresty \
 --with-http_ssl_module \
 --with-http_stub_status_module \
@@ -48,8 +48,7 @@ CFLAGS="$CFLAGS -fno-stack-check" \
 --with-cc-opt="$CPPFLAGS" \
 --with-ld-opt="$LDFLAGS -Wl,-rpath,$VENV/lib" \
 --add-module=$BUILD_DIR/nginx_upstream_check_module \
---add-module=$BUILD_DIR/nginx-statsd \
---add-module=$BUILD_DIR/ngx_http_geoip2_module-3.3
+--add-module=$BUILD_DIR/ngx_http_geoip2_module-3.4
 
 $PMAKE
 make install

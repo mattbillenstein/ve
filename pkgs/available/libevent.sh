@@ -1,5 +1,5 @@
-LIBEVENT_VERSION="2.1.11-stable"
-LIBEVENT_SHA256SUM="a65bac6202ea8c5609fd5c7e480e6d25de467ea1917c08290c521752f147283d"
+LIBEVENT_VERSION="2.1.12-stable"
+LIBEVENT_SHA256SUM="92e6de1be9ec176428fd2367677e61ceffc2ee1cb119035037a27d346b0403bb"
 
 rm -fR libevent*
 getpkg https://github.com/libevent/libevent/releases/download/release-${LIBEVENT_VERSION}/libevent-${LIBEVENT_VERSION}.tar.gz $LIBEVENT_SHA256SUM

@@ -80,7 +80,6 @@ export PATH
 
 export NODE_PATH="\$VIRTUAL_ENV/lib/node_modules"
 export NODE_OPTIONS="--max-old-space-size=4096"
-export PYTHONPATH="/opt/x/src"
 export PYTHONPYCACHEPREFIX="/tmp/__\$(id -un)_pycache__"
 export LD_LIBRARY_PATH="$VENV/lib:/usr/lib"
 
@@ -174,7 +173,6 @@ set -gx PATH "\$VIRTUAL_ENV/opt/google-cloud-sdk/bin" \$PATH
 
 set -gx NODE_PATH "\$VIRTUAL_ENV/lib/node_modules"
 set -gx NODE_OPTIONS "--max-old-space-size=4096"
-set -gx PYTHONPATH "/opt/x/src"
 set -gx PYTHONPYCACHEPREFIX "/tmp/__\$(id -un)_pycache__"
 
 # Unset "\$PYTHONHOME" if set.

@@ -7,9 +7,9 @@ cd haproxy-${HAPROXY_VERSION}
 
 OPTS="USE_PCRE=1 USE_OPENSSL=1 USE_ZLIB=1 PREFIX= DESTDIR=$VENV"
 if [ "$MOS" == "MacOS" ]; then
-OPTS="TARGET=osx $OPTS"
+  OPTS="TARGET=osx $OPTS SSL_INC=$BREW_PREFIX/include SSL_LIB=$BREW_PREFIX/lib"
 else
-OPTS="TARGET=linux-glibc $OPTS"
+  OPTS="TARGET=linux-glibc $OPTS"
 fi
 
 $PMAKE $OPTS

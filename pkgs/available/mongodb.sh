@@ -42,8 +42,8 @@ else
   tar zxf mongodb-linux-${MARCH}-ubuntu2204-${MONGODB_VERSION}.tgz
   mv mongodb-linux-${MARCH}-ubuntu2204-${MONGODB_VERSION}/bin/* $VENV/bin/
 
-  getpkg https://downloads.mongodb.com/compass/mongosh-${MONGODB_SHELL_VERSION}-linux-${MONGODB_SHELL_ARCH}.zip $MONGODB_SHELL_SHA256SUM
-  unzip mongosh-${MONGODB_SHELL_VERSION}-linux-${MONGODB_SHELL_ARCH}.zip
+  getpkg https://downloads.mongodb.com/compass/mongosh-${MONGODB_SHELL_VERSION}-linux-${MONGODB_SHELL_ARCH}.tgz $MONGODB_SHELL_SHA256SUM
+  tar zxf mongosh-${MONGODB_SHELL_VERSION}-linux-${MONGODB_SHELL_ARCH}.tgz
   mv mongosh-${MONGODB_SHELL_VERSION}-linux-${MONGODB_SHELL_ARCH}/bin/* $VENV/bin/
 
   getpkg https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-${MARCH}-${MONGODB_TOOLS_VERSION}.tgz $MONGODB_TOOLS_SHA256SUM

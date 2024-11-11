@@ -18,3 +18,7 @@ done
 for target in $(find $VENV -name 'cert.pem'); do
   cp cacert.pem $target
 done
+
+# used by openresty lua
+mkdir -p $VENV/ssl
+cp cacert.pem $VENV/ssl/

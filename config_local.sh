@@ -1,7 +1,8 @@
-# You should fork and change this...
-
 # install prefix
 VENV="/opt/ve"
+
+# Unit to ignore in needsrestart
+SYSTEMD_UNIT="supervisord"
 
 # cache package downloads
 PKG_CACHE="/tmp/venv-pkg"
@@ -15,7 +16,6 @@ RUN_DIR="/opt/data/run"
 # remote rsync for push/pull
 RSYNC_USER="me"
 RSYNC_HOST="me.com"
-RSYNC_PATH="ve"
 
 SUBPATH="$(echo $BUILDKITE_BRANCH | tr '/' '-')"
 if [ "$SUBPATH" == "" ]; then

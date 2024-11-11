@@ -49,18 +49,28 @@ git \
 gnu-sed \
 gnu-tar \
 gzip \
+icu4c \
 jq \
+libheif \
+libjpeg \
 libmaxminddb \
 libtool \
 libyaml \
 make \
 openssl \
-pkgconfig \
+pcre \
+pkg-config \
 rsync \
+texinfo \
 tmux \
 vim \
 wget \
+x265 \
 xz
+
+if [ "$BUILD_DIR" != "" ]; then
+  $BREW install ccache
+fi
 
 # clang doesn't like arguments it doesn't use
 #export CFLAGS="-Qunused-arguments $CFLAGS"
@@ -70,9 +80,8 @@ export LDFLAGS="$LDFLAGS -L$BREW_PREFIX/lib"
 
 # brew keg only...
 # brew info --json=v1 --installed | jq "map(select(.keg_only == true) | .name)"
-#for pkg in bison bzip2 expat icu4c libffi ncurses openssl readline sqlite zlib; do
-#export PATH="$BREW_PREFIX/opt/$pkg/bin:$PATH"
-#export LDFLAGS="$LDFLAGS -L$BREW_PREFIX/opt/$pkg/lib"
-#export CPPFLAGS="$CPPFLAGS -I$BREW_PREFIX/opt/$pkg/include"
-#export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$BREW_PREFIX/opt/$pkg/lib/pkgconfig"
-#done
+# bison bzip2 expat icu4c libffi ncurses openssl readline sqlite zlib
+for pkg in icu4c; do
+  export PATH="$BREW_PREFIX/opt/$pkg/bin:$PATH"
+  export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:$BREW_PREFIX/opt/$pkg/lib/pkgconfig"
+done

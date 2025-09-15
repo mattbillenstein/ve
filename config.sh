@@ -8,15 +8,24 @@ echo 'Do not run as root, we modifiy your local environment...'
 exit 1
 fi
 
-ARCH="$(uname -m | sed -e 's/i686/i386/g')"
-MARCH="$(uname -m)"
+KERNEL="$(uname -s | tr '[:upper:]' '[:lower:]')"
 
-if [ "$(uname)" == "Darwin" ];then
+ARCH="$(uname -m)"  # linux x86_64 / aarch64 -- x86_64 / arm64 on darwin
+
+# Various binary package naming...
+ARCH_X86_64_AARCH64="$ARCH"
+ARCH_X86_64_ARM64="$(uname -m | sed -e 's/aarch64/arm64/')"
+ARCH_X86_64_ARM="$(uname -m | sed -e 's/aarch64/arm/' -e 's/arm64/arm/' )"
+ARCH_X64_ARM64="$(uname -m | sed -e 's/x86_64/x64/' -e 's/aarch64/arm64/')"
+ARCH_AMD64_ARM64="$(uname -m | sed -e 's/x86_64/amd64/' -e 's/aarch64/arm64/')"
+ARCH_AMD64_AARCH64="$(uname -m | sed -e 's/x86_64/amd64/')"
+
+if [ "$KERNEL" == "darwin" ]; then
     MOS="MacOS"
     PROCS="$(/usr/sbin/sysctl -n hw.ncpu)"
 elif [ "$(lsb_release -si)" == "Ubuntu" ]; then
     ver="$(lsb_release -sr)"
-    if [ "$ver" != "20.04" ] && [ "$ver" != "22.04" ] && [ "$ver" != "24.04" ]; then
+    if [ "$ver" != "22.04" ] && [ "$ver" != "24.04" ]; then
         echo "It's recommended to run on an Ubuntu LTS release ($ver)-- do you want to continue?  (Ctrl-C aborts)"
         read _
     fi
@@ -24,7 +33,7 @@ elif [ "$(lsb_release -si)" == "Ubuntu" ]; then
     PROCS=$(grep -c '^processor' /proc/cpuinfo)
 fi
 
-OS="$MOS-$MARCH"
+OS="$MOS-$ARCH"
 
 PMAKE="nice -n 10 make -j $PROCS"
 
@@ -32,19 +41,21 @@ function getpkg() {
     URL=$1
     SHA256SUM=$2
     FILENAME=$3
+    OPTS="$4"
+
     if [ "$FILENAME" == "" ]; then
       FILENAME=$(basename "$URL")
     fi
 
     mkdir -p $PKG_CACHE
 
-    ETAG=$(curl -s -L --retry 2 --retry-delay 10 --head $URL | egrep -i '^etag:' | awk -F : '{print $2}' | tr -d '" \t\r\n$')
+    ETAG=$(curl -s -L --retry 2 --retry-delay 10 $OPTS --head $URL | egrep -i '^etag:' | awk -F : '{print $2}' | tr -d '" \t\r\n$')
     if [ "$ETAG" == "" ]; then
-      ETAG=$(curl -s -L --retry 2 --retry-delay 10 --head $URL | egrep -i '^content-length:' | awk -F : '{print $2}' | tr -d '" \t\r\n$')
+      ETAG=$(curl -s -L --retry 2 --retry-delay 10 $OPTS --head $URL | egrep -i '^content-length:' | awk -F : '{print $2}' | tr -d '" \t\r\n$')
     fi
 
     if [ ! -f "$PKG_CACHE/$FILENAME-$ETAG" ]; then
-        curl -s -L --retry 2 --retry-delay 10 -o "$PKG_CACHE/$FILENAME-$ETAG" $URL
+        curl -s -L --retry 2 --retry-delay 10 $OPTS -o "$PKG_CACHE/$FILENAME-$ETAG" $URL
     fi
 
     if [ "$SHA256SUM" != "skip" ] && [ "$(openssl dgst -sha256 $PKG_CACHE/$FILENAME-$ETAG | awk '{print $NF}')" != "$SHA256SUM" ]; then

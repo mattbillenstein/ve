@@ -75,15 +75,15 @@ rm -fR conf data doc etc html logs man sbin var $BUILD_DIR mysql/mysql-test mysq
 find $VENV/lib -name '*.a' -delete
 
 # make all dirs 755
-find $VENV -type d -print0 | xargs -0 -n 100 chmod 755 || true
+find $VENV -type d -print0 | xargs -0 -n 100 -r chmod 755 || true
 # make all files ag+r
-find $VENV -type f -print0 | xargs -0 -n 100 chmod ag+r || true
+find $VENV -type f -print0 | xargs -0 -n 100 -r chmod ag+r || true
 # make any files that are user execute group and all execute
-find $VENV -type f -perm -100 ! -perm -001 -print0 | xargs -0 -n 100 chmod ag+x || true
+find $VENV -type f -perm -100 ! -perm -001 -print0 | xargs -0 -n 100 -r chmod ag+x || true
 
 echo "System Link Report:" >> $VENV/build.log
 if [ "$MOS" == "MacOS" ]; then
-  otool -L $(/usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep "executable ${MARCH}" | awk -F : '{print $1}' | awk '{print $1}') | egrep -v ':$' | awk '{print $1}' | sort | uniq -c | sort -k1n >> $VENV/build.log 2>&1
+  otool -L $(/usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep "executable ${ARCH}" | awk -F : '{print $1}' | awk '{print $1}') | egrep -v ':$' | awk '{print $1}' | sort | uniq -c | sort -k1n >> $VENV/build.log 2>&1
 else
   /usr/bin/file $(find $VENV -type f | egrep '/s*bin/') | grep 'dynamically linked' | awk -F : '{print $1}' | xargs -n 1 ldd | grep '=>' | awk '{print $1, $2, $3}' | sort | uniq -c | sort -k1n >> $VENV/build.log 2>&1
 fi
@@ -91,3 +91,5 @@ fi
 du -h -s $VENV >> $VENV/build.log 2>&1
 
 grep -A 1000 "System Link Report:" $VENV/build.log
+
+git -C $SCRIPTPATH rev-parse HEAD > $VENV/version.txt

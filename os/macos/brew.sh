@@ -2,7 +2,7 @@
 
 # intel currently installs to /usr/local, arm64 to $BREW_PREFIX
 BREW_PREFIX="/usr/local"
-if [ "$MARCH" == "arm64" ]; then
+if [ "$ARCH_X86_64_ARM64" == "arm64" ]; then
   BREW_PREFIX="/opt/homebrew"
 fi
 

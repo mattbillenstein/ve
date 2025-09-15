@@ -83,8 +83,8 @@ libatlas-base-dev \
 libbz2-dev \
 libcairo2-dev \
 libcurl4-openssl-dev \
-libegl1 \
 libde265-dev \
+libegl1 \
 libevent-dev \
 libffi-dev \
 libfreetype6-dev \

@@ -43,6 +43,7 @@ default-jre-headless \
 dnsutils \
 expect \
 ffmpeg \
+flex \
 fortune \
 g++ \
 gcc \
@@ -57,7 +58,7 @@ locales \
 lsof \
 make \
 man-db \
-ntp \
+ntpsec \
 numactl \
 patchelf \
 pigz \
@@ -79,7 +80,6 @@ xzdec \
 xz-utils \
 zip \
 \
-libatlas-base-dev \
 libbz2-dev \
 libcairo2-dev \
 libcurl4-openssl-dev \
@@ -102,7 +102,7 @@ libncursesw5-dev \
 libpango-1.0.0 \
 libpangocairo-1.0-0 \
 libpcap-dev \
-libpcre3-dev \
+libpcre2-dev \
 libperl-dev \
 libpng-dev \
 libproj-dev \
@@ -121,4 +121,7 @@ tk-dev \
 uuid-dev \
 zlib1g-dev
 
+#libatlas-base-dev
+
 sudo locale-gen en_US.UTF-8
+

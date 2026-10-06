@@ -1,5 +1,5 @@
-RUBY_VERSION="3.3.6"
-RUBY_SHA256SUM="8dc48fffaf270f86f1019053f28e51e4da4cce32a36760a0603a9aee67d7fd8d"
+RUBY_VERSION="4.0.7"
+RUBY_SHA256SUM="911ace20f90d068ca0e4dda6d0e4f0f81e52e52f2dd4f4004c721e253412e82d"
 
 getpkg https://cache.ruby-lang.org/pub/ruby/${RUBY_VERSION%.*}/ruby-${RUBY_VERSION}.tar.gz $RUBY_SHA256SUM
 tar zxf ruby-${RUBY_VERSION}.tar.gz

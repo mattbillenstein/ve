@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 set -e
-set -x
+#set -x
 
 pushd $(dirname $0) > /dev/null
 SCRIPTPATH="$(pwd)"

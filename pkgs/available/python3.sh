@@ -1,10 +1,10 @@
-PYTHON_VERSION="3.11.14"
-PYTHON_SHA256SUM="563d2a1b2a5ba5d5409b5ecd05a0e1bf9b028cf3e6a6f0c87a5dc8dc3f2d9182"
+PYTHON_VERSION="3.14.8"
+PYTHON_SHA256SUM="a65b20a728f169f4e66ae143f40b1bd3d33c38d770251663f627c9767b79b210"
 
 getpkg https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tgz $PYTHON_SHA256SUM
 tar zxf Python-${PYTHON_VERSION}.tgz
 cd Python-${PYTHON_VERSION}
-./configure --prefix=$VENV --enable-optimizations --with-lto
+./configure --prefix=$VENV --enable-optimizations #--with-lto
 $PMAKE
 make install
 
